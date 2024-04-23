@@ -11,7 +11,7 @@ public class Enemy1 : MonoBehaviour
     public Transform target;
     [SerializeField] private float tiempoCollision;
     [SerializeField] private float tiempoEntreCollision;
-
+    
 
     protected Vector3 direccion;
     protected Vector3 posObj;
@@ -34,7 +34,9 @@ public class Enemy1 : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         //se guarda posicion
         initialPos = transform.position;
-       
+        GameManager.Instance.enemys++;
+
+
 
     }
 

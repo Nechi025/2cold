@@ -14,7 +14,7 @@ public class LifeS : MonoBehaviour
     void Start()
     {
         unitLifes = 100;
-
+        GameManager.Instance.cio++;
         playerAnim = GetComponent<Animator>();
     }
 
@@ -25,14 +25,16 @@ public class LifeS : MonoBehaviour
         unitLifes -= value;
         if (unitLifes <= 0)
         {
-            //GameManager.Instance.cio--;
-            playerAnim.SetTrigger("Death");
+            SceneManager.LoadScene(4);
+            GameManager.Instance.cio--;
+            Destroy(gameObject);
 
         }
     }
     public void Death()
     {
-        SceneManager.LoadScene(9);
+        SceneManager.LoadScene(4);
+        GameManager.Instance.cio--;
         Destroy(gameObject);
     }
 

@@ -15,7 +15,8 @@ public class Life : MonoBehaviour
 
         if (unitLife <= 0)
         {
-          
+
+            GameManager.Instance.enemys--;
             Destroy(gameObject);
             
         }
