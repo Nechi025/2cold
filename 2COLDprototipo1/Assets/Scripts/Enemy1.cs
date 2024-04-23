@@ -135,11 +135,9 @@ public class Enemy1 : MonoBehaviour
         {
             if (collision.gameObject.layer == 9)
             {
-
-            
-                //LifeS life = collision.transform.GetComponent<LifeS>();
-                //life.GetDamage(damage);
-                //tiempoCollision = tiempoEntreCollision;
+                LifeS life = collision.transform.GetComponent<LifeS>();
+                life.GetDamage(damage);
+                tiempoCollision = tiempoEntreCollision;
 
 
             }
