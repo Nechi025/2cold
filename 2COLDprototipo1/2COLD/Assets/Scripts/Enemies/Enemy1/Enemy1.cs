@@ -11,6 +11,7 @@ public class Enemy1 : MonoBehaviour
     public Transform target;
     [SerializeField] private float tiempoCollision;
     [SerializeField] private float tiempoEntreCollision;
+    public bool moveToPlayer;
     
 
     protected Vector3 direccion;
@@ -80,9 +81,11 @@ public class Enemy1 : MonoBehaviour
                 if (GlobalPause.IsPaused())
                     return;
 
+                moveToPlayer = true;
                 rb.MovePosition(posObj);
                 LookDir(target.position, transform.position);
             }
+            else moveToPlayer = false;
         }
 
         /*else if (target == null && transform.position.x != initialPos.x && transform.position.y != initialPos.y)
