@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement Instance; // Singleton instance
+
     public float moveSpeed = 5f;
     public Rigidbody2D rb;
     public Camera cam;
@@ -15,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
     private float dashCoolCounter;
     private float activeMoveSpeed;
 
-
     private Vector2 movement;
     private float lastMovementTime;
     public float idleTimeThreshold = 2f; // Tiempo en segundos antes de pausar el juego si el jugador está inactivo
@@ -23,6 +24,22 @@ public class PlayerMovement : MonoBehaviour
     // Nuevo código para el temporizador
     public float timer = 5f; // Tiempo inicial del temporizador
     private bool isTimerRunning = false; // Bandera para controlar si el temporizador está corriendo
+
+    // Nuevo código para el dash
+    public bool isDashing = false; // Bandera para indicar si el dash está activo
+
+    void Awake()
+    {
+        // Setup the singleton instance
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
@@ -49,13 +66,14 @@ public class PlayerMovement : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");
         UpdateTimer();
 
-        //Dash
+        // Dash
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (dashCoolCounter <= 0 && dashCounter <= 0)
             {
                 activeMoveSpeed = dashSpeed;
                 dashCounter = dashLength;
+                isDashing = true; // El dash está activo
             }
         }
 
@@ -63,11 +81,11 @@ public class PlayerMovement : MonoBehaviour
         {
             dashCounter -= Time.deltaTime;
 
-
             if (dashCounter <= 0)
             {
                 activeMoveSpeed = moveSpeed;
                 dashCoolCounter = dashCooldown;
+                isDashing = false; // El dash ya no está activo
             }
         }
 
