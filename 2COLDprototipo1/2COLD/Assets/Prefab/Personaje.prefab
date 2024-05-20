@@ -237,7 +237,11 @@ MonoBehaviour:
   moveSpeed: 5
   rb: {fileID: 96134069076000610}
   cam: {fileID: 0}
+  dashSpeed: 20
+  dashLength: 0.2
+  dashCooldown: 1
   idleTimeThreshold: 2
+  timer: 5
 --- !u!114 &96134069076000611
 MonoBehaviour:
   m_ObjectHideFlags: 0

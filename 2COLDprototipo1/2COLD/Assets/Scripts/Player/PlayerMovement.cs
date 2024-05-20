@@ -7,6 +7,14 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
     public Rigidbody2D rb;
     public Camera cam;
+    public float dashSpeed;
+
+    public float dashLength = .5f, dashCooldown = 2f;
+
+    private float dashCounter;
+    private float dashCoolCounter;
+    private float activeMoveSpeed;
+
 
     private Vector2 movement;
     private float lastMovementTime;
@@ -15,6 +23,11 @@ public class PlayerMovement : MonoBehaviour
     // Nuevo código para el temporizador
     public float timer = 5f; // Tiempo inicial del temporizador
     private bool isTimerRunning = false; // Bandera para controlar si el temporizador está corriendo
+
+    void Start()
+    {
+        activeMoveSpeed = moveSpeed;
+    }
 
     void Update()
     {
@@ -35,12 +48,40 @@ public class PlayerMovement : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         UpdateTimer();
+
+        //Dash
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (dashCoolCounter <= 0 && dashCounter <= 0)
+            {
+                activeMoveSpeed = dashSpeed;
+                dashCounter = dashLength;
+            }
+        }
+
+        if (dashCounter > 0)
+        {
+            dashCounter -= Time.deltaTime;
+
+
+            if (dashCounter <= 0)
+            {
+                activeMoveSpeed = moveSpeed;
+                dashCoolCounter = dashCooldown;
+            }
+        }
+
+        if (dashCoolCounter > 0)
+        {
+            dashCoolCounter -= Time.deltaTime;
+        }
+
         // Si el juego está pausado, salir del método de actualización
         if (GlobalPause.IsPaused())
             return;
 
         // Movemos al jugador según la entrada
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + movement * activeMoveSpeed * Time.fixedDeltaTime);
 
         // Actualizar el temporizador
     }
