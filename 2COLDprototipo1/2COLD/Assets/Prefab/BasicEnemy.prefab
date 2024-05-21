@@ -16,9 +16,9 @@ GameObject:
   - component: {fileID: 6776605694902832154}
   - component: {fileID: 1868268712341104537}
   - component: {fileID: 232021060542952849}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BasicEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,15 +171,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3301cb21ed864d4c960a4650e21629d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.3
+  speed: 2
   rb: {fileID: 6919863001874830711}
   flajeloRender: {fileID: 6605579946395666702}
   target: {fileID: 5701317827357086552, guid: b0e24224cf7683448be96bc3b7d5035f, type: 3}
   tiempoCollision: 0
   tiempoEntreCollision: 3
   moveToPlayer: 0
-  detectRange: 7
-  damage: 0
+  detectRange: 5.5
+  damage: 10
 --- !u!114 &1868268712341104537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,9 +206,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6514c335a5859c04c945186cc05dfa89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolSpeed: 0
-  patrolPoints: []
-  minDistance: 0
+  patrolSpeed: 2
+  patrolPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  minDistance: 0.2
 --- !u!1 &6605579946442134230
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,7 +221,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6605579946442134231}
   - component: {fileID: 6064483911247133503}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Legs
   m_TagString: Untagged
   m_Icon: {fileID: 0}

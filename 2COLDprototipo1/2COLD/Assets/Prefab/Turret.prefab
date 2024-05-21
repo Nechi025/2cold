@@ -221,7 +221,7 @@ MonoBehaviour:
   speed: 0
   rotateSpeed: 1
   rb: {fileID: 7124668181832255259}
-  bulletPrefab: {fileID: 5291808506690161807, guid: 030d22c82c47b0b44ac2c65260319671, type: 3}
+  bulletPrefab: {fileID: 5291808506690161807, guid: 94d78b72078020046b9ef169e291b35a, type: 3}
   bulletForce: -15
   distanceToShoot: 8
   distanceToStop: 3
@@ -257,7 +257,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1

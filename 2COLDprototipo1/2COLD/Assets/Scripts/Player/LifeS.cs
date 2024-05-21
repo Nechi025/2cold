@@ -25,7 +25,7 @@ public class LifeS : MonoBehaviour
         unitLifes -= value;
         if (unitLifes <= 0)
         {
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(6);
             GameManager.Instance.cio--;
             Destroy(gameObject);
 
@@ -33,7 +33,7 @@ public class LifeS : MonoBehaviour
     }
     public void Death()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(6);
         GameManager.Instance.cio--;
         Destroy(gameObject);
     }

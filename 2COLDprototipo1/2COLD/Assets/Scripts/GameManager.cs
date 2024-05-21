@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     //public static GameManager Trophy;
     //public int trophy;
     public int coins;
+    public int coinsLevel2;
+    public int coinsLevel3;
     //public int mastercoins;
     public int enemys;
     //public int boss;
@@ -77,11 +79,27 @@ public class GameManager : MonoBehaviour
             LoadingManager.Instance.LoadScene(2, 3);
 
         }
+        
+        if (coinsLevel2 <= 0)
+        {
+            // print("gane");
+            //SceneManager.LoadScene("TopDown");
+            LoadingManager.Instance.LoadScene(3, 4);
+
+        }
+        
+        if (coinsLevel3 <= 0)
+        {
+            // print("gane");
+            //SceneManager.LoadScene("TopDown");
+            LoadingManager.Instance.LoadScene(4, 5);
+
+        }
 
         if (cio <= 0)
         {
             //LoadingManager.Instance.LoadScene(3, 7);
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(6);
         }
 
     }

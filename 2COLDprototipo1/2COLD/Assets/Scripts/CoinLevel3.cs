@@ -2,24 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemAmmo : MonoBehaviour
+public class CoinLevel3 : MonoBehaviour
 {
 
-    [SerializeField] private Shooting Ammo;
-    [SerializeField] private float sumarMunicion = 5f;
+    [SerializeField] private float cantidadPuntos;
+    //[SerializeField] private Puntaje puntaje;
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        GameManager.Instance.coinsLevel3++;
+    }
 
     // Update is called once per frame
+    void Update()
+    {
 
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == 9)
         {
             //SoundManager.Instance.PlaySound("coin");
-            //GameManager.Instance.coins--;
+            GameManager.Instance.coinsLevel3--;
             Destroy(gameObject);
-            Ammo.ammo += sumarMunicion;
             //puntaje.SumarPuntos(cantidadPuntos);
 
 
@@ -28,4 +35,7 @@ public class ItemAmmo : MonoBehaviour
         }
 
     }
+
+
+
 }
