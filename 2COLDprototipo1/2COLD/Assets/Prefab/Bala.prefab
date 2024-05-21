@@ -148,7 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 7
   _lifeTime: 2
-  damage: 50
+  damage: 100
   _weaponList: []
   _hitteableLayer:
     serializedVersion: 2
