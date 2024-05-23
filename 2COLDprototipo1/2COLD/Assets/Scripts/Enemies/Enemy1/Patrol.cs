@@ -19,6 +19,9 @@ public class Patrol : MonoBehaviour
     {
         if (_model.moveToPlayer == false)
         {
+            if (GlobalPause.IsPaused())
+                return;
+
             transform.position = Vector2.MoveTowards(transform.position, patrolPoints[nextPoint].position, patrolSpeed * Time.deltaTime);
 
             if (Vector2.Distance(transform.position, patrolPoints[nextPoint].position) < minDistance)
