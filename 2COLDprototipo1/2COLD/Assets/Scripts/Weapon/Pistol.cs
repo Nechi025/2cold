@@ -24,7 +24,7 @@ public class Pistol : MonoBehaviour, IWeapon
     private void Start()
     {
         Bullet bullet = _weaponStats.Bullet.GetComponent<Bullet>();
-        bulletFactory = new BulletFactory(bullet);
+        //bulletFactory = new BulletFactory(bullet);
         _currentDamage = _weaponStats.Damage;
         Reaload();
     }
@@ -53,20 +53,20 @@ public class Pistol : MonoBehaviour, IWeapon
     {
         if (_bulletCount > 0)
         {
-            // Obtén la dirección de apuntado del personaje (rotación en el eje Y).
-            float characterRotationY = transform.rotation.eulerAngles.y;
+            //// Obtén la dirección de apuntado del personaje (rotación en el eje Y).
+            //float characterRotationY = transform.rotation.eulerAngles.y;
 
-            // Calcula la dirección del disparo en función de la rotación del personaje.
-            Vector3 shootingDirection = Quaternion.Euler(0, characterRotationY, 0) * Vector3.forward;
+            //// Calcula la dirección del disparo en función de la rotación del personaje.
+            //Vector3 shootingDirection = Quaternion.Euler(0, characterRotationY, 0) * Vector3.forward;
 
-            Bullet bullet = bulletFactory.CreateProduct();
-            bullet.transform.position = transform.position;
+            //Bullet bullet = bulletFactory.CreateProduct();
+            //bullet.transform.position = transform.position;
 
-            // Establece la dirección del disparo.
-            bullet.SetShootingDirection(shootingDirection);
+            //// Establece la dirección del disparo.
+            //bullet.SetShootingDirection(shootingDirection);
 
-            bullet.SetOwner(this);
-            _bulletCount--;
+            //bullet.SetOwner(this);
+            //_bulletCount--;
         }
     }
 

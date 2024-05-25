@@ -1061,6 +1061,10 @@ PrefabInstance:
       propertyPath: sumarMunicion
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 5209211527599380301, guid: bb237f5f73ff440468604f080e3baa10, type: 3}
+      propertyPath: ammoController
+      value: 
+      objectReference: {fileID: 1409455999}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb237f5f73ff440468604f080e3baa10, type: 3}
 --- !u!1 &530925573 stripped

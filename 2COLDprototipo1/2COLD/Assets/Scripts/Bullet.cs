@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 [RequireComponent(typeof(Collider2D), typeof(Rigidbody2D))]
-public class Bullet : MonoBehaviour, IBullet
+public class Bullet : MonoBehaviour
 {
     [SerializeField] public float _speed = 5f;
     [SerializeField] private float _lifeTime = 2f;
@@ -34,15 +34,15 @@ public class Bullet : MonoBehaviour, IBullet
     {
         _collider = GetComponent<Collider2D>();
         _rigidbody = GetComponent<Rigidbody2D>();
-        _currentWeapon = (IWeapon)firePoint;
-        Init();
+        //_currentWeapon = (IWeapon)firePoint;
+        //Init();
     }
 
     private void Update()
     {
-        Travel();
+        //Travel();
         _lifeTime -= Time.deltaTime;
-        if (_lifeTime <= 0) Destroy(this.gameObject);
+        if (_lifeTime <= 0) Destroy(gameObject);
 
 
 
@@ -52,59 +52,60 @@ public class Bullet : MonoBehaviour, IBullet
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject);
+        
 
         if (collision.transform.GetComponent<Life>())
         {
             Life life = collision.transform.GetComponent<Life>();
-
+            //Destroy(gameObject);
+            gameObject.SetActive(false);
             life.GetDamage(damage);
         }
     }
 
 
 
-    public void Travel()
-    {
-        // Mueve la bala en la dirección almacenada.
-        //transform.position += (Vector3)shootingDirection.normalized * _speed * Time.deltaTime;
-        Rigidbody2D rb = this.GetComponent<Rigidbody2D>();
-        rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
-    }
+    //public void Travel()
+    //{
+    //    // Mueve la bala en la dirección almacenada.
+    //    //transform.position += (Vector3)shootingDirection.normalized * _speed * Time.deltaTime;
+    //    Rigidbody2D rb = this.GetComponent<Rigidbody2D>();
+    //    rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+    //}
 
-    public void Init()
-    {
+    //public void Init()
+    //{
 
 
-        //_rigidbody.isKinematic = true;
-        _rigidbody.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+    //    //_rigidbody.isKinematic = true;
+    //    //_rigidbody.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
 
-    }
+    //}
 
-    public void SetOwner(IWeapon weapon) => _owner = weapon;
+    //public void SetOwner(IWeapon weapon) => _owner = weapon;
 
-    public IProduct Clone()
-    {
-        return Instantiate(this, firePoint.position, firePoint.rotation);
-    }
+    //public IProduct Clone()
+    //{
+    //    return Instantiate(this, firePoint.position, firePoint.rotation);
+    //}
 
-    public void SetShootingDirection(Vector2 direction)
-    {
-        shootingDirection = direction;
+    //public void SetShootingDirection(Vector2 direction)
+    //{
+    //    shootingDirection = direction;
 
-        // Llama al nuevo método para ajustar la dirección de la bala.
-        SetBulletDirection();
-    }
+    //    // Llama al nuevo método para ajustar la dirección de la bala.
+    //    SetBulletDirection();
+    //}
 
-    private void SetBulletDirection()
-    {
-        // Calcula el ángulo de rotación basado en la dirección del disparo.
-        float angle = Mathf.Atan2(shootingDirection.y, shootingDirection.x) * Mathf.Rad2Deg;
+    //private void SetBulletDirection()
+    //{
+    //    // Calcula el ángulo de rotación basado en la dirección del disparo.
+    //    float angle = Mathf.Atan2(shootingDirection.y, shootingDirection.x) * Mathf.Rad2Deg;
 
-        // Rotaciona la bala para apuntar en la dirección del disparo.
-        transform.rotation = Quaternion.Euler(0f, 0f, angle);
-    }
-    public GameObject MyGameObject => gameObject;
+    //    // Rotaciona la bala para apuntar en la dirección del disparo.
+    //    transform.rotation = Quaternion.Euler(0f, 0f, angle);
+    //}
+    //public GameObject MyGameObject => gameObject;
 }
 
 
