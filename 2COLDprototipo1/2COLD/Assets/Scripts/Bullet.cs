@@ -52,7 +52,6 @@ public class Bullet : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        
 
         if (collision.transform.GetComponent<Life>())
         {
@@ -61,6 +60,8 @@ public class Bullet : MonoBehaviour
             gameObject.SetActive(false);
             life.GetDamage(damage);
         }
+        gameObject.SetActive(false);
+
     }
 
 
