@@ -22,7 +22,8 @@ public class PlayerMovement : MonoBehaviour
     public float idleTimeThreshold = 2f; // Tiempo en segundos antes de pausar el juego si el jugador está inactivo
 
     // Nuevo código para el temporizador
-    public float timer = 3f; // Tiempo inicial del temporizador
+    public float timer; // Tiempo inicial del temporizador
+    public float timerReset; // Tiempo inicial del temporizador
     private bool isTimerRunning = false; // Bandera para controlar si el temporizador está corriendo
 
     // Nuevo código para el dash
@@ -125,7 +126,7 @@ public class PlayerMovement : MonoBehaviour
         if (!isTimerRunning)
         {
             isTimerRunning = true;
-            timer = 3f; // Establecer el tiempo inicial del temporizador
+            timer = timerReset; // Establecer el tiempo inicial del temporizador
         }
     }
 
