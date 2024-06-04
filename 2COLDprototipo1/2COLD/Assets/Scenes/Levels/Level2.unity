@@ -269,6 +269,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Circle (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3333321668723372152, guid: e8049029973178042b840d36b2cc39c3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3333321668723372154, guid: e8049029973178042b840d36b2cc39c3, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -462,7 +466,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &277755637
 Transform:
@@ -572,6 +576,10 @@ PrefabInstance:
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 5291808506690161807, guid: 94d78b72078020046b9ef169e291b35a, type: 3}
+    - target: {fileID: 7669766061818652817, guid: e82f9850823f8954999501f0f8911f24, type: 3}
+      propertyPath: distanceToShoot
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8417700815837965459, guid: e82f9850823f8954999501f0f8911f24, type: 3}
       propertyPath: m_Name
       value: Turret (5)
@@ -658,6 +666,10 @@ PrefabInstance:
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 5291808506690161807, guid: 94d78b72078020046b9ef169e291b35a, type: 3}
+    - target: {fileID: 7669766061818652817, guid: e82f9850823f8954999501f0f8911f24, type: 3}
+      propertyPath: distanceToShoot
+      value: 5.6
+      objectReference: {fileID: 0}
     - target: {fileID: 8417700815837965459, guid: e82f9850823f8954999501f0f8911f24, type: 3}
       propertyPath: m_Name
       value: Turret (3)
@@ -862,7 +874,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!212 &542998224
 SpriteRenderer:
@@ -1099,7 +1111,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &709420677
 Transform:
@@ -1340,7 +1352,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &797357194
 MonoBehaviour:
@@ -1728,7 +1740,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &926784133
 Transform:
@@ -1759,7 +1771,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &946497531
 Transform:
@@ -1870,7 +1882,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1006435039
 Transform:
@@ -2160,7 +2172,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1121468930
 Transform:
@@ -3980,7 +3992,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1211026329
 Transform:
@@ -4011,7 +4023,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1219223425
 Transform:
@@ -4089,6 +4101,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Circle (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4821564193645537837, guid: 9afd5e4d4e31f43498c9dfc68c43a120, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9afd5e4d4e31f43498c9dfc68c43a120, type: 3}
 --- !u!1 &1334175834
@@ -4107,7 +4123,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1334175835
 Transform:
@@ -6777,6 +6793,10 @@ PrefabInstance:
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 5291808506690161807, guid: 94d78b72078020046b9ef169e291b35a, type: 3}
+    - target: {fileID: 7669766061818652817, guid: e82f9850823f8954999501f0f8911f24, type: 3}
+      propertyPath: distanceToShoot
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8417700815837965459, guid: e82f9850823f8954999501f0f8911f24, type: 3}
       propertyPath: m_Name
       value: Turret (4)
@@ -6857,7 +6877,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!212 &1422802896
 SpriteRenderer:
@@ -7056,7 +7076,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &1455151402
 MonoBehaviour:
@@ -7381,6 +7401,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Circle
       objectReference: {fileID: 0}
+    - target: {fileID: 8167352779446373767, guid: a841b00e43483014295eb1744b1de289, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a841b00e43483014295eb1744b1de289, type: 3}
 --- !u!1 &1675952562
@@ -7474,6 +7498,10 @@ PrefabInstance:
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 5291808506690161807, guid: 94d78b72078020046b9ef169e291b35a, type: 3}
+    - target: {fileID: 7669766061818652817, guid: e82f9850823f8954999501f0f8911f24, type: 3}
+      propertyPath: distanceToShoot
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8417700815837965459, guid: e82f9850823f8954999501f0f8911f24, type: 3}
       propertyPath: m_Name
       value: Turret
@@ -7554,6 +7582,10 @@ PrefabInstance:
       objectReference: {fileID: 2004911822}
     - target: {fileID: -5509048485897589259, guid: bc72b0b439a08544aaa6c554890271b2, type: 3}
       propertyPath: timer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -5509048485897589259, guid: bc72b0b439a08544aaa6c554890271b2, type: 3}
+      propertyPath: timerReset
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6409608208264044682, guid: bc72b0b439a08544aaa6c554890271b2, type: 3}
@@ -7815,7 +7847,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!156049354 &1775135676
 Grid:
@@ -7992,6 +8024,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Capsule
       objectReference: {fileID: 0}
+    - target: {fileID: 2215103168576427712, guid: bb237f5f73ff440468604f080e3baa10, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2215103168576427726, guid: bb237f5f73ff440468604f080e3baa10, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -8069,7 +8105,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1850160760
 Transform:
@@ -8225,7 +8261,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1976218440
 Transform:

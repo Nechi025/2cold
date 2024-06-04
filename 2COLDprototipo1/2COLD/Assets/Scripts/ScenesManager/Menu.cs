@@ -20,10 +20,10 @@ public class Menu : MonoBehaviour
         back.interactable = true;
 
     }
-    public void OnPanelChange(GameObject panelToGo)
-    {
+    //public void OnPanelChange(GameObject panelToGo)
+    //{
 
-    }
+    //}
 
 
 
