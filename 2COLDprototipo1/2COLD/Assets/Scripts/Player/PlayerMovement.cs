@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     public float timer; // Tiempo inicial del temporizador
     public float timerReset; // Tiempo inicial del temporizador
     private bool isTimerRunning = false; // Bandera para controlar si el temporizador está corriendo
+    public float timerResetSpeed = 1f; // Velocidad a la que el temporizador se reinicia progresivamente
 
     // Nuevo código para el dash
     public bool isDashing = false; // Bandera para indicar si el dash está activo
@@ -58,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             GlobalPause.isPaused = false;
-            ResetTimer(); // Reinicia el temporizador cuando el jugador se mueve
+            ProgressivelyResetTimer(); // Reinicia el temporizador progresivamente cuando el jugador se mueve
         }
 
         // Rotar el jugador hacia la posición del ratón
@@ -126,14 +127,21 @@ public class PlayerMovement : MonoBehaviour
         if (!isTimerRunning)
         {
             isTimerRunning = true;
-            timer = timerReset; // Establecer el tiempo inicial del temporizador
         }
     }
 
-    // Reiniciar el temporizador
-    void ResetTimer()
+    // Reiniciar el temporizador progresivamente
+    void ProgressivelyResetTimer()
     {
-        isTimerRunning = false;
+        if (isTimerRunning)
+        {
+            // Reinicia progresivamente el temporizador hacia el valor de reinicio
+            timer += timerResetSpeed * Time.deltaTime;
+            if (timer > timerReset)
+            {
+                timer = timerReset; // Limita el temporizador al valor de reinicio
+            }
+        }
     }
 
     // Actualizar el temporizador

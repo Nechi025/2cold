@@ -3015,6 +3015,18 @@ PrefabInstance:
       propertyPath: damage
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 6919863001874830711, guid: e7a6d49ce53ef73499ba35e7b7ba607c, type: 3}
+      propertyPath: m_Mass
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919863001874830711, guid: e7a6d49ce53ef73499ba35e7b7ba607c, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919863001874830711, guid: e7a6d49ce53ef73499ba35e7b7ba607c, type: 3}
+      propertyPath: m_UseAutoMass
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7a6d49ce53ef73499ba35e7b7ba607c, type: 3}
 --- !u!1 &652985753
@@ -5127,13 +5139,17 @@ PrefabInstance:
       propertyPath: timerReset
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: -5509048485897589259, guid: bc72b0b439a08544aaa6c554890271b2, type: 3}
+      propertyPath: timerResetSpeed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 557389300, guid: bc72b0b439a08544aaa6c554890271b2, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.74
       objectReference: {fileID: 0}
     - target: {fileID: 4575127306994966114, guid: bc72b0b439a08544aaa6c554890271b2, type: 3}
       propertyPath: unitLifes
-      value: 300
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6409608208264044682, guid: bc72b0b439a08544aaa6c554890271b2, type: 3}
       propertyPath: m_RootOrder
