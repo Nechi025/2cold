@@ -1006,8 +1006,8 @@ Transform:
   - {fileID: 760027518}
   - {fileID: 716787428}
   - {fileID: 60341824}
-  - {fileID: 17939735}
   - {fileID: 1818802396}
+  - {fileID: 17939735}
   - {fileID: 9687279}
   m_Father: {fileID: 0}
   m_RootOrder: 10
@@ -3660,7 +3660,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.6775274
+  orthographic size: 7.798473
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
