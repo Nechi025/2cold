@@ -1366,6 +1366,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33ccfd11d37b838458ea6a2d883269ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defeatScreen: Derrota
+  winScreen: Victoria
+  LevelTutorial: SampleScene
+  Level2: Level2
+  Level3: Scene3
   coins: 0
   coinsLevel2: 0
   coinsLevel3: 0
@@ -8158,6 +8163,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eabe50487b74fbd43b8c43b9fb652818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LevelTutorial: SampleScene
+  Level2: Level2
+  Level3: Scene3
   botonPausa: {fileID: 916865377}
   menuPausa: {fileID: 470992496}
 --- !u!114 &1902514626

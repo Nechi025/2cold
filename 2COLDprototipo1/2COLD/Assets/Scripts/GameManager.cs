@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public string defeatScreen;
+    public string winScreen;
+    public string LevelTutorial;
+    public string Level2;
+    public string Level3;
 
     public static GameManager Instance;
     public static GameManager Enemy;
@@ -76,31 +81,47 @@ public class GameManager : MonoBehaviour
         {
             // print("gane");
             //SceneManager.LoadScene("TopDown");
-            LoadingManager.Instance.LoadScene(2, 3);
+            StartCoroutine(GotoLevel(Level2));
 
         }
-        
+
         if (coinsLevel2 <= 0)
         {
             // print("gane");
             //SceneManager.LoadScene("TopDown");
-            LoadingManager.Instance.LoadScene(3, 4);
+            StartCoroutine(GotoLevel(Level3));
 
         }
-        
+
         if (coinsLevel3 <= 0)
         {
             // print("gane");
             //SceneManager.LoadScene("TopDown");
-            LoadingManager.Instance.LoadScene(4, 5);
+            StartCoroutine(GotoLevel(winScreen));
 
         }
 
         if (cio <= 0)
         {
             //LoadingManager.Instance.LoadScene(3, 7);
-            SceneManager.LoadScene(6);
+            StartCoroutine(GotoLevel(defeatScreen));
         }
 
+    }
+
+    IEnumerator GotoLevel(string scene)
+    {
+        // The Application loads the Scene in the background as the current Scene runs.
+        // This is particularly good for creating loading screens.
+        // You could also load the Scene by using sceneBuildIndex. In this case Scene2 has
+        // a sceneBuildIndex of 1 as shown in Build Settings.
+
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
+
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
     }
 }
