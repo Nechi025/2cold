@@ -49,6 +49,7 @@ public class Torreta : MonoBehaviour
             if (GlobalPause.IsPaused())
                 return;
             Shoot();
+            
         }
 
         if (Vida.unitLife <= 0)
@@ -68,6 +69,7 @@ public class Torreta : MonoBehaviour
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(-firingPoint.up * bulletForce, ForceMode2D.Impulse);
             timeToFire = fireRate;
+            SoundManager.Instance.PlaySound("Torreta");
         }
         else
         {

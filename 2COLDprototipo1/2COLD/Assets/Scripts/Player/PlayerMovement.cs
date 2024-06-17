@@ -55,11 +55,20 @@ public class PlayerMovement : MonoBehaviour
         {
             GlobalPause.isPaused = true;
             StartTimer(); // Inicia el temporizador cuando el jugador está inactivo
+            //SoundManager.Instance.PlaySound("Freeze");
+
         }
         else
         {
             GlobalPause.isPaused = false;
             ProgressivelyResetTimer(); // Reinicia el temporizador progresivamente cuando el jugador se mueve
+        }
+
+
+        if (Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Vertical") == 1)
+        {
+            //SoundManager.Instance.PlaySound("Pasos");
+
         }
 
         // Rotar el jugador hacia la posición del ratón

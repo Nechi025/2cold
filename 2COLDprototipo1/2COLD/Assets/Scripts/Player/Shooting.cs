@@ -31,6 +31,7 @@ public class Shooting : MonoBehaviour
         if (Input.GetKeyDown(_attack))
         {
             Shoot();
+            SoundManager.Instance.PlaySound("Bullet");
         }
 
         if (Input.GetKeyDown(_reload))
