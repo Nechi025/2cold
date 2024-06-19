@@ -84,6 +84,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 activeMoveSpeed = dashSpeed;
                 dashCounter = dashLength;
+                SoundManager.Instance.PlaySound("Dash");
                 isDashing = true; // El dash está activo
             }
         }

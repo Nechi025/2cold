@@ -316,9 +316,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 4a1d82b3d6617f846bbee4764862d8e7, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.485
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5709,6 +5709,14 @@ MonoBehaviour:
     audioSource: {fileID: 266386316}
   - name: Freeze
     clip: {fileID: 8300000, guid: d0b31a4ca5fff7f4daaf2225f913984e, type: 3}
+    volume: 0.525
+    pitch: 1
+    playOnAwake: 0
+    loop: 0
+    mute: 0
+    audioSource: {fileID: 266386316}
+  - name: Dash
+    clip: {fileID: 8300000, guid: 677df8edf6558a8468471792a90fdd76, type: 3}
     volume: 0.525
     pitch: 1
     playOnAwake: 0
