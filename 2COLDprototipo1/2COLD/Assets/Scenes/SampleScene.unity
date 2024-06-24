@@ -5691,6 +5691,14 @@ MonoBehaviour:
     loop: 0
     mute: 0
     audioSource: {fileID: 266386316}
+  - name: Punch
+    clip: {fileID: 8300000, guid: b34b3b3c80951864fac5920b513375eb, type: 3}
+    volume: 0.525
+    pitch: 1
+    playOnAwake: 0
+    loop: 0
+    mute: 0
+    audioSource: {fileID: 266386316}
 --- !u!1 &1472340811
 GameObject:
   m_ObjectHideFlags: 0

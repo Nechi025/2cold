@@ -31,6 +31,7 @@ public class CombateCaC : MonoBehaviour
         {
             Golpe();
             //animator.SetTrigger("Attack2");
+            SoundManager.Instance.PlaySound("Punch");
             tiempoSiguienteAtaque = tiempoEntreAtaques;
         }
     }
