@@ -32,6 +32,7 @@ public class Puerta : MonoBehaviour
             //key.SetActive(true);
             //keys.SetActive(true);
             pasaje.SetActive(false);
+            Destroy(gameObject);
             //Texto1.SetActive(false);
             //DialogoActive2.SetActive(true);
             //Circle.SetActive(false);
