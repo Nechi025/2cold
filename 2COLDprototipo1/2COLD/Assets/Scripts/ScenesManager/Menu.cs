@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-    [SerializeField] private Text texto;
+//    [SerializeField] private Text texto;
     public GameObject currentPanel;
     [SerializeField] Button elBoton;
     [SerializeField] Button Option;
