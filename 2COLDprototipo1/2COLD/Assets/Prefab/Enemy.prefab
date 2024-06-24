@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1824945089149798479}
   - component: {fileID: 1824945089149798476}
   - component: {fileID: 1824945089149798477}
-  - component: {fileID: 1824945089149798474}
+  - component: {fileID: 4127916072656009}
   - component: {fileID: 1824945089149798475}
   m_Layer: 7
   m_Name: Enemy
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.67358494, g: 0.94388044, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -135,7 +135,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1824945089149798474
+--- !u!114 &4127916072656009
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,17 +144,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1824945089149798480}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3301cb21ed864d4c960a4650e21629d, type: 3}
+  m_Script: {fileID: 11500000, guid: c27ba21a0eec6bc418443a379961e70b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  rb: {fileID: 1824945089149798477}
-  flajeloRender: {fileID: 1824945089149798479}
+  speed: 0.3
+  rb: {fileID: 0}
+  flajeloRender: {fileID: 0}
   target: {fileID: 0}
   tiempoCollision: 0
-  tiempoEntreCollision: 3
-  detectRange: 7
-  damage: 0
+  tiempoEntreCollision: 0
+  moveToPlayer: 0
+  detectRange: 20
+  damage: 50
 --- !u!114 &1824945089149798475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,3 +169,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitLife: 100
+  objetoDrop: {fileID: 0}
