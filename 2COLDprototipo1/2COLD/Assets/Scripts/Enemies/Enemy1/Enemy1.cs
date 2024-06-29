@@ -30,10 +30,14 @@ public class Enemy1 : MonoBehaviour
     //Daño que realiza
     [SerializeField] int damage;
 
+    [SerializeField] private Animator Enemy1Anim;
+
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         //se guarda posicion
+        Enemy1Anim = GetComponent<Animator>();
         initialPos = transform.position;
         GameManager.Instance.enemys++;
 
@@ -131,7 +135,10 @@ public class Enemy1 : MonoBehaviour
         }
     }
 
-
+    //private void Golpe()
+    //{
+    //    Enemy1Anim.SetTrigger("Attack1");
+    //}
 
     //logica de daño del Alien
     private void OnCollisionStay2D(Collision2D collision)
@@ -142,6 +149,7 @@ public class Enemy1 : MonoBehaviour
             {
                 LifeS life = collision.transform.GetComponent<LifeS>();
                 life.GetDamage(damage);
+                //Golpe();
                 tiempoCollision = tiempoEntreCollision;
 
 

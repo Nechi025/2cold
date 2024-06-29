@@ -99,7 +99,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6605579946395666701}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 026ebcbac13bdc6469504993a5a1b0ee, type: 2}
   m_CullingMode: 0
@@ -180,6 +180,7 @@ MonoBehaviour:
   moveToPlayer: 0
   detectRange: 5.5
   damage: 10
+  Enemy1Anim: {fileID: 0}
 --- !u!114 &1868268712341104537
 MonoBehaviour:
   m_ObjectHideFlags: 0
