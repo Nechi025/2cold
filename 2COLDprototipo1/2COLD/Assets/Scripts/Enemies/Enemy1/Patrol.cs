@@ -17,22 +17,24 @@ public class Patrol : MonoBehaviour
 
     private void Update()
     {
-        if (_model.moveToPlayer == false)
+        if (!_model.moveToPlayer)
         {
             if (GlobalPause.IsPaused())
                 return;
 
-            transform.position = Vector2.MoveTowards(transform.position, patrolPoints[nextPoint].position, patrolSpeed * Time.deltaTime);
+            Vector2 targetPosition = patrolPoints[nextPoint].position;
+            transform.position = Vector2.MoveTowards(transform.position, targetPosition, patrolSpeed * Time.deltaTime);
 
-            if (Vector2.Distance(transform.position, patrolPoints[nextPoint].position) < minDistance)
+            _model.LookDir(targetPosition, transform.position);
+
+            if (Vector2.Distance(transform.position, targetPosition) < minDistance)
             {
-                nextPoint += 1;
+                nextPoint++;
                 if (nextPoint >= patrolPoints.Length)
                 {
                     nextPoint = 0;
                 }
             }
         }
-        
     }
 }

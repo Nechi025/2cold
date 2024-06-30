@@ -1158,6 +1158,10 @@ PrefabInstance:
       propertyPath: damage
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 6919863001874830711, guid: e7a6d49ce53ef73499ba35e7b7ba607c, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7a6d49ce53ef73499ba35e7b7ba607c, type: 3}
 --- !u!4 &662093777 stripped
@@ -7877,15 +7881,19 @@ PrefabInstance:
       objectReference: {fileID: 2004911822}
     - target: {fileID: -5509048485897589259, guid: bc72b0b439a08544aaa6c554890271b2, type: 3}
       propertyPath: timer
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -5509048485897589259, guid: bc72b0b439a08544aaa6c554890271b2, type: 3}
       propertyPath: timerReset
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -5509048485897589259, guid: bc72b0b439a08544aaa6c554890271b2, type: 3}
       propertyPath: timerResetSpeed
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 988671231439386370, guid: bc72b0b439a08544aaa6c554890271b2, type: 3}
+      propertyPath: m_BodyType
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6409608208264044682, guid: bc72b0b439a08544aaa6c554890271b2, type: 3}
       propertyPath: m_RootOrder

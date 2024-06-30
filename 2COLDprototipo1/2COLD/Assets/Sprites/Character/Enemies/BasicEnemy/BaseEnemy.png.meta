@@ -105,97 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: EnemyShooting1
+      name: BaseEnemy_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 320
-        width: 160
-        height: 225
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9bf7446c079257543a00d289cf9f2a9e
-      internalID: -426328330
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: EnemyDead
-      rect:
-        serializedVersion: 2
-        x: 180
-        y: 85
-        width: 200
-        height: 385
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 66490eaa19cc0cc459fd3478c9253fff
-      internalID: 1308081394
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: EnemyGun1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 80
-        width: 160
-        height: 195
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1a91f9982c12c80419a403913e48f939
-      internalID: -1285029399
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: EnemyIdle
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 245
-        width: 160
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 030e199d839f7b347914d4a0c32ef83f
-      internalID: -1793393009
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Nothing
-      rect:
-        serializedVersion: 2
-        x: 560
-        y: 633
-        width: 3
-        height: 3
+        x: 80
+        y: 480
+        width: 195
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,8 +119,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de2c04a6826a52149964b63775df2789
-      internalID: 1444257779
+      spriteID: c90920d934df450419ec91c28b260053
+      internalID: 730606322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseEnemy_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 480
+        width: 215
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6d1f298b7fb3404a9eb44807ae9be84
+      internalID: -780394288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseEnemy_2
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 535
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8b70d6af6bdd844bb893c4e415c0a29
+      internalID: 1907120607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseEnemy_3
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 260
+        width: 385
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e3e4752e8ed525409cbcab65f6fe678
+      internalID: -400010972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseEnemy_4
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 80
+        width: 100
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 160776c3267f0b24aad262a1c4fedfb1
+      internalID: -144662247
       vertices: []
       indices: 
       edges: []
@@ -220,15 +220,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      BaseEnemy_0: 730606322
+      BaseEnemy_1: -780394288
       BaseEnemy_2: 1907120607
       BaseEnemy_3: -400010972
-      BaseEnemy_5: -1028103138
-      BaseEnemy_6: 1853962953
-      EnemyDead: 1308081394
-      EnemyGun1: -1285029399
-      EnemyIdle: -1793393009
-      EnemyShooting1: -426328330
-      Nothing: 1444257779
+      BaseEnemy_4: -144662247
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
