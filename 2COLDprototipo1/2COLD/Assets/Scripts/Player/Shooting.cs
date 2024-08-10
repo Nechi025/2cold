@@ -9,7 +9,7 @@ public class Shooting : MonoBehaviour
     public float ammo = 10f;
     public float bulletForce = 20f;
 
-    [SerializeField] private List<GameObject> _weaponList;
+    //[SerializeField] private List<GameObject> _weaponList;
     [SerializeField] private KeyCode _attack = KeyCode.Mouse0;
     [SerializeField] private KeyCode _reload = KeyCode.R;
     [SerializeField] private KeyCode _weaponSlot1 = KeyCode.Alpha1;
@@ -20,11 +20,11 @@ public class Shooting : MonoBehaviour
 
     private List<BulletData> bullets = new List<BulletData>();
 
-    void Start()
-    {
-        SwitchWeapon(0);
-        _currentWeapon.Reaload();
-    }
+    //void Start()
+    //{
+    //    //SwitchWeapon(0);
+    //    _currentWeapon.Reaload();
+    //}
 
     void Update()
     {
@@ -88,15 +88,15 @@ public class Shooting : MonoBehaviour
     }
 
 
-    private void SwitchWeapon(int index)
-    {
-        foreach (GameObject weapon in _weaponList)
-        {
-            weapon.gameObject.SetActive(false);
-        }
-        _weaponList[index].SetActive(true);
-        _currentWeapon = _weaponList[index].GetComponent<IWeapon>();
-    }
+    //private void SwitchWeapon(int index)
+    //{
+    //    foreach (GameObject weapon in _weaponList)
+    //    {
+    //        weapon.gameObject.SetActive(false);
+    //    }
+    //    _weaponList[index].SetActive(true);
+    //    _currentWeapon = _weaponList[index].GetComponent<IWeapon>();
+    //}
 
     void Shoot()
     {
