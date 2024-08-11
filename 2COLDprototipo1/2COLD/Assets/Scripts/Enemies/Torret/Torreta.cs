@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Torreta : MonoBehaviour
 {
-
     public Transform target;
     public float speed = 0f;
     public float rotateSpeed = 0.0025f;
@@ -13,43 +12,40 @@ public class Torreta : MonoBehaviour
     public float bulletForce;
     public float distanceToShoot = 5f;
     public float distanceToStop = 3f;
-
     public Transform firingPoint;
-
     public float fireRate;
     private float timeToFire;
-
     [SerializeField] Life Vida;
+
+    // Nueva referencia a LineOfSight
+    [SerializeField] private LineOfSight lineOfSight;
 
     // Start is called before the first frame update
     private void Start()
     {
-        //rb = GetComponent<Rigidbody2D>();
         GameManager.Instance.enemys++;
-
     }
 
     // Update is called once per frame
-
-    //Recibimos un target y rotamos para apuntarle y dispararle
     private void Update()
     {
         if (!target)
         {
             GetTarget();
-
         }
-        else
+
+        // Verificar si el jugador está dentro del rango y ángulo de visión
+        if (target && lineOfSight.CheckRange(target) && lineOfSight.CheckAngle(target) && lineOfSight.CheckView(target))
         {
             RotateTowardsTarget();
-        }
 
-        if (Vector2.Distance(target.position, transform.position) <= distanceToShoot)
-        {
-            if (GlobalPause.IsPaused())
-                return;
-            Shoot();
-            
+            if (Vector2.Distance(target.position, transform.position) <= distanceToShoot)
+            {
+                if (GlobalPause.IsPaused())
+                    return;
+
+                Shoot();
+            }
         }
 
         if (Vida.unitLife <= 0)
@@ -58,14 +54,11 @@ public class Torreta : MonoBehaviour
         }
     }
 
-
-
     private void Shoot()
     {
         if (timeToFire <= 0)
         {
             GameObject bullet = Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
-            //SoundManager.Instance.PlaySound("MogfrudShoot");
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(-firingPoint.up * bulletForce, ForceMode2D.Impulse);
             timeToFire = fireRate;
@@ -77,15 +70,12 @@ public class Torreta : MonoBehaviour
         }
     }
 
-    // Si no tiene target no dispara
     private void FixedUpdate()
     {
-        if (target != null)
+        if (target != null && lineOfSight.CheckRange(target) && lineOfSight.CheckAngle(target) && lineOfSight.CheckView(target))
         {
             if (Vector2.Distance(target.position, transform.position) >= distanceToStop)
             {
-
-
                 rb.velocity = transform.up * speed;
             }
             else
@@ -93,11 +83,8 @@ public class Torreta : MonoBehaviour
                 rb.velocity = Vector2.zero;
             }
         }
-
-
     }
 
-    //Gira hacia el Target
     private void RotateTowardsTarget()
     {
         Vector2 targetDirection = target.position - transform.position;
@@ -106,27 +93,15 @@ public class Torreta : MonoBehaviour
         transform.localRotation = Quaternion.Slerp(transform.localRotation, q, rotateSpeed);
     }
 
-    //Consigue un target solo
     private void GetTarget()
     {
         if (GameObject.FindGameObjectWithTag("Player"))
         {
             target = GameObject.FindGameObjectWithTag("Player").transform;
-            // transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
-        else if (!GameObject.FindGameObjectWithTag("Player"))
+        else
         {
             target = null;
         }
     }
-
-    //private void /*OnDrawGizmos*/()
-    //{
-    //    Gizmos.color = Color.red;
-    //    Gizmos.DrawWireSphere(transform.position, distanceToShoot);
-
-    //}
-
-
-
 }

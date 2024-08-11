@@ -3255,7 +3255,7 @@ GameObject:
   - component: {fileID: 672713724}
   - component: {fileID: 672713723}
   - component: {fileID: 672713725}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5666,6 +5666,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1317867639}
   m_CullTransparentMesh: 1
+--- !u!1 &1335261118 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8417700816694317418, guid: e82f9850823f8954999501f0f8911f24, type: 3}
+  m_PrefabInstance: {fileID: 1734039896}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1335261120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335261118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1364d8a75f820c4699eff5b8e88aec3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 12
+  angle: 171
+  maskObs:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!1 &1357982798
 GameObject:
   m_ObjectHideFlags: 0
@@ -6818,12 +6840,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7669766061818652817, guid: e82f9850823f8954999501f0f8911f24, type: 3}
+      propertyPath: lineOfSight
+      value: 
+      objectReference: {fileID: 1335261120}
+    - target: {fileID: 7669766061818652817, guid: e82f9850823f8954999501f0f8911f24, type: 3}
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 5291808506690161807, guid: 94d78b72078020046b9ef169e291b35a, type: 3}
     - target: {fileID: 7669766061818652817, guid: e82f9850823f8954999501f0f8911f24, type: 3}
       propertyPath: distanceToShoot
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8417700815837965459, guid: e82f9850823f8954999501f0f8911f24, type: 3}
       propertyPath: m_Name
