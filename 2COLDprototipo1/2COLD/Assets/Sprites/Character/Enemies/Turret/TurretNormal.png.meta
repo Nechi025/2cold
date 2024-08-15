@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 232fe082051e8d2448c8acf404d120b0
+guid: 2f4f9a9d1920e3e468c2b9a748e939b3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TurretBody
+      name: TurretBodyNormal
       rect:
         serializedVersion: 2
         x: 255
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8ce34e99ef94594c8a9b5606ad0fea8
-      internalID: -569746438
+      spriteID: fb903814460d71b4abc18924079c92ab
+      internalID: -1264574995
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TurretHead
+      name: TurretHeadNormal
       rect:
         serializedVersion: 2
         x: 400
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b94370cd841f9684b97eaeb484491cd2
-      internalID: 1677722936
+      spriteID: b5c994ec1cefa764fb9e10220efa068e
+      internalID: -110117947
       vertices: []
       indices: 
       edges: []
@@ -157,8 +157,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      TurretBody: -569746438
-      TurretHead: 1677722936
+      TurretBodyNormal: -1264574995
+      TurretHeadNormal: -110117947
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
