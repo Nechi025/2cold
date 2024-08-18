@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 956288980032862419}
   - component: {fileID: 7124668181832255259}
   - component: {fileID: 1055512443491643510}
+  - component: {fileID: 578437493951451673}
   m_Layer: 0
   m_Name: TurretHead
   m_TagString: Untagged
@@ -323,6 +324,7 @@ MonoBehaviour:
   firingPoint: {fileID: 7639466003306321579}
   fireRate: 1
   Vida: {fileID: 956288980032862419}
+  lineOfSight: {fileID: 0}
 --- !u!114 &956288980032862419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,3 +386,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.57, y: 1.55}
   m_EdgeRadius: 0
+--- !u!114 &578437493951451673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8417700816694317418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1364d8a75f820c4699eff5b8e88aec3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 9
+  angle: 156
+  maskObs:
+    serializedVersion: 2
+    m_Bits: 2048

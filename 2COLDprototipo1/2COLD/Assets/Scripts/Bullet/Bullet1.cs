@@ -34,7 +34,7 @@ public class Bullet1 : MonoBehaviour, IBullet
     {
         _collider = GetComponent<Collider2D>();
         _rigidbody = GetComponent<Rigidbody2D>();
-        _currentWeapon = (IWeapon)firePoint;
+        //_currentWeapon = (IWeapon)firePoint;
         Init();
     }
 
