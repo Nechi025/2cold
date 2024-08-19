@@ -63,5 +63,13 @@ public class Menu : MonoBehaviour
         Application.Quit();
     }
 
+    public void RestartLevel()
+    {
+        // Obtiene el nombre de la escena actual
+        string currentSceneName = SceneManager.GetActiveScene().name;
+
+        // Reinicia la escena actual
+        SceneManager.LoadScene(currentSceneName);
+    }
 
 }
