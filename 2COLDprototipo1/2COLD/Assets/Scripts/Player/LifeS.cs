@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class LifeS : MonoBehaviour
@@ -25,25 +24,30 @@ public class LifeS : MonoBehaviour
         unitLifes -= value;
         if (unitLifes <= 0)
         {
-            SceneManager.LoadScene(6);
+            SaveCurrentLevel();
+            SceneManager.LoadScene(8); // Reemplaza 8 con el índice de la escena de derrota
             GameManager.Instance.cio--;
             Destroy(gameObject);
-
         }
     }
+
     public void Death()
     {
-        SceneManager.LoadScene(6);
+        SaveCurrentLevel();
+        SceneManager.LoadScene(8); // Reemplaza 8 con el índice de la escena de derrota
         GameManager.Instance.cio--;
         Destroy(gameObject);
     }
 
-
     public void GetHealth(int value)
     {
         unitLifes += value;
-
     }
 
-
+    private void SaveCurrentLevel()
+    {
+        // Guarda el nombre del nivel actual antes de cargar la escena de derrota
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        PlayerPrefs.SetString("LastLevel", currentSceneName);
+    }
 }

@@ -23,6 +23,9 @@ public class Enemy1 : MonoBehaviour
     [SerializeField] int damage;
     [SerializeField] private Animator Enemy1Anim;
 
+    // Referencia al componente LineOfSight
+    [SerializeField] private LineOfSight lineOfSight;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -47,28 +50,35 @@ public class Enemy1 : MonoBehaviour
 
     private void FixedUpdate()
     {
-        direccion = target.position - transform.position;
-        posObj = transform.position + direccion * speed * Time.fixedDeltaTime;
-
-        if (direccion.magnitude < detectRange)
+        if (target != null && lineOfSight.CheckRange(target) && lineOfSight.CheckAngle(target) && lineOfSight.CheckView(target))
         {
-            if (!target)
-            {
-                GetTarget();
-            }
-            else if (target != null)
-            {
-                if (GlobalPause.IsPaused())
-                    return;
+            direccion = target.position - transform.position;
+            posObj = transform.position + direccion * speed * Time.fixedDeltaTime;
 
-                moveToPlayer = true;
-                rb.MovePosition(posObj);
-                LookDir(target.position, transform.position);
-            }
-            else
+            if (direccion.magnitude < detectRange)
             {
-                moveToPlayer = false;
+                if (!target)
+                {
+                    GetTarget();
+                }
+                else if (target != null)
+                {
+                    if (GlobalPause.IsPaused())
+                        return;
+
+                    moveToPlayer = true;
+                    rb.MovePosition(posObj);
+                    LookDir(target.position, transform.position);
+                }
+                else
+                {
+                    moveToPlayer = false;
+                }
             }
+        }
+        else
+        {
+            moveToPlayer = false; // Si el jugador no está en rango o ángulo de visión, no se mueve
         }
     }
 
