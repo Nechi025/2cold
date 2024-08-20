@@ -312,7 +312,7 @@ MonoBehaviour:
   firingPoint: {fileID: 7639466003306321579}
   fireRate: 1
   Vida: {fileID: 956288980032862419}
-  lineOfSight: {fileID: 0}
+  lineOfSight: {fileID: 578437493951451673}
 --- !u!114 &956288980032862419
 MonoBehaviour:
   m_ObjectHideFlags: 0

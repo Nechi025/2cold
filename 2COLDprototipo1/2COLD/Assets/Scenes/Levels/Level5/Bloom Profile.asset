@@ -29,13 +29,13 @@ MonoBehaviour:
   active: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 0.25
+    m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.4
+    m_Value: 0.15
   scatter:
-    m_OverrideState: 0
-    m_Value: 0.744
+    m_OverrideState: 1
+    m_Value: 0.458
   clamp:
     m_OverrideState: 0
     m_Value: 65472
@@ -54,4 +54,4 @@ MonoBehaviour:
     dimension: 1
   dirtIntensity:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 1
