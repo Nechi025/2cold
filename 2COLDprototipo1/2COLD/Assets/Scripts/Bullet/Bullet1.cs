@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 [RequireComponent(typeof(Collider2D), typeof(Rigidbody2D))]
-public class Bullet1 : MonoBehaviour, IBullet
+public class Bullet1 : MonoBehaviour /*IBullet*/
 {
     [SerializeField] public float _speed = 5f;
     [SerializeField] private float _lifeTime = 2f;
@@ -15,7 +15,7 @@ public class Bullet1 : MonoBehaviour, IBullet
     [SerializeField] private LayerMask _hitteableLayer;
     [SerializeField] private IWeapon _owner;
     public float bulletForce = 20f;
-    public Transform firePoint;
+    //private Transform firePoint;
 
 
     public float Speed => _speed;
@@ -69,7 +69,7 @@ public class Bullet1 : MonoBehaviour, IBullet
         // Mueve la bala en la dirección almacenada.
         //transform.position += (Vector3)shootingDirection.normalized * _speed * Time.deltaTime;
         Rigidbody2D rb = this.GetComponent<Rigidbody2D>();
-        rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+        //rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
     }
 
     public void Init()
@@ -83,10 +83,10 @@ public class Bullet1 : MonoBehaviour, IBullet
 
     public void SetOwner(IWeapon weapon) => _owner = weapon;
 
-    public IProduct Clone()
-    {
-        return Instantiate(this, firePoint.position, firePoint.rotation);
-    }
+    //public IProduct Clone()
+    //{
+    //    return Instantiate(this, firePoint.position, firePoint.rotation);
+    //}
 
     public void SetShootingDirection(Vector2 direction)
     {

@@ -256,6 +256,7 @@ GameObject:
   - component: {fileID: 988671231439386370}
   - component: {fileID: -5509048485897589259}
   - component: {fileID: -1244612718120798085}
+  - component: {fileID: 6320276599019556741}
   - component: {fileID: 4575127306994966114}
   - component: {fileID: 1409456000}
   - component: {fileID: 1832482546850119515}
@@ -466,15 +467,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 557389300}
-  bulletPrefab: {fileID: 5291808506690161807, guid: 030d22c82c47b0b44ac2c65260319671, type: 3}
   ammo: 10
   bulletForce: 20
-  _weaponList: []
   _attack: 323
   _reload: 114
-  _weaponSlot1: 49
-  _weaponSlot2: 50
-  Damage: {fileID: 7596647559310902500, guid: 030d22c82c47b0b44ac2c65260319671, type: 3}
+  bulletPool: {fileID: 6320276599019556741}
+--- !u!114 &6320276599019556741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6409608208264044687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c6470a3f349754d861350d3ddda609, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 5291808506690161807, guid: 030d22c82c47b0b44ac2c65260319671, type: 3}
+  poolSize: 10
 --- !u!114 &4575127306994966114
 MonoBehaviour:
   m_ObjectHideFlags: 0
