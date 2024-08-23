@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3333321668723372154}
   - component: {fileID: 3333321668723372153}
   - component: {fileID: 4609589495888983258}
-  - component: {fileID: 4191751351421547576}
+  - component: {fileID: 961593864907035474}
   m_Layer: 0
-  m_Name: Circle (2) 1
+  m_Name: Circle (2) 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,8 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.3018868, g: 0.113052264, b: 0, a: 1}
+  m_Sprite: {fileID: 1519133895, guid: a6288ffe293d7d048a0bb9c539c1be1b, type: 3}
+  m_Color: {r: 0.9433962, g: 0.54060924, b: 0.29725876, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -102,7 +102,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &4191751351421547576
+--- !u!114 &961593864907035474
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3333321668723372152}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6e291b9223f42a4d87c0bf7834bf87a, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e6c1c52810ee3845bb130bee5fd8fbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cantidadPuntos: 0

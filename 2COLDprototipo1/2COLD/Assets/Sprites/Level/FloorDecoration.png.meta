@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 086a28437bc8396499a141accb643e17
+guid: a6288ffe293d7d048a0bb9c539c1be1b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 600
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,43 +105,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PulseBullet
+      name: Blood1
       rect:
         serializedVersion: 2
         x: 5
-        y: 5
-        width: 35
-        height: 100
+        y: 170
+        width: 135
+        height: 140
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77bb69b1ee164c34f982377bb2ccb7c4
-      internalID: -366131699
+      spriteID: b869243b0e6fe1a4a82dcf4bf2232c72
+      internalID: 710451514
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BasicBullet
+      name: AmmoPack
       rect:
         serializedVersion: 2
-        x: 50
-        y: 10
-        width: 15
-        height: 85
+        x: 175
+        y: 255
+        width: 55
+        height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45fd5b5ea0699854997fee39a60f1d70
-      internalID: 100484169
+      spriteID: 9468ef0147705cd4689474be89093d28
+      internalID: 718894551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthPack
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 165
+        width: 50
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72d7b680067282a4eb333a84a7c6a0b1
+      internalID: -87131625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coin
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 170
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aca1f883794247148ad210302e621f5b
+      internalID: 1519133895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood2
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 35
+        width: 130
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4be83a7a1c455a44c8193dbaac7f50f1
+      internalID: -1840773501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood3
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 25
+        width: 115
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63c18b308c246954e9adb5fa1273c4f8
+      internalID: 1767625409
       vertices: []
       indices: 
       edges: []
@@ -155,12 +239,20 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-    secondaryTextures:
-    - texture: {fileID: 2800000, guid: 926fa210cf53c08469821627daeb69ca, type: 3}
-      name: _Glow
+    secondaryTextures: []
     nameFileIdTable:
-      BasicBullet: 100484169
-      PulseBullet: -366131699
+      AmmoPack: 718894551
+      Blood1: 710451514
+      Blood2: -1840773501
+      Blood3: 1767625409
+      Coin: 1519133895
+      FloorDecoration_0: -362698134
+      FloorDecoration_10: 171633686
+      FloorDecoration_11: 1883994876
+      FloorDecoration_3: 1479331881
+      FloorDecoration_6: 1716574492
+      FloorDecoration_8: -2117614335
+      HealthPack: -87131625
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
