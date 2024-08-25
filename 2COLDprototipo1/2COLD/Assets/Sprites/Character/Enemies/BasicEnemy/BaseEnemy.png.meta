@@ -105,15 +105,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BaseEnemy_0
+      name: BaseGun
       rect:
         serializedVersion: 2
-        x: 80
-        y: 480
-        width: 195
+        x: 380
+        y: 75
+        width: 100
         height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -126,15 +126,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BaseEnemy_1
+      name: BaseShoot
       rect:
         serializedVersion: 2
         x: 320
         y: 480
-        width: 215
+        width: 225
         height: 160
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 2.5856693, y: 1.0190997}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,36 +147,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BaseEnemy_2
-      rect:
-        serializedVersion: 2
-        x: 540
-        y: 535
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d8b70d6af6bdd844bb893c4e415c0a29
-      internalID: 1907120607
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BaseEnemy_3
+      name: DeadEnemy
       rect:
         serializedVersion: 2
         x: 85
-        y: 260
+        y: 234
         width: 385
-        height: 200
+        height: 226
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -189,15 +168,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BaseEnemy_4
+      name: EnemyIdle
       rect:
         serializedVersion: 2
-        x: 245
-        y: 80
-        width: 100
+        x: 80
+        y: 480
+        width: 195
         height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -220,11 +199,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BaseEnemy_0: 730606322
-      BaseEnemy_1: -780394288
       BaseEnemy_2: 1907120607
-      BaseEnemy_3: -400010972
-      BaseEnemy_4: -144662247
+      BaseGun: 730606322
+      BaseShoot: -780394288
+      DeadEnemy: -400010972
+      EnemyIdle: -144662247
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

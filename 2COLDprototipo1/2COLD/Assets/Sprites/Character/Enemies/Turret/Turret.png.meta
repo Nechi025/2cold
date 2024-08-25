@@ -105,33 +105,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TurretHead
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 34
-        width: 45
-        height: 205
-      alignment: 9
-      pivot: {x: 0.4, y: 0.4}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4521910bcdcbbe64cb7e3a7d25d7f9b3
-      internalID: -1853845658
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: TurretBody
       rect:
         serializedVersion: 2
-        x: 60
-        y: 295
-        width: 125
+        x: 255
+        y: 240
+        width: 130
         height: 105
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -140,8 +119,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b238ba627cab5e54bb6a4c4110eb7419
-      internalID: 1234002134
+      spriteID: d8ce34e99ef94594c8a9b5606ad0fea8
+      internalID: -569746438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurretHead
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 240
+        width: 55
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b94370cd841f9684b97eaeb484491cd2
+      internalID: 1677722936
       vertices: []
       indices: 
       edges: []
@@ -157,8 +157,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      TurretBody: 1234002134
-      TurretHead: -1853845658
+      TurretBody: -569746438
+      TurretHead: 1677722936
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
