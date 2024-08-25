@@ -444,7 +444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1364d8a75f820c4699eff5b8e88aec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 4
+  range: 8
   angle: 130
   maskObs:
     serializedVersion: 2

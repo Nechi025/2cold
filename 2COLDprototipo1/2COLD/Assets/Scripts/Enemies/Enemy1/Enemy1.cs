@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy1 : MonoBehaviour
+
+public class Enemy1 : ManagedUpdateBehavior
 {
     public float speed = 0.3f;
     private float timerDir = 5f;
@@ -26,15 +27,25 @@ public class Enemy1 : MonoBehaviour
     // Referencia al componente LineOfSight
     [SerializeField] private LineOfSight lineOfSight;
 
+    // Referencia al CustomUpdateManager
+    private CustomUpdateManager customUpdateManager;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         Enemy1Anim = GetComponent<Animator>();
         initialPos = transform.position;
         GameManager.Instance.enemys++;
+
+        // Registrarse en el CustomUpdateManager
+        customUpdateManager = FindObjectOfType<CustomUpdateManager>();
+        if (customUpdateManager != null)
+        {
+            customUpdateManager.Register(this);
+        }
     }
 
-    private void Update()
+    public override void UpdateMe()
     {
         timerDir -= Time.deltaTime;
         if (!target)
@@ -46,9 +57,11 @@ public class Enemy1 : MonoBehaviour
         {
             tiempoCollision -= Time.deltaTime;
         }
+
+        FixedUpdateMe(); // Llamada al método para mover al enemigo
     }
 
-    private void FixedUpdate()
+    private void FixedUpdateMe()
     {
         if (target != null && lineOfSight.CheckRange(target) && lineOfSight.CheckAngle(target) && lineOfSight.CheckView(target))
         {
@@ -111,6 +124,15 @@ public class Enemy1 : MonoBehaviour
                 life.GetDamage(damage);
                 tiempoCollision = tiempoEntreCollision;
             }
+        }
+    }
+
+    private void OnDestroy()
+    {
+        // Desregistrarse del CustomUpdateManager
+        if (customUpdateManager != null)
+        {
+            customUpdateManager.Unregister(this);
         }
     }
 }
