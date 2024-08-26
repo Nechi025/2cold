@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Torreta : MonoBehaviour
+
+public class Torreta : ManagedUpdateBehavior
 {
     public Transform target;
     public float speed = 0f;
@@ -17,17 +18,26 @@ public class Torreta : MonoBehaviour
     private float timeToFire;
     [SerializeField] Life Vida;
 
-    // Nueva referencia a LineOfSight
+    // Referencia a LineOfSight
     [SerializeField] private LineOfSight lineOfSight;
+
+    // Referencia al CustomUpdateManager
+    private CustomUpdateManager customUpdateManager;
 
     // Start is called before the first frame update
     private void Start()
     {
         GameManager.Instance.enemys++;
+
+        // Registrarse en el CustomUpdateManager
+        customUpdateManager = FindObjectOfType<CustomUpdateManager>();
+        if (customUpdateManager != null)
+        {
+            customUpdateManager.Register(this);
+        }
     }
 
-    // Update is called once per frame
-    private void Update()
+    public override void UpdateMe()
     {
         if (!target)
         {
@@ -50,6 +60,10 @@ public class Torreta : MonoBehaviour
 
         if (Vida.unitLife <= 0)
         {
+            if (customUpdateManager != null)
+            {
+                customUpdateManager.Unregister(this);
+            }
             Destroy(gameObject);
         }
     }
@@ -70,7 +84,7 @@ public class Torreta : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void FixedUpdateMe()
     {
         if (target != null && lineOfSight.CheckRange(target) && lineOfSight.CheckAngle(target) && lineOfSight.CheckView(target))
         {
@@ -102,6 +116,15 @@ public class Torreta : MonoBehaviour
         else
         {
             target = null;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        // Desregistrarse del CustomUpdateManager
+        if (customUpdateManager != null)
+        {
+            customUpdateManager.Unregister(this);
         }
     }
 }

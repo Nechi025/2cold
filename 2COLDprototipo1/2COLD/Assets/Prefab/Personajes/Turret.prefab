@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7639466003306321579}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FiringPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,14 +93,14 @@ MonoBehaviour:
   m_NormalMapQuality: 2
   m_UseNormalMap: 0
   m_ShadowIntensityEnabled: 1
-  m_ShadowIntensity: 0.75
+  m_ShadowIntensity: 1
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
     m_Center: {x: 0, y: -0.00000011920929, z: 0}
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 0
-  m_PointLightOuterAngle: 1.99
+  m_PointLightOuterAngle: 1.87
   m_PointLightInnerRadius: 0
   m_PointLightOuterRadius: 4
   m_ShapeLightParametricSides: 5
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 8417700815837965461}
   - component: {fileID: 8417700815837965458}
   - component: {fileID: 5693582911707637010}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Turret
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -265,7 +265,8 @@ GameObject:
   - component: {fileID: 1055512443491643510}
   - component: {fileID: 578437493951451673}
   - component: {fileID: 5785904830773267355}
-  m_Layer: 0
+  - component: {fileID: 1335261120}
+  m_Layer: 7
   m_Name: TurretHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -353,7 +354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4708df4ee1678c42b917f883b449769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 5701317827357086552, guid: b0e24224cf7683448be96bc3b7d5035f, type: 3}
+  target: {fileID: 0}
   speed: 0
   rotateSpeed: 1
   rb: {fileID: 7124668181832255259}
@@ -364,7 +365,7 @@ MonoBehaviour:
   firingPoint: {fileID: 7639466003306321579}
   fireRate: 1
   Vida: {fileID: 956288980032862419}
-  lineOfSight: {fileID: 578437493951451673}
+  lineOfSight: {fileID: 1335261120}
 --- !u!114 &956288980032862419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -493,3 +494,20 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &1335261120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8417700816694317418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1364d8a75f820c4699eff5b8e88aec3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 12
+  angle: 171
+  maskObs:
+    serializedVersion: 2
+    m_Bits: 2048
