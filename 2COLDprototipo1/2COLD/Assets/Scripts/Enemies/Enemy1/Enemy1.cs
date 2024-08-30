@@ -27,8 +27,13 @@ public class Enemy1 : ManagedUpdateBehavior
     // Referencia al componente LineOfSight
     [SerializeField] private LineOfSight lineOfSight;
 
-    // Referencia al CustomUpdateManager
-    private CustomUpdateManager customUpdateManager;
+    // Instancia de ObstacleAvoidance2D
+    private ObstacleAvoidance obstacleAvoidance;
+
+    [Header("Evitación de obstáculos")]
+    [SerializeField] private float avoidanceAngle = 120f;
+    [SerializeField] private float avoidanceRadius = 2f;
+    [SerializeField] private LayerMask obstacleLayer;
 
     private void Start()
     {
@@ -37,12 +42,8 @@ public class Enemy1 : ManagedUpdateBehavior
         initialPos = transform.position;
         GameManager.Instance.enemys++;
 
-        // Registrarse en el CustomUpdateManager
-        customUpdateManager = FindObjectOfType<CustomUpdateManager>();
-        if (customUpdateManager != null)
-        {
-            customUpdateManager.Register(this);
-        }
+        // Inicializar ObstacleAvoidance2D
+        obstacleAvoidance = new ObstacleAvoidance(transform, avoidanceAngle, avoidanceRadius, obstacleLayer);
     }
 
     public override void UpdateMe()
@@ -57,16 +58,16 @@ public class Enemy1 : ManagedUpdateBehavior
         {
             tiempoCollision -= Time.deltaTime;
         }
-
-        FixedUpdateMe(); // Llamada al método para mover al enemigo
     }
 
-    private void FixedUpdateMe()
+    private void FixedUpdate()
     {
         if (target != null && lineOfSight.CheckRange(target) && lineOfSight.CheckAngle(target) && lineOfSight.CheckView(target))
         {
             direccion = target.position - transform.position;
-            posObj = transform.position + direccion * speed * Time.fixedDeltaTime;
+            Vector2 desiredDirection = obstacleAvoidance.GetDir(direccion.normalized);
+
+            posObj = transform.position + (Vector3)desiredDirection * speed * Time.fixedDeltaTime;
 
             if (direccion.magnitude < detectRange)
             {
@@ -124,15 +125,6 @@ public class Enemy1 : ManagedUpdateBehavior
                 life.GetDamage(damage);
                 tiempoCollision = tiempoEntreCollision;
             }
-        }
-    }
-
-    private void OnDestroy()
-    {
-        // Desregistrarse del CustomUpdateManager
-        if (customUpdateManager != null)
-        {
-            customUpdateManager.Unregister(this);
         }
     }
 }

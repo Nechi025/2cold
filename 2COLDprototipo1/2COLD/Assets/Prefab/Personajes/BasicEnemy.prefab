@@ -148,13 +148,13 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6605579946395666701}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.5
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3301cb21ed864d4c960a4650e21629d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 3
   rb: {fileID: 6919863001874830711}
   flajeloRender: {fileID: 6605579946395666702}
   target: {fileID: 5701317827357086552, guid: b0e24224cf7683448be96bc3b7d5035f, type: 3}
@@ -181,9 +181,14 @@ MonoBehaviour:
   tiempoEntreCollision: 3
   moveToPlayer: 0
   detectRange: 5.5
-  damage: 10
+  damage: 40
   Enemy1Anim: {fileID: 0}
   lineOfSight: {fileID: 31949008282920391}
+  avoidanceAngle: 120
+  avoidanceRadius: 1.5
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 16384
 --- !u!114 &1868268712341104537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,7 +449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1364d8a75f820c4699eff5b8e88aec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 8
+  range: 9
   angle: 130
   maskObs:
     serializedVersion: 2
