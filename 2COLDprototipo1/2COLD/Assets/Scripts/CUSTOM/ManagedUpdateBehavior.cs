@@ -4,28 +4,26 @@ using UnityEngine;
 
 public class ManagedUpdateBehavior : MonoBehaviour
 {
-    private CustomUpdateManager updateManager;
-
     protected virtual void Start()
     {
-        updateManager = FindObjectOfType<CustomUpdateManager>();
-        if (updateManager != null)
+        // Usar la instancia Singleton del CustomUpdateManager
+        if (CustomUpdateManager.Instance != null)
         {
-            updateManager.Register(this);
+            CustomUpdateManager.Instance.Register(this);
         }
     }
 
     protected virtual void OnDestroy()
     {
-        if (updateManager != null)
+        // Desregistrar el comportamiento cuando se destruye
+        if (CustomUpdateManager.Instance != null)
         {
-            updateManager.Unregister(this);
+            CustomUpdateManager.Instance.Unregister(this);
         }
     }
 
     public virtual void UpdateMe()
     {
-        
+        // Implementación del comportamiento específico en las clases derivadas
     }
 }
-

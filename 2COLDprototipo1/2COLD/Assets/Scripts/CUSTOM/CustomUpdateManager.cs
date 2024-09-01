@@ -4,9 +4,27 @@ using UnityEngine;
 
 public class CustomUpdateManager : MonoBehaviour
 {
+    // Singleton instance
+    public static CustomUpdateManager Instance { get; private set; }
+
+    // Lista de comportamientos registrados
     public List<ManagedUpdateBehavior> updateBehaviors = new List<ManagedUpdateBehavior>();
 
-    // Register a new ManagedUpdateBehavior
+    private void Awake()
+    {
+        // Implementación del patrón Singleton
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // Si quieres que persista entre escenas
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    // Registro de un nuevo comportamiento
     public void Register(ManagedUpdateBehavior behavior)
     {
         if (!updateBehaviors.Contains(behavior))
@@ -15,13 +33,13 @@ public class CustomUpdateManager : MonoBehaviour
         }
     }
 
-    // Unregister an existing ManagedUpdateBehavior
+    // Eliminación del registro de un comportamiento
     public void Unregister(ManagedUpdateBehavior behavior)
     {
         updateBehaviors.Remove(behavior);
     }
 
-    // Call UpdateMe on all registered behaviors
+    // Llamada al método UpdateMe en todos los comportamientos registrados
     private void Update()
     {
         foreach (var behavior in updateBehaviors)
