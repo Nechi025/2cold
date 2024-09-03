@@ -127,7 +127,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.017847776, y: -0.0073593855}
+  m_Offset: {x: 0.017847776, y: 0.0032157898}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -138,7 +138,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.94501877, y: 1.588747}
+  m_Size: {x: 0.94501877, y: 1.3137856}
   m_EdgeRadius: 0
 --- !u!50 &6919863001874830711
 Rigidbody2D:
@@ -174,21 +174,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  rb: {fileID: 6919863001874830711}
-  flajeloRender: {fileID: 6605579946395666702}
-  target: {fileID: 5701317827357086552, guid: b0e24224cf7683448be96bc3b7d5035f, type: 3}
+  detectRange: 5.5
   tiempoCollision: 0
   tiempoEntreCollision: 3
-  moveToPlayer: 0
-  detectRange: 5.5
   damage: 40
-  Enemy1Anim: {fileID: 0}
-  lineOfSight: {fileID: 31949008282920391}
   avoidanceAngle: 120
   avoidanceRadius: 1.5
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 16384
+  rb: {fileID: 6919863001874830711}
+  lineOfSight: {fileID: 31949008282920391}
+  enemyAnimator: {fileID: 0}
 --- !u!114 &1868268712341104537
 MonoBehaviour:
   m_ObjectHideFlags: 0

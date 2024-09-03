@@ -16,7 +16,7 @@ public class CustomUpdateManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Si quieres que persista entre escenas
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
