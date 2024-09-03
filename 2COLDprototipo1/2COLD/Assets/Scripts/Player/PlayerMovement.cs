@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : ManagedUpdateBehavior
 {
     public static PlayerMovement Instance; // Singleton instance
 
@@ -43,41 +43,43 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         activeMoveSpeed = moveSpeed;
     }
 
-    void Update()
+    public override void UpdateMe()
     {
-        // Si el jugador se mueve, actualizamos el tiempo de la última entrada de movimiento
         if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
         {
             GlobalPause.isPaused = true;
-            StartTimer(); // Inicia el temporizador cuando el jugador está inactivo
-            //SoundManager.Instance.PlaySound("Freeze");
-
+            StartTimer();
         }
         else
         {
             GlobalPause.isPaused = false;
-            ProgressivelyResetTimer(); // Reinicia el temporizador progresivamente cuando el jugador se mueve
+            ProgressivelyResetTimer();
         }
 
-
-        if (Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Vertical") == 1)
-        {
-            //SoundManager.Instance.PlaySound("Pasos");
-
-        }
-
-        // Rotar el jugador hacia la posición del ratón
         RotatePlayer();
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-        UpdateTimer();
 
         // Dash
+        HandleDash();
+
+        // Si el juego está pausado, salir del método de actualización
+        if (GlobalPause.IsPaused())
+            return;
+
+        rb.MovePosition(rb.position + movement * activeMoveSpeed * Time.fixedDeltaTime);
+
+        UpdateTimer();
+    }
+
+    private void HandleDash()
+    {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (dashCoolCounter <= 0 && dashCounter <= 0)
@@ -85,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
                 activeMoveSpeed = dashSpeed;
                 dashCounter = dashLength;
                 SoundManager.Instance.PlaySound("Dash");
-                isDashing = true; // El dash está activo
+                isDashing = true;
             }
         }
 
@@ -97,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 activeMoveSpeed = moveSpeed;
                 dashCoolCounter = dashCooldown;
-                isDashing = false; // El dash ya no está activo
+                isDashing = false;
             }
         }
 
@@ -105,33 +107,16 @@ public class PlayerMovement : MonoBehaviour
         {
             dashCoolCounter -= Time.deltaTime;
         }
-
-        // Si el juego está pausado, salir del método de actualización
-        if (GlobalPause.IsPaused())
-            return;
-
-        // Movemos al jugador según la entrada
-        rb.MovePosition(rb.position + movement * activeMoveSpeed * Time.fixedDeltaTime);
-
-        // Actualizar el temporizador
     }
 
     void RotatePlayer()
     {
-        // Obtener la posición del ratón en el mundo
         Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-
-        // Obtenemos la dirección hacia la posición del ratón
         Vector2 lookDir = mousePos - rb.position;
-
-        // Calculamos el ángulo para que el jugador mire hacia el ratón
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
-
-        // Aplicamos la rotación al Rigidbody
         rb.rotation = angle;
     }
 
-    // Iniciar el temporizador
     void StartTimer()
     {
         if (!isTimerRunning)
@@ -140,33 +125,28 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    // Reiniciar el temporizador progresivamente
     void ProgressivelyResetTimer()
     {
         if (isTimerRunning)
         {
-            // Reinicia progresivamente el temporizador hacia el valor de reinicio
             timer += timerResetSpeed * Time.deltaTime;
             if (timer > timerReset)
             {
-                timer = timerReset; // Limita el temporizador al valor de reinicio
+                timer = timerReset;
             }
         }
     }
 
-    // Actualizar el temporizador
     void UpdateTimer()
     {
         if (isTimerRunning)
         {
-            timer -= Time.deltaTime; // Reducir el temporizador
+            timer -= Time.deltaTime;
             if (timer <= 0f)
             {
-                // Si el temporizador llega a cero, el jugador pierde
                 Debug.Log("¡Tiempo agotado! ¡El jugador pierde!");
                 LifeS life = transform.GetComponent<LifeS>();
                 life.GetDamage(100);
-                // Aquí puedes agregar el código para manejar la pérdida del jugador, como reiniciar el nivel o mostrar un mensaje de game over
             }
         }
     }
