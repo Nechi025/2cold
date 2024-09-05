@@ -2,100 +2,129 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Enemy1 : ManagedUpdateBehavior
 {
-    [Header("Movement")]
     public float speed = 0.3f;
-    [SerializeField] private float detectRange = 10f;
+    private float timerDir = 5f;
+    [SerializeField] Rigidbody2D rb;
+    [SerializeField] SpriteRenderer flajeloRender;
+    public Transform target;
+    [SerializeField] private float tiempoCollision;
+    [SerializeField] private float tiempoEntreCollision;
+    public bool moveToPlayer;
 
-    [Header("Collision Settings")]
-    [SerializeField] private float tiempoCollision = 0.5f;
-    [SerializeField] private float tiempoEntreCollision = 0.5f;
-    [SerializeField] private int damage = 10;
-    private float collisionTimer;
+    protected Vector3 direccion;
+    protected Vector3 posObj;
 
-    [Header("Obstacle Avoidance")]
+    [Header("Deteccion de rango")]
+    [SerializeField] public float detectRange;
+
+    Vector2 initialPos;
+    [SerializeField] int damage;
+    [SerializeField] private Animator Enemy1Anim;
+
+    // Referencia al componente LineOfSight
+    [SerializeField] private LineOfSight lineOfSight;
+
+    // Instancia de ObstacleAvoidance2D
+    private ObstacleAvoidance obstacleAvoidance;
+
+    [Header("Evitación de obstáculos")]
     [SerializeField] private float avoidanceAngle = 120f;
     [SerializeField] private float avoidanceRadius = 2f;
     [SerializeField] private LayerMask obstacleLayer;
 
-    [Header("References")]
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private LineOfSight lineOfSight;
-    [SerializeField] private Animator enemyAnimator;
-
-    private ObstacleAvoidance obstacleAvoidance;
-    private Transform target;
-    private Vector3 posObj;
-    private Vector3 initialPos;
-
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        enemyAnimator = GetComponent<Animator>();
+        Enemy1Anim = GetComponent<Animator>();
         initialPos = transform.position;
-        obstacleAvoidance = new ObstacleAvoidance(transform, avoidanceAngle, avoidanceRadius, obstacleLayer);
-
         GameManager.Instance.enemys++;
-        GetTarget();
+
+        // Inicializar ObstacleAvoidance2D
+        obstacleAvoidance = new ObstacleAvoidance(transform, avoidanceAngle, avoidanceRadius, obstacleLayer);
     }
 
     public override void UpdateMe()
     {
-        collisionTimer -= Time.deltaTime;
-
+        timerDir -= Time.deltaTime;
         if (!target)
         {
             GetTarget();
+        }
+
+        if (tiempoCollision > 0)
+        {
+            tiempoCollision -= Time.deltaTime;
         }
     }
 
     private void FixedUpdate()
     {
-        if (target == null || !lineOfSight.CheckRange(target) || !lineOfSight.CheckAngle(target) || !lineOfSight.CheckView(target))
+        if (target != null && lineOfSight.CheckRange(target) && lineOfSight.CheckAngle(target) && lineOfSight.CheckView(target))
         {
-            return; // Early exit if no target or not within sight
+            direccion = target.position - transform.position;
+            Vector2 desiredDirection = obstacleAvoidance.GetDir(direccion.normalized);
+
+            posObj = transform.position + (Vector3)desiredDirection * speed * Time.fixedDeltaTime;
+
+            if (direccion.magnitude < detectRange)
+            {
+                if (!target)
+                {
+                    GetTarget();
+                }
+                else if (target != null)
+                {
+                    if (GlobalPause.IsPaused())
+                        return;
+
+                    moveToPlayer = true;
+                    rb.MovePosition(posObj);
+                    LookDir(target.position, transform.position);
+                }
+                else
+                {
+                    moveToPlayer = false;
+                }
+            }
         }
-
-        Vector3 direction = (target.position - transform.position).normalized;
-        Vector2 adjustedDirection = obstacleAvoidance.GetDir(direction);
-        posObj = transform.position + (Vector3)adjustedDirection * speed * Time.fixedDeltaTime;
-
-        if (Vector2.Distance(transform.position, target.position) < detectRange)
+        else
         {
-            if (GlobalPause.IsPaused())
-                return;
-
-            rb.MovePosition(posObj);
-            LookDir(target.position);
+            moveToPlayer = false; // Si el jugador no está en rango o ángulo de visión, no se mueve
         }
     }
 
-    private void LookDir(Vector2 targetPos)
+    public void LookDir(Vector2 posA, Vector2 posB)
     {
-        Vector2 lookDir = targetPos - (Vector2)transform.position;
+        Vector2 lookDir = posA - posB;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
         rb.rotation = angle;
     }
 
     private void GetTarget()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        target = player ? player.transform : null;
+        if (GameObject.FindGameObjectWithTag("Player"))
+        {
+            target = GameObject.FindGameObjectWithTag("Player").transform;
+        }
+        else
+        {
+            target = null;
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collisionTimer > 0 || collision.gameObject.layer != 9)
+        if (tiempoCollision <= 0)
         {
-            return;
-        }
-
-        LifeS life = collision.transform.GetComponent<LifeS>();
-        if (life != null)
-        {
-            life.GetDamage(damage);
-            collisionTimer = tiempoEntreCollision;
+            if (collision.gameObject.layer == 9)
+            {
+                LifeS life = collision.transform.GetComponent<LifeS>();
+                life.GetDamage(damage);
+                tiempoCollision = tiempoEntreCollision;
+            }
         }
     }
 }

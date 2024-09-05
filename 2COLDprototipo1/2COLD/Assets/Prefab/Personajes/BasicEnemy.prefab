@@ -173,19 +173,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3301cb21ed864d4c960a4650e21629d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  detectRange: 5.5
+  speed: 6
+  rb: {fileID: 6919863001874830711}
+  flajeloRender: {fileID: 0}
+  target: {fileID: 0}
   tiempoCollision: 0
   tiempoEntreCollision: 3
+  moveToPlayer: 0
+  detectRange: 5.5
   damage: 40
+  Enemy1Anim: {fileID: 0}
+  lineOfSight: {fileID: 31949008282920391}
   avoidanceAngle: 120
   avoidanceRadius: 1.5
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 16384
-  rb: {fileID: 6919863001874830711}
-  lineOfSight: {fileID: 31949008282920391}
-  enemyAnimator: {fileID: 0}
 --- !u!114 &1868268712341104537
 MonoBehaviour:
   m_ObjectHideFlags: 0

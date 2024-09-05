@@ -69,13 +69,15 @@ public class PlayerMovement : ManagedUpdateBehavior
         // Dash
         HandleDash();
 
+        UpdateTimer();
+
         // Si el juego está pausado, salir del método de actualización
         if (GlobalPause.IsPaused())
             return;
 
         rb.MovePosition(rb.position + movement * activeMoveSpeed * Time.fixedDeltaTime);
 
-        UpdateTimer();
+        
     }
 
     private void HandleDash()

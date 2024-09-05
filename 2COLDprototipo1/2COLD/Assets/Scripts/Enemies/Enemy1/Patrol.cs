@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Patrol : MonoBehaviour
 {
-    private Enemy1 _model;
-    [SerializeField] private float patrolSpeed = 2f;
+    Enemy1 _model;
+    [SerializeField] private float patrolSpeed;
     [SerializeField] private Transform[] patrolPoints;
-    [SerializeField] private float minDistance = 0.1f;
+    [SerializeField] private float minDistance;
     private int nextPoint = 0;
 
     private void Awake()
@@ -17,24 +17,24 @@ public class Patrol : MonoBehaviour
 
     private void Update()
     {
-        if (GlobalPause.IsPaused()) return;
-
-        PatrolMovement();
-    }
-
-    private void PatrolMovement()
-    {
-        Vector2 targetPosition = patrolPoints[nextPoint].position;
-        transform.position = Vector2.MoveTowards(transform.position, targetPosition, patrolSpeed * Time.deltaTime);
-
-        // Rotar hacia el punto de patrullaje usando Quaternion.Lerp para suavizar la rotación
-        Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, angle), patrolSpeed * Time.deltaTime);
-
-        if (Vector2.Distance(transform.position, targetPosition) < minDistance)
+        if (!_model.moveToPlayer)
         {
-            nextPoint = (nextPoint + 1) % patrolPoints.Length;
+            if (GlobalPause.IsPaused())
+                return;
+
+            Vector2 targetPosition = patrolPoints[nextPoint].position;
+            transform.position = Vector2.MoveTowards(transform.position, targetPosition, patrolSpeed * Time.deltaTime);
+
+            _model.LookDir(targetPosition, transform.position);
+
+            if (Vector2.Distance(transform.position, targetPosition) < minDistance)
+            {
+                nextPoint++;
+                if (nextPoint >= patrolPoints.Length)
+                {
+                    nextPoint = 0;
+                }
+            }
         }
     }
 }
