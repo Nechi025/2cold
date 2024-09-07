@@ -41,6 +41,10 @@ public class Enemy1 : ManagedUpdateBehavior
         Enemy1Anim = GetComponent<Animator>();
         initialPos = transform.position;
         GameManager.Instance.enemys++;
+        if (!target)
+        {
+            GetTarget();
+        }
 
         // Inicializar ObstacleAvoidance2D
         obstacleAvoidance = new ObstacleAvoidance(transform, avoidanceAngle, avoidanceRadius, obstacleLayer);

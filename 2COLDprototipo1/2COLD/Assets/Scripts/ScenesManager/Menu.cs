@@ -16,8 +16,8 @@ public class Menu : MonoBehaviour
     private void Start()
     {
         elBoton.interactable = true;
-        Option.interactable = true;
-        back.interactable = true;
+        //Option.interactable = true;
+        //back.interactable = true;
 
     }
     //public void OnPanelChange(GameObject panelToGo)
