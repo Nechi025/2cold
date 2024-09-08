@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class Enemy1 : ManagedUpdateBehavior
 {
     public float speed = 0.3f;
@@ -34,6 +33,13 @@ public class Enemy1 : ManagedUpdateBehavior
     [SerializeField] private float avoidanceAngle = 120f;
     [SerializeField] private float avoidanceRadius = 2f;
     [SerializeField] private LayerMask obstacleLayer;
+
+    [Header("Shooting")]
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Transform firingPoint;
+    [SerializeField] private float fireRate = 1f; // Tiempo entre disparos
+    [SerializeField] private float bulletForce = 5f;
+    private float nextTimeToFire = 0f;
 
     private void Start()
     {
@@ -87,6 +93,13 @@ public class Enemy1 : ManagedUpdateBehavior
                     moveToPlayer = true;
                     rb.MovePosition(posObj);
                     LookDir(target.position, transform.position);
+
+                    // Disparar si es tiempo de hacerlo
+                    if (Time.time >= nextTimeToFire)
+                    {
+                        Shoot();
+                        nextTimeToFire = Time.time + 1f / fireRate;
+                    }
                 }
                 else
                 {
@@ -98,6 +111,13 @@ public class Enemy1 : ManagedUpdateBehavior
         {
             moveToPlayer = false; // Si el jugador no está en rango o ángulo de visión, no se mueve
         }
+    }
+
+    private void Shoot()
+    {
+        GameObject bullet = Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
+        Rigidbody2D rbBullet = bullet.GetComponent<Rigidbody2D>();
+        rbBullet.AddForce(firingPoint.up * bulletForce, ForceMode2D.Impulse);
     }
 
     public void LookDir(Vector2 posA, Vector2 posB)

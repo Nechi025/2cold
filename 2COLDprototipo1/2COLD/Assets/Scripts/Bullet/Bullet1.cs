@@ -50,7 +50,7 @@ public class Bullet1 : MonoBehaviour /*IBullet*/
 
     }
 
-    public void OnCollisionEnter2D(Collision2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         Destroy(gameObject);
 
