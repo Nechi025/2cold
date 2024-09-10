@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ab254283de2dcd64d9944cca4ebf4423
+guid: 388962f2bc191984f93497cae1167c80
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,64 +105,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player
+      name: MenuCloud
       rect:
         serializedVersion: 2
-        x: 0
-        y: 240
-        width: 160
-        height: 90
+        x: 60
+        y: 485
+        width: 180
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a40956a2d483d5c438c0932c0bc6ec27
-      internalID: -47061264
+      spriteID: 518e40f60f0003543afab12b62886e84
+      internalID: 628388944
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerGun1
+      name: MenuHead
       rect:
         serializedVersion: 2
-        x: 240
-        y: 240
-        width: 160
-        height: 195
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+        x: 340
+        y: 420
+        width: 320
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfbae5dfe54a25a42bbf0925127b86ab
-      internalID: -1319934478
+      spriteID: e42657284b959114ebc5be8f5c024ef1
+      internalID: -1460750767
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerShooting1
+      name: MenuBody
       rect:
         serializedVersion: 2
-        x: 480
-        y: 240
-        width: 160
-        height: 240
-      alignment: 9
-      pivot: {x: 0.5, y: 0.225}
+        x: 20
+        y: 0
+        width: 960
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc1713fafb3476d459a6c28961fcb0d6
-      internalID: -402732077
+      spriteID: d36aeda690f82b94f88669908c16033b
+      internalID: -165523941
       vertices: []
       indices: 
       edges: []
@@ -176,25 +176,11 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-    secondaryTextures:
-    - texture: {fileID: 2800000, guid: c170928974dbb4b4688a55c0d86836b9, type: 3}
-      name: _PlayerGlow
-    - texture: {fileID: 2800000, guid: b90b4e73a7aeb5d469be5df3f7bc7c6a, type: 3}
-      name: _PlayerNormal
+    secondaryTextures: []
     nameFileIdTable:
-      Player: -47061264
-      PlayerGun1: -1319934478
-      PlayerShooting1: -402732077
-      Player_10: -723413913
-      Player_11: 459823062
-      Player_12: -1958881124
-      Player_2: -607504511
-      Player_4: -475167885
-      Player_5: -107088311
-      Player_6: 1644554599
-      Player_7: 1950817753
-      Player_8: 1546526692
-      Player_9: 1013212587
+      MenuBody: -165523941
+      MenuCloud: 628388944
+      MenuHead: -1460750767
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
