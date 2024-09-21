@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fcf3e85f5e6f7004fab7cb604e062139
+guid: 6d4c19855cbb3db4d93a91c35edc7cb6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,64 +105,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayButton
+      name: ResumeButtonP
       rect:
         serializedVersion: 2
-        x: 0
-        y: 680
-        width: 1950
-        height: 180
+        x: 65
+        y: 340
+        width: 445
+        height: 80
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58a7431d990480147aef6d5f68978534
-      internalID: -1608107307
+      spriteID: 4477652e0fb52e64a9865f3865be6617
+      internalID: -1155692288
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OptionsButton
+      name: RestartButtonP
       rect:
         serializedVersion: 2
-        x: 0
-        y: 480
-        width: 1950
-        height: 180
+        x: 25
+        y: 180
+        width: 530
+        height: 80
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45cf9c2fbe8dbe94c8f6685e4aaace79
-      internalID: 540337671
+      spriteID: abfc9e46016b58f48baf4ba7ba48eb2d
+      internalID: -157412111
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ExitButton
+      name: ExitButtonP
       rect:
         serializedVersion: 2
-        x: 0
-        y: 280
-        width: 1950
-        height: 180
+        x: 150
+        y: 20
+        width: 265
+        height: 80
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4158fadbafec06e4eb04927c4773de2c
-      internalID: 1989979148
+      spriteID: 23cbf26b2c08fc04e978de487a981808
+      internalID: 1537385241
       vertices: []
       indices: 
       edges: []
@@ -178,9 +178,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ExitButton: 1989979148
-      OptionsButton: 540337671
-      PlayButton: -1608107307
+      ExitButtonP: 1537385241
+      RestartButtonP: -157412111
+      ResumeButtonP: -1155692288
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
