@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 6605579946395666696}
   - component: {fileID: 6090694684816229663}
   - component: {fileID: 6919863001874830711}
-  - component: {fileID: 6776605694902832154}
+  - component: {fileID: 9074408030394823401}
   - component: {fileID: 1868268712341104537}
-  - component: {fileID: 232021060542952849}
+  - component: {fileID: 2528652710879429108}
   m_Layer: 7
-  m_Name: BasicEnemy
+  m_Name: BasicEnemy2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 730606322, guid: 62fba42b387604a47a4b267708098175, type: 3}
+  m_Sprite: {fileID: -144662247, guid: 62fba42b387604a47a4b267708098175, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -130,7 +130,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1.6}
+    oldSize: {x: 1.95, y: 1.6}
     newSize: {x: 1, y: 1.6}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -160,7 +160,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6776605694902832154
+--- !u!114 &9074408030394823401
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,25 +169,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 6605579946395666701}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3301cb21ed864d4c960a4650e21629d, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a9686f0799295c499b82fcf2f61d412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
   rb: {fileID: 6919863001874830711}
-  flajeloRender: {fileID: 0}
   target: {fileID: 0}
   tiempoCollision: 0
   tiempoEntreCollision: 2
   moveToPlayer: 0
   detectRange: 5.5
+  shootingRange: 5
   damage: 40
-  Enemy1Anim: {fileID: 0}
+  Enemy2Anim: {fileID: 6605579946395666696}
   lineOfSight: {fileID: 31949008282920391}
   avoidanceAngle: 120
-  avoidanceRadius: 1.5
+  avoidanceRadius: 2
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 16384
+  bulletPrefab: {fileID: 5291808506690161807, guid: 94d78b72078020046b9ef169e291b35a, type: 3}
+  firingPoint: {fileID: 3979098790334468690}
+  fireRate: 1
+  bulletForce: 7
 --- !u!114 &1868268712341104537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,7 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitLife: 100
   objetoDrop: {fileID: 0}
---- !u!114 &232021060542952849
+--- !u!114 &2528652710879429108
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -211,7 +215,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6605579946395666701}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6514c335a5859c04c945186cc05dfa89, type: 3}
+  m_Script: {fileID: 11500000, guid: e7683fad28a04e14b94a864e1aeee57a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   patrolSpeed: 2

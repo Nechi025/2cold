@@ -2,26 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy1 : ManagedUpdateBehavior
+public class Enemy2 : ManagedUpdateBehavior
 {
     public float speed = 0.3f;
-    private float timerDir = 5f;
     [SerializeField] Rigidbody2D rb;
-    [SerializeField] SpriteRenderer flajeloRender;
     public Transform target;
     [SerializeField] private float tiempoCollision;
     [SerializeField] private float tiempoEntreCollision;
-    public bool moveToPlayer;
+    public bool moveToPlayer = false; // Esta variable controla si se debe patrullar o perseguir al jugador.
 
     protected Vector3 direccion;
     protected Vector3 posObj;
 
     [Header("Deteccion de rango")]
     [SerializeField] public float detectRange;
+    [SerializeField] private float shootingRange; // Rango de disparo
 
-    Vector2 initialPos;
     [SerializeField] int damage;
-    [SerializeField] private Animator Enemy1Anim;
+    [SerializeField] private Animator Enemy2Anim;
 
     // Referencia al componente LineOfSight
     [SerializeField] private LineOfSight lineOfSight;
@@ -34,19 +32,17 @@ public class Enemy1 : ManagedUpdateBehavior
     [SerializeField] private float avoidanceRadius = 2f;
     [SerializeField] private LayerMask obstacleLayer;
 
-    //[Header("Shooting")]
-    //[SerializeField] private GameObject bulletPrefab;
-    //[SerializeField] private Transform firingPoint;
-    //[SerializeField] private float fireRate = 1f; // Tiempo entre disparos
-    //[SerializeField] private float bulletForce = 5f;
-    //private float nextTimeToFire = 0f;
+    [Header("Shooting")]
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Transform firingPoint;
+    [SerializeField] private float fireRate = 1f; // Tiempo entre disparos
+    [SerializeField] private float bulletForce = 5f;
+    private float nextTimeToFire = 0f;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        Enemy1Anim = GetComponent<Animator>();
-        initialPos = transform.position;
-        GameManager.Instance.enemys++;
+        Enemy2Anim = GetComponent<Animator>();
         if (!target)
         {
             GetTarget();
@@ -58,7 +54,6 @@ public class Enemy1 : ManagedUpdateBehavior
 
     public override void UpdateMe()
     {
-        timerDir -= Time.deltaTime;
         if (!target)
         {
             GetTarget();
@@ -72,53 +67,53 @@ public class Enemy1 : ManagedUpdateBehavior
 
     private void FixedUpdate()
     {
+        // Verificar si el jugador está en rango de detección y en el ángulo de visión
         if (target != null && lineOfSight.CheckRange(target) && lineOfSight.CheckAngle(target) && lineOfSight.CheckView(target))
         {
+            moveToPlayer = true; // Priorizar la persecución del jugador
             direccion = target.position - transform.position;
             Vector2 desiredDirection = obstacleAvoidance.GetDir(direccion.normalized);
 
-            posObj = transform.position + (Vector3)desiredDirection * speed * Time.fixedDeltaTime;
+            float distanceToPlayer = direccion.magnitude;
 
-            if (direccion.magnitude < detectRange)
+            // Si está fuera del rango de disparo, moverse hacia el jugador
+            if (distanceToPlayer > shootingRange)
             {
-                if (!target)
-                {
-                    GetTarget();
-                }
-                else if (target != null)
-                {
-                    if (GlobalPause.IsPaused())
-                        return;
+                if (GlobalPause.IsPaused())
+                    return;
 
-                    moveToPlayer = true;
-                    rb.MovePosition(posObj);
-                    LookDir(target.position, transform.position);
+                Vector3 posObj = transform.position + (Vector3)desiredDirection * speed * Time.fixedDeltaTime;
+                rb.MovePosition(posObj);
+                LookDir(target.position, transform.position);
+            }
+            // Si está dentro del rango de disparo, disparar
+            else if (distanceToPlayer <= shootingRange)
+            {
+                if (GlobalPause.IsPaused())
+                    return;
 
-                    //// Disparar si es tiempo de hacerlo
-                    //if (Time.time >= nextTimeToFire)
-                    //{
-                    //    Shoot();
-                    //    nextTimeToFire = Time.time + 1f / fireRate;
-                    //}
-                }
-                else
+                LookDir(target.position, transform.position);
+
+                // Disparar si es tiempo de hacerlo
+                if (Time.time >= nextTimeToFire)
                 {
-                    moveToPlayer = false;
+                    Shoot();
+                    nextTimeToFire = Time.time + 1f / fireRate;
                 }
             }
         }
         else
         {
-            moveToPlayer = false; // Si el jugador no está en rango o ángulo de visión, no se mueve
+            moveToPlayer = false; // Si no detecta al jugador, habilitar el patrullaje
         }
     }
 
-    //private void Shoot()
-    //{
-    //    GameObject bullet = Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
-    //    Rigidbody2D rbBullet = bullet.GetComponent<Rigidbody2D>();
-    //    rbBullet.AddForce(firingPoint.up * bulletForce, ForceMode2D.Impulse);
-    //}
+    private void Shoot()
+    {
+        GameObject bullet = Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
+        Rigidbody2D rbBullet = bullet.GetComponent<Rigidbody2D>();
+        rbBullet.AddForce(firingPoint.up * bulletForce, ForceMode2D.Impulse);
+    }
 
     public void LookDir(Vector2 posA, Vector2 posB)
     {

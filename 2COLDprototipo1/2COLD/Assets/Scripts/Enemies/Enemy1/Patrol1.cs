@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Patrol : MonoBehaviour
+public class Patrol1 : MonoBehaviour
 {
-    Enemy1 _model;
     
+    Enemy2 _model2;
     [SerializeField] private float patrolSpeed;
     [SerializeField] private Transform[] patrolPoints;
     [SerializeField] private float minDistance;
@@ -13,13 +13,13 @@ public class Patrol : MonoBehaviour
 
     private void Awake()
     {
-        _model = GetComponent<Enemy1>();
         
+        _model2 = GetComponent<Enemy2>();
     }
 
     private void Update()
     {
-        if (!_model.moveToPlayer)
+        if (!_model2.moveToPlayer)
         {
             if (GlobalPause.IsPaused())
                 return;
@@ -27,7 +27,7 @@ public class Patrol : MonoBehaviour
             Vector2 targetPosition = patrolPoints[nextPoint].position;
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, patrolSpeed * Time.deltaTime);
 
-            _model.LookDir(targetPosition, transform.position);
+            _model2.LookDir(targetPosition, transform.position);
 
             if (Vector2.Distance(transform.position, targetPosition) < minDistance)
             {
