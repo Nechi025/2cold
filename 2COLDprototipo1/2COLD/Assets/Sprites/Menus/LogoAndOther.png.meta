@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f1940cb6db568854d9d06b82f3392eb0
+guid: 48051563bf3da444da15e62f1d17141d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -36,9 +36,9 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 2
-    wrapV: 2
-    wrapW: 2
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -105,51 +105,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ColdMistBelowZero_0
+      name: Title
       rect:
         serializedVersion: 2
-        x: 0
-        y: 760
-        width: 1980
-        height: 320
+        x: 160
+        y: 580
+        width: 1060
+        height: 350
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -719, y: 150}
-        - {x: -737, y: 160}
-        - {x: -689, y: 155}
-        - {x: -691, y: 148}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bc4913b51186074f901e66492f88dd7
-      internalID: 1565719951
+      spriteID: 9866b4b9635e47045b14252cff734620
+      internalID: 78033365
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ColdMistBelowZero_1
+      name: AppLogo
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1980
-        height: 280
+        x: 150
+        y: 100
+        width: 350
+        height: 350
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -963, y: -166}
-        - {x: -959, y: -149}
-        - {x: -942, y: -153}
-        - {x: -902, y: -166}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 332c3b0d773389c4eb092ec4fd6077bb
-      internalID: -620590823
+      spriteID: b1e8e6456d3d3a3469fd87b8741e1b16
+      internalID: 218494656
       vertices: []
       indices: 
       edges: []
@@ -158,15 +150,15 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ColdMistBelowZero_0: 1565719951
-      ColdMistBelowZero_1: -620590823
+      AppLogo: 218494656
+      Title: 78033365
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
