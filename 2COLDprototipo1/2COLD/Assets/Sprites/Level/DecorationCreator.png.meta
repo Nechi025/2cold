@@ -482,6 +482,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: LaserBox
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 760
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ec20b7aad9b12c4786456ac51bb6626
+      internalID: -534846692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -500,6 +521,7 @@ TextureImporter:
       FloodLight: 412357582
       LabCountertop: 1245734051
       LargeBox: 1744734182
+      LaserBox: -534846692
       LiquidGenerator: 2010748785
       Lockers: 984826267
       ServerComputer: -1084595787
