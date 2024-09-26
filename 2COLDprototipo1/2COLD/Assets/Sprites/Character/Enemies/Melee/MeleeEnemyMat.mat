@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TurretMat
+  m_Name: MeleeEnemyMat
   m_Shader: {fileID: -6465566751694194690, guid: 893bb216f2c85f140bdfebff29ea49ab, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -25,7 +25,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 232fe082051e8d2448c8acf404d120b0, type: 3}
+        m_Texture: {fileID: 2800000, guid: 62fba42b387604a47a4b267708098175, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal:
@@ -33,11 +33,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _PlayerGlow:
-        m_Texture: {fileID: 2800000, guid: 06b0817b809bfac41be6b992d2e36b48, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _PlayerNormal:
-        m_Texture: {fileID: 2800000, guid: 2f4f9a9d1920e3e468c2b9a748e939b3, type: 3}
+        m_Texture: {fileID: 2800000, guid: 983a6de981e50444e826ba181bcb09ba, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -56,5 +56,5 @@ Material:
     m_Floats:
     - _Intensity: 100
     m_Colors:
-    - _GlowColor: {r: 1, g: 0.94151735, b: 0.4666667, a: 0}
+    - _GlowColor: {r: 1, g: 0.9190924, b: 0, a: 0}
   m_BuildTextureStacks: []
