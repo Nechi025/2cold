@@ -49,28 +49,22 @@ public class Char_Animation : MonoBehaviour
     void Update()
     {
 
-        //Lógica de animación de movimiento
+        // Obtén el valor de movimiento en ambos ejes
         movimientoHorizontal = Input.GetAxisRaw("Horizontal");
         movimientoVertical = Input.GetAxisRaw("Vertical");
 
-        //controla el render de particulas
-        //polvoRender.flip = flip;
+        // Calcula la magnitud total del movimiento
+        float movimientoTotal = Mathf.Abs(movimientoHorizontal) + Mathf.Abs(movimientoVertical);
 
-
-
-
-
-        if (Mathf.Abs(movimientoHorizontal) > 0 && Mathf.Abs(movimientoVertical) <= 0)
+        // Si hay movimiento, actualiza el Float "Speed" para reproducir la animación
+        if (movimientoTotal > 0)
         {
-            Movimiento(movimientoHorizontal);
+            playerAnim.SetFloat("Speed", 1); // El valor 1 activa la animación de movimiento
         }
-        else if (Mathf.Abs(movimientoHorizontal) <= 0 && Mathf.Abs(movimientoVertical) > 0)
+        else
         {
-            Movimiento(movimientoVertical);
-        }
-        else if (Mathf.Abs(movimientoHorizontal) <= 0.1f && Mathf.Abs(movimientoVertical) <= 0.1f)
-        {
-            Movimiento(0);
+            // Si no hay movimiento, poner el valor en 0 para detener la animación
+            playerAnim.SetFloat("Speed", 0);
         }
 
         //Lógica de particulas

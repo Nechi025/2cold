@@ -26,9 +26,10 @@ public class CombateCaC : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Mouse1) && tiempoSiguienteAtaque <= 0)
         {
-            Golpe();
             playerAnim.SetBool("Melee", true);
-            //animator.SetTrigger("Attack2");
+            Golpe();
+            
+            
             SoundManager.Instance.PlaySound("Punch");
             tiempoSiguienteAtaque = tiempoEntreAtaques;
         }
