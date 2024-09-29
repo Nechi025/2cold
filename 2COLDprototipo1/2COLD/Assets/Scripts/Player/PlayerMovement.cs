@@ -30,6 +30,9 @@ public class PlayerMovement : ManagedUpdateBehavior
     // Nuevo código para el dash
     public bool isDashing = false; // Bandera para indicar si el dash está activo
 
+    public Animator playerAnim;
+
+
     void Awake()
     {
         // Setup the singleton instance
@@ -89,6 +92,7 @@ public class PlayerMovement : ManagedUpdateBehavior
                 activeMoveSpeed = dashSpeed;
                 dashCounter = dashLength;
                 SoundManager.Instance.PlaySound("Dash");
+                playerAnim.SetBool("Sliding", true);
                 isDashing = true;
             }
         }
@@ -102,6 +106,7 @@ public class PlayerMovement : ManagedUpdateBehavior
                 activeMoveSpeed = moveSpeed;
                 dashCoolCounter = dashCooldown;
                 isDashing = false;
+                playerAnim.SetBool("Sliding", false);
             }
         }
 

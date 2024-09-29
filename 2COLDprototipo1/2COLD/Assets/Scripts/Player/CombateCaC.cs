@@ -13,13 +13,10 @@ public class CombateCaC : MonoBehaviour
     [SerializeField] private float tiempoEntreAtaques;
 
     [SerializeField] private float tiempoSiguienteAtaque;
+    public Animator playerAnim;
 
-    //Animator animator;
 
-    //void Start()
-    //{
-    //    //animator = GetComponent<Animator>();
-    //}
+    
 
     private void Update()
     {
@@ -30,6 +27,7 @@ public class CombateCaC : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse1) && tiempoSiguienteAtaque <= 0)
         {
             Golpe();
+            playerAnim.SetBool("Melee", true);
             //animator.SetTrigger("Attack2");
             SoundManager.Instance.PlaySound("Punch");
             tiempoSiguienteAtaque = tiempoEntreAtaques;

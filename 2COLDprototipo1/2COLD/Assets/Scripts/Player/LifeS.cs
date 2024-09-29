@@ -21,6 +21,7 @@ public class LifeS : MonoBehaviour
     public void GetDamage(int value)
     {
         //SoundManager.Instance.PlaySound("Body_Impact");
+        playerAnim.SetBool("Damaged", true);
         unitLifes -= value;
         if (unitLifes <= 0)
         {
@@ -49,5 +50,11 @@ public class LifeS : MonoBehaviour
         // Guarda el nombre del nivel actual antes de cargar la escena de derrota
         string currentSceneName = SceneManager.GetActiveScene().name;
         PlayerPrefs.SetString("LastLevel", currentSceneName);
+    }
+
+    private IEnumerator ResetDamagedAnimation()
+    {
+        yield return new WaitForSeconds(1.5f);
+        playerAnim.SetBool("Damaged", false);
     }
 }
