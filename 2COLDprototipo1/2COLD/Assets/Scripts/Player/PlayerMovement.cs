@@ -31,6 +31,9 @@ public class PlayerMovement : ManagedUpdateBehavior
     public bool isDashing = false; // Bandera para indicar si el dash está activo
 
     public Animator playerAnim;
+    private string currentState;
+    const string PlayIdle = "PlayIdle";
+    const string PlaySlidingAnim = "Slide";
 
 
     void Awake()
@@ -50,6 +53,13 @@ public class PlayerMovement : ManagedUpdateBehavior
     {
         base.Start();
         activeMoveSpeed = moveSpeed;
+    }
+
+    void ChangeAnimationState(string newState)
+    {
+        if (currentState == newState) return;
+        playerAnim.Play(newState);
+        currentState = newState;
     }
 
     public override void UpdateMe()
@@ -92,7 +102,7 @@ public class PlayerMovement : ManagedUpdateBehavior
                 activeMoveSpeed = dashSpeed;
                 dashCounter = dashLength;
                 SoundManager.Instance.PlaySound("Dash");
-                playerAnim.SetBool("Sliding", true);
+                ChangeAnimationState(PlaySlidingAnim);
                 isDashing = true;
             }
         }
@@ -106,7 +116,7 @@ public class PlayerMovement : ManagedUpdateBehavior
                 activeMoveSpeed = moveSpeed;
                 dashCoolCounter = dashCooldown;
                 isDashing = false;
-                playerAnim.SetBool("Sliding", false);
+                ChangeAnimationState(PlayIdle);
             }
         }
 

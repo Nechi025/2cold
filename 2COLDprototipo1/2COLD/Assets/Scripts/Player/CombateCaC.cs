@@ -14,19 +14,21 @@ public class CombateCaC : MonoBehaviour
 
     [SerializeField] private float tiempoSiguienteAtaque;
     public Animator playerAnim;
+    [SerializeField] const string PlayIdleState = "PlayWeaponRifle";
+    [SerializeField] const string MeleeAnim = "Melee";
+    private string currentState;
 
-
-    
 
     private void Update()
     {
         if(tiempoSiguienteAtaque > 0)
         {
             tiempoSiguienteAtaque -= Time.deltaTime;
+           
         }
         if (Input.GetKey(KeyCode.Mouse1) && tiempoSiguienteAtaque <= 0)
         {
-            playerAnim.SetBool("Melee", true);
+            ChangeAnimationState(MeleeAnim);
             Golpe();
             
             
@@ -35,7 +37,12 @@ public class CombateCaC : MonoBehaviour
         }
     }
 
-
+    void ChangeAnimationState(string newState)
+    {
+        
+        playerAnim.Play(newState);
+        currentState = newState;
+    }
 
     private void Golpe()
     {
