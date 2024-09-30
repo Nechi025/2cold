@@ -9,6 +9,9 @@ public class LifeS : MonoBehaviour
     public int UnitLifes => unitLifes;
 
     [SerializeField] Animator playerAnim;
+    private string currentState;
+    const string BaseScreen = "BaseScreen";
+    const string DamagedScreen = "DamagedScreen";
 
     void Start()
     {
@@ -21,7 +24,7 @@ public class LifeS : MonoBehaviour
     public void GetDamage(int value)
     {
         //SoundManager.Instance.PlaySound("Body_Impact");
-        playerAnim.SetBool("Damaged", true);
+        ChangeAnimationState(DamagedScreen);
         unitLifes -= value;
         if (unitLifes <= 0)
         {
@@ -30,6 +33,12 @@ public class LifeS : MonoBehaviour
             GameManager.Instance.cio--;
             Destroy(gameObject);
         }
+    }
+
+    void ChangeAnimationState(string newState)
+    {
+        playerAnim.Play(newState);
+        currentState = newState;
     }
 
     public void Death()
@@ -55,6 +64,6 @@ public class LifeS : MonoBehaviour
     private IEnumerator ResetDamagedAnimation()
     {
         yield return new WaitForSeconds(1.5f);
-        playerAnim.SetBool("Damaged", false);
+        ChangeAnimationState(BaseScreen);
     }
 }

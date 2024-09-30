@@ -32,9 +32,11 @@ public class PlayerMovement : ManagedUpdateBehavior
 
     public Animator playerAnim;
     private string currentState;
+    private string currentState2;
     const string PlayIdle = "PlayIdle";
     const string PlaySlidingAnim = "Slide";
-
+    const string BaseScreen = "BaseScreen";
+    const string FreezingScreen = "FreezingScreen";
 
     void Awake()
     {
@@ -60,6 +62,12 @@ public class PlayerMovement : ManagedUpdateBehavior
         if (currentState == newState) return;
         playerAnim.Play(newState);
         currentState = newState;
+    }
+
+    void ChangeAnimationState2(string newState2)
+    {
+        playerAnim.Play(newState2);
+        currentState2 = newState2;
     }
 
     public override void UpdateMe()
@@ -139,17 +147,24 @@ public class PlayerMovement : ManagedUpdateBehavior
         if (!isTimerRunning)
         {
             isTimerRunning = true;
+            
         }
     }
+
+
+    //ChangeAnimationState2(FreezingScreen);
+    //ChangeAnimationState2(BaseScreen);
 
     void ProgressivelyResetTimer()
     {
         if (isTimerRunning)
         {
+            
             timer += timerResetSpeed * Time.deltaTime;
             if (timer > timerReset)
             {
                 timer = timerReset;
+               
             }
         }
     }
@@ -157,8 +172,9 @@ public class PlayerMovement : ManagedUpdateBehavior
     void UpdateTimer()
     {
         if (isTimerRunning)
-        {
+        {           
             timer -= Time.deltaTime;
+
             if (timer <= 0f)
             {
                 Debug.Log("¡Tiempo agotado! ¡El jugador pierde!");
@@ -167,4 +183,6 @@ public class PlayerMovement : ManagedUpdateBehavior
             }
         }
     }
+
+
 }
