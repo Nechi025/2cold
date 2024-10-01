@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3333321668723372154}
   - component: {fileID: 3333321668723372153}
-  - component: {fileID: 8673937893261543206}
   - component: {fileID: 4609589495888983258}
+  - component: {fileID: -2417775060076386568}
   m_Layer: 0
-  m_Name: Circle (2)
+  m_Name: Level6Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1519133895, guid: a6288ffe293d7d048a0bb9c539c1be1b, type: 3}
-  m_Color: {r: 0.9528302, g: 0.35855943, b: 0, a: 1}
+  m_Color: {r: 0.46205688, g: 0.2980392, b: 0.94509804, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -86,19 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8673937893261543206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3333321668723372152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c909ab4e8a575c84092a56cce8058974, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cantidadPuntos: 0
 --- !u!58 &4609589495888983258
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -115,3 +102,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &-2417775060076386568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3333321668723372152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faedd2b4ab5d5644da14e278bbefb717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cantidadPuntos: 0

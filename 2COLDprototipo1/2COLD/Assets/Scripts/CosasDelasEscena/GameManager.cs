@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public string Level3;
     public string Level4;
     public string Level5;
+    public string Level6;
 
     public static GameManager Instance;
     public static GameManager Enemy;
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
     public int coinsLevel3;
     public int coinsLevel4;
     public int coinsLevel5;
+    public int coinsLevel6;
     //public int mastercoins;
     public int enemys;
     //public int boss;
@@ -117,9 +119,18 @@ public class GameManager : MonoBehaviour
         {
             // print("gane");
             //SceneManager.LoadScene("TopDown");
+            StartCoroutine(GotoLevel(Level6));
+
+        }
+
+        if (coinsLevel6 <= 0)
+        {
+            // print("gane");
+            //SceneManager.LoadScene("TopDown");
             StartCoroutine(GotoLevel(winScreen));
 
         }
+
 
         if (cio <= 0)
         {
