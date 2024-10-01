@@ -75,11 +75,13 @@ public class PlayerMovement : ManagedUpdateBehavior
         if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
         {
             GlobalPause.isPaused = true;
+            ChangeAnimationState2(FreezingScreen);
             StartTimer();
         }
         else
         {
             GlobalPause.isPaused = false;
+            //ChangeAnimationState2(BaseScreen);
             ProgressivelyResetTimer();
         }
 

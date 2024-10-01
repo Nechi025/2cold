@@ -170,7 +170,7 @@ public class Char_Animation : MonoBehaviour
     void Disparando()
     {
         disparando = true;
-        playerAnim.SetTrigger("Disparo");
+        //playerAnim.SetTrigger("Disparo");
         ChangeAnimationState2(PlayShooting);
 
     }
