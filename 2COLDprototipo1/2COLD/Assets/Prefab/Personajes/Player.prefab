@@ -781,6 +781,7 @@ MonoBehaviour:
   timerReset: 50
   timerResetSpeed: 2
   isDashing: 0
+  playerAnim: {fileID: 6409608208264044684}
 --- !u!114 &-1244612718120798085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -826,7 +827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitLifes: 100
-  playerAnim: {fileID: 0}
+  playerAnim: {fileID: 6409608208264044684}
 --- !u!114 &1409456000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -844,6 +845,7 @@ MonoBehaviour:
   "da\xF1oGolpe": 50
   tiempoEntreAtaques: 0.5
   tiempoSiguienteAtaque: 0
+  playerAnim: {fileID: 6409608208264044684}
 --- !u!114 &6283130922395116700
 MonoBehaviour:
   m_ObjectHideFlags: 0
