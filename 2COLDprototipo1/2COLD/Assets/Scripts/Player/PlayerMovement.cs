@@ -32,11 +32,12 @@ public class PlayerMovement : ManagedUpdateBehavior
 
     public Animator playerAnim;
     private string currentState;
-    private string currentState2;
+    private string currentScreen;
     const string PlayIdle = "PlayIdle";
     const string PlaySlidingAnim = "Slide";
     const string BaseScreen = "BaseScreen";
     const string FreezingScreen = "FreezingScreen";
+    const string Screen = "Screen";
 
     void Awake()
     {
@@ -54,7 +55,7 @@ public class PlayerMovement : ManagedUpdateBehavior
     protected override void Start()
     {
         base.Start();
-        activeMoveSpeed = moveSpeed;
+        activeMoveSpeed = moveSpeed;       
     }
 
     void ChangeAnimationState(string newState)
@@ -64,24 +65,27 @@ public class PlayerMovement : ManagedUpdateBehavior
         currentState = newState;
     }
 
-    void ChangeAnimationState2(string newState2)
+    void ChangeAnimationScreen(string newScreen, string layerName)
     {
-        playerAnim.Play(newState2);
-        currentState2 = newState2;
+        int layerIndex = playerAnim.GetLayerIndex(layerName);
+        playerAnim.Play(newScreen, layerIndex);
+        currentScreen = newScreen;
     }
+
 
     public override void UpdateMe()
     {
+
         if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
         {
             GlobalPause.isPaused = true;
-            ChangeAnimationState2(FreezingScreen);
+            ChangeAnimationScreen(FreezingScreen, Screen);
             StartTimer();
         }
         else
         {
             GlobalPause.isPaused = false;
-            //ChangeAnimationState2(BaseScreen);
+            ChangeAnimationScreen(BaseScreen, Screen);
             ProgressivelyResetTimer();
         }
 

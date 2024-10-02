@@ -18,8 +18,9 @@ public class Char_Animation : MonoBehaviour
     [SerializeField] public bool disparando;
 
     private string currentState;
-    private string currentState2;
+    private string currentStateL;
 
+    const string Legs = "Legs";
     const string PlayIdleState = "PlayWeaponRifle";
     const string PlayShooting = "PlayShootingRifle";
     const string PlayIdle = "PlayIdle";
@@ -67,12 +68,12 @@ public class Char_Animation : MonoBehaviour
         // Si hay movimiento, actualiza el Float "Speed" para reproducir la animación
         if (movimientoTotal > 0.5)
         {
-            ChangeAnimationState(PlayWalkAnim); // El valor 1 activa la animación de movimiento
+            ChangeAnimationLegs(PlayWalkAnim, Legs); // El valor 1 activa la animación de movimiento
         }
         else
         {
             // Si no hay movimiento, poner el valor en 0 para detener la animación
-            ChangeAnimationState(PlayIdle);
+            ChangeAnimationLegs(PlayIdle, Legs);
         }
 
         //Lógica de particulas
@@ -93,7 +94,7 @@ public class Char_Animation : MonoBehaviour
         }
         if (tiempoSiguienteAtaque <= 0)
         {
-            ChangeAnimationState2(PlayIdleState);
+            ChangeAnimationState(PlayIdleState);
         }
 
         if (Input.GetButtonDown("Fire1"))
@@ -146,18 +147,20 @@ public class Char_Animation : MonoBehaviour
 
     }
     //Animaciones
+    void ChangeAnimationLegs(string newStateL,string layerName)
+    {
+        int layerIndex = playerAnim.GetLayerIndex(layerName);
+        if (currentStateL == newStateL) return;
+        playerAnim.Play(newStateL, layerIndex);
+        currentStateL = newStateL;
+
+    }
+
     void ChangeAnimationState(string newState)
     {
         if (currentState == newState) return;
         playerAnim.Play(newState);
         currentState = newState;
-    }
-
-    void ChangeAnimationState2(string newState2)
-    {
-        if (currentState2 == newState2) return;
-        playerAnim.Play(newState2);
-        currentState2 = newState2;
     }
 
     void Movimiento(float mov)
@@ -171,7 +174,7 @@ public class Char_Animation : MonoBehaviour
     {
         disparando = true;
         //playerAnim.SetTrigger("Disparo");
-        ChangeAnimationState2(PlayShooting);
+        ChangeAnimationState(PlayShooting);
 
     }
     //void StartCombo()
