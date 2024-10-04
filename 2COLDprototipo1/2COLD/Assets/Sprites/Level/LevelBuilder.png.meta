@@ -476,15 +476,20 @@ TextureImporter:
       name: LevelBuilder 1_16
       rect:
         serializedVersion: 2
-        x: 161
+        x: 160
         y: 960
-        width: 159
+        width: 160
         height: 160
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -80, y: 80}
+        - {x: -80, y: 53}
+        - {x: -55, y: 53}
+        - {x: -53, y: 55}
+        - {x: -53, y: 80}
       tessellationDetail: 0
       bones: []
       spriteID: 5a1a7969c388fed4fbc60b3bff678c50

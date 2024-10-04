@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public string defeatScreen;
-    public string winScreen;
-    public string LevelTutorial;
-    public string Level2;
-    public string Level3;
-    public string Level4;
-    public string Level5;
-    public string Level6;
+    //public string winScreen;
+    //public string LevelTutorial;
+    //public string Level2;
+    //public string Level3;
+    //public string Level4;
+    //public string Level5;
+    //public string Level6;
 
     public static GameManager Instance;
     public static GameManager Enemy;
@@ -20,12 +20,12 @@ public class GameManager : MonoBehaviour
     //public static GameManager MasterCoins;
     //public static GameManager Trophy;
     //public int trophy;
-    public int coins;
-    public int coinsLevel2;
-    public int coinsLevel3;
-    public int coinsLevel4;
-    public int coinsLevel5;
-    public int coinsLevel6;
+    //public int coins;
+    //public int coinsLevel2;
+    //public int coinsLevel3;
+    //public int coinsLevel4;
+    //public int coinsLevel5;
+    //public int coinsLevel6;
     //public int mastercoins;
     public int enemys;
     //public int boss;
@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
         //    LoadingManager.Instance.LoadScene(2, 3);
         //}
 
-        if (coins <= 0)
+        /*if (coins <= 0)
         {
             // print("gane");
             //SceneManager.LoadScene("TopDown");
@@ -130,7 +130,7 @@ public class GameManager : MonoBehaviour
             StartCoroutine(GotoLevel(winScreen));
 
         }
-
+        */
 
         if (cio <= 0)
         {
