@@ -392,9 +392,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lasers:
-  - {fileID: 0}
   - {fileID: 1765866350195090695}
-  - {fileID: 1765866348964578526}
+  - {fileID: 1765866350195090695}
   laserActiveTime: 2
   laserInactiveTime: 0.2
   laserDamage: 20
