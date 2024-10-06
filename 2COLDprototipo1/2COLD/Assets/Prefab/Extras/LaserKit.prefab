@@ -250,8 +250,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1783855267
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 1717024627, guid: 7ee99a75444305f47b8d40404cb2697b, type: 3}
   m_Color: {r: 0.9339623, g: 0.0652011, b: 0.0652011, a: 1}
@@ -392,7 +392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lasers:
-  - {fileID: 1765866350195090695}
+  - {fileID: 1765866348964578526}
   - {fileID: 1765866350195090695}
   laserActiveTime: 2
   laserInactiveTime: 0.2
@@ -498,8 +498,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1783855267
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 1717024627, guid: 7ee99a75444305f47b8d40404cb2697b, type: 3}
   m_Color: {r: 0.9339623, g: 0.0652011, b: 0.0652011, a: 1}
