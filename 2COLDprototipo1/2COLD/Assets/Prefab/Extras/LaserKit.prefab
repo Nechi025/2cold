@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Intensity: 0.4
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 000000008f1fc376a378536a098fc24bb36c727c
+  m_ApplyToSortingLayers: 000000008f1fc37617ee32b5a378536a098fc24bb36c727c
   m_LightCookieSprite: {fileID: -534846692, guid: c4a28a511b861b1439710adaec178335, type: 3}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -188,7 +188,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1765866348964578520}
   - component: {fileID: 1765866348964578521}
-  - component: {fileID: 1765866348964578523}
   - component: {fileID: 1765866348964578522}
   m_Layer: 0
   m_Name: Laser
@@ -251,7 +250,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1783855267
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 1717024627, guid: 7ee99a75444305f47b8d40404cb2697b, type: 3}
   m_Color: {r: 0.9339623, g: 0.0652011, b: 0.0652011, a: 1}
@@ -264,32 +263,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1765866348964578523
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1765866348964578526}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.6, y: 0.5}
-    newSize: {x: 6.2, y: 0.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 2
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 6.2, y: 0.34}
-  m_EdgeRadius: 0
 --- !u!95 &1765866348964578522
 Animator:
   serializedVersion: 5
@@ -436,7 +409,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1765866350195090694}
   - component: {fileID: 1765866350195090691}
-  - component: {fileID: 1765866350195090688}
   - component: {fileID: 1765866350195090689}
   m_Layer: 0
   m_Name: Laser2
@@ -499,7 +471,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1783855267
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 1717024627, guid: 7ee99a75444305f47b8d40404cb2697b, type: 3}
   m_Color: {r: 0.9339623, g: 0.0652011, b: 0.0652011, a: 1}
@@ -512,32 +484,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1765866350195090688
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1765866350195090695}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.6, y: 0.5}
-    newSize: {x: 6.2, y: 0.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 2
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 6.2, y: 0.34}
-  m_EdgeRadius: 0
 --- !u!95 &1765866350195090689
 Animator:
   serializedVersion: 5
