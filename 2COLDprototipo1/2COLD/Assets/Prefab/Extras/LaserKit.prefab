@@ -145,7 +145,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 0.3
+  m_Intensity: 0.4
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 000000008f1fc376a378536a098fc24bb36c727c
@@ -394,8 +394,8 @@ MonoBehaviour:
   lasers:
   - {fileID: 1765866348964578526}
   - {fileID: 1765866350195090695}
-  laserActiveTime: 2
-  laserInactiveTime: 0.2
+  laserActiveTime: 5
+  laserInactiveTime: 0
   laserDamage: 20
   playerLayer:
     serializedVersion: 2
