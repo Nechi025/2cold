@@ -1084,6 +1084,90 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: LevelBuilder_8
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1600
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74ac394370940974ba736f7bfdfd0398
+      internalID: -204197820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LevelBuilder_9
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1600
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89350d64f1ed544488fb0196f1c7a6d1
+      internalID: 1718424392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LevelBuilder_10
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1600
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bff97b05aabcc67499db9249cb8827f5
+      internalID: -421195436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LevelBuilder_11
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 1600
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d14a4f6b8727cad42928ee5b71d550ca
+      internalID: -236643452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1134,12 +1218,16 @@ TextureImporter:
       LevelBuilder 1_9: 663013519
       LevelBuilder_0: -863518508
       LevelBuilder_1: 1296060643
+      LevelBuilder_10: 1718424392
+      LevelBuilder_11: -421195436
       LevelBuilder_2: -231154442
       LevelBuilder_3: -1878732735
       LevelBuilder_4: -290908936
       LevelBuilder_5: -1355817
       LevelBuilder_6: -861098472
       LevelBuilder_7: -418598426
+      LevelBuilder_8: -204197820
+      LevelBuilder_9: 839167584
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
