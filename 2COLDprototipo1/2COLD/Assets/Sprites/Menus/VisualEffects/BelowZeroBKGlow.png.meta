@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 791e3cb86395adf43bdaef1a8b8986ba
+guid: 5f8abe4d9d9f628478f9d14e742ebdf4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -108,16 +108,12 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
-    secondaryTextures:
-    - texture: {fileID: 2800000, guid: 5f8abe4d9d9f628478f9d14e742ebdf4, type: 3}
-      name: _Glow
-    - texture: {fileID: 2800000, guid: c6a0aae36fa75884d9b601baf1a3b64d, type: 3}
-      name: _Normal
+    secondaryTextures: []
     nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
