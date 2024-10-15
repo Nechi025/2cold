@@ -10,7 +10,7 @@ public class MenuPausa : MonoBehaviour
     public string Level3;
     public string Level4;
     public string Level5;
-    [SerializeField] private GameObject botonPausa;
+    //[SerializeField] private GameObject botonPausa;
     [SerializeField] private GameObject menuPausa;
 
     private bool isPaused = false;
@@ -33,7 +33,7 @@ public class MenuPausa : MonoBehaviour
     public void Pausa()
     {
         Time.timeScale = 0f;
-        botonPausa.SetActive(false);
+        //botonPausa.SetActive(false);
         menuPausa.SetActive(true);
         isPaused = true;
     }
@@ -41,7 +41,7 @@ public class MenuPausa : MonoBehaviour
     public void Reanudar()
     {
         Time.timeScale = 1f;
-        botonPausa.SetActive(true);
+        //botonPausa.SetActive(true);
         menuPausa.SetActive(false);
         isPaused = false;
     }
