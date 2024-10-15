@@ -21,62 +21,51 @@ public class ObstacleAvoidance
     {
         Collider2D[] colls = Physics2D.OverlapCircleAll(_entity.position, _radius, _maskObs);
         Collider2D nearColl = null;
-        Vector2 closestPoint = Vector2.zero;
-        float nearCollDistance = float.MaxValue;
+        Vector2 closetPoint = Vector2.zero;
+        float nearCollDistance = 0;
 
-        foreach (Collider2D coll in colls)
+        for (int i = 0; i < colls.Length; i++)
         {
-            Vector2 point = coll.ClosestPoint(_entity.position);
-            Vector2 dirToColl = point - (Vector2)_entity.position;
-            float angleToColl = Vector2.Angle(currentDir, dirToColl);
+            var currentColl = colls[i];
+            closetPoint = currentColl.ClosestPoint(_entity.position);
+            Vector2 dirToColl = closetPoint - (Vector2)_entity.position;
+            float currentAngle = Vector2.Angle(dirToColl, currentDir);
             float distance = dirToColl.magnitude;
 
-            if (angleToColl > _angle / 2) continue;
+            if (currentAngle > _angle / 2) { continue; }
+
+            if (nearColl == null)
+            {
+                nearColl = currentColl;
+                nearCollDistance = distance;
+                continue;
+            }
 
             if (distance < nearCollDistance)
             {
                 nearCollDistance = distance;
-                nearColl = coll;
-                closestPoint = point;
+                nearColl = currentColl;
             }
         }
 
         if (nearColl == null)
         {
-            // Si no hay colisiones cercanas, sigue en la dirección actual
             return currentDir;
         }
-
-        // Realizamos raycasts hacia la izquierda y derecha para determinar qué lado está más despejado
-        Vector2 dirToClosestPoint = (closestPoint - (Vector2)_entity.position).normalized;
-        Vector2 perpendicularRight = Vector2.Perpendicular(dirToClosestPoint);
-        Vector2 perpendicularLeft = -Vector2.Perpendicular(dirToClosestPoint);
-
-        float rightDistance = CheckSideClearance(perpendicularRight);
-        float leftDistance = CheckSideClearance(perpendicularLeft);
-
-        // Elegimos el lado que tenga la mayor distancia despejada
-        Vector2 newDir = rightDistance > leftDistance ? perpendicularRight : perpendicularLeft;
-
-        return Vector2.Lerp(currentDir, newDir, (_radius - Mathf.Clamp(nearCollDistance - 1, 0, _radius)) / _radius);
-    }
-
-    private float CheckSideClearance(Vector2 direction)
-    {
-        RaycastHit2D hit = Physics2D.Raycast(_entity.position, direction, _radius, _maskObs);
-        return hit.collider ? hit.distance : _radius; // Si no hay colisión, retorna el radio completo como distancia despejada
-    }
-
-    // Método para dibujar Gizmos que representan los raycasts laterales
-    public void DrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Vector2 dirToClosestPoint = _entity.right; // Suponiendo que la entidad esté mirando hacia la derecha
-        Vector2 perpendicularRight = Vector2.Perpendicular(dirToClosestPoint);
-        Vector2 perpendicularLeft = -Vector2.Perpendicular(dirToClosestPoint);
-
-        Gizmos.DrawLine(_entity.position, (Vector2)_entity.position + perpendicularRight * _radius);
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(_entity.position, (Vector2)_entity.position + perpendicularLeft * _radius);
+        else
+        {
+            Vector2 relativePos = _entity.InverseTransformPoint(closetPoint);
+            Vector2 dirToClosetPoint = (closetPoint - (Vector2)_entity.position).normalized;
+            Vector2 newDir;
+            if (relativePos.x < 0)
+            {
+                newDir = Vector2.Perpendicular(dirToClosetPoint);
+            }
+            else
+            {
+                newDir = -Vector2.Perpendicular(dirToClosetPoint);
+            }
+            return Vector2.Lerp(currentDir, newDir, (_radius - Mathf.Clamp(nearCollDistance - 1, 0, _radius)) / _radius);
+        }
     }
 }

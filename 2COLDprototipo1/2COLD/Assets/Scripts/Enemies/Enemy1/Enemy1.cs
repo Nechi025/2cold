@@ -151,25 +151,4 @@ public class Enemy1 : ManagedUpdateBehavior
             }
         }
     }
-
-    private void OnDrawGizmosSelected()
-    {
-        // Dibujar el radio de evitación de obstáculos
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, avoidanceRadius);
-
-        // Dibujar el ángulo de evitación
-        Vector3 leftLimit = Quaternion.Euler(0, 0, -avoidanceAngle / 2) * transform.right * avoidanceRadius;
-        Vector3 rightLimit = Quaternion.Euler(0, 0, avoidanceAngle / 2) * transform.right * avoidanceRadius;
-
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, transform.position + leftLimit);
-        Gizmos.DrawLine(transform.position, transform.position + rightLimit);
-
-        // Dibujar los raycasts laterales de evitación
-        if (obstacleAvoidance != null)
-        {
-            obstacleAvoidance.DrawGizmos();
-        }
-    }
 }

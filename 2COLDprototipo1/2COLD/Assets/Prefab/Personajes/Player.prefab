@@ -810,7 +810,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4545729469942073560}
         m_TargetAssemblyTypeName: MenuPausa, Assembly-CSharp
-        m_MethodName: Restart
+        m_MethodName: Restart4
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1519,6 +1519,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eabe50487b74fbd43b8c43b9fb652818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LevelTutorial: Level1
+  Level2: Level2
+  Level3: Level3
+  Level4: Level4
+  Level5: Level5
+  botonPausa: {fileID: 0}
   menuPausa: {fileID: 5921960931667051147}
 --- !u!1 &5921960931667051147
 GameObject:
