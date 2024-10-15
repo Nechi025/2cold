@@ -29,7 +29,7 @@ public class LifeS : MonoBehaviour
         if (unitLifes <= 0)
         {
             SaveCurrentLevel();
-            SceneManager.LoadScene(8); // Reemplaza 8 con el índice de la escena de derrota
+            SceneManager.LoadScene(16); // Reemplaza 8 con el índice de la escena de derrota
             GameManager.Instance.cio--;
             Destroy(gameObject);
         }

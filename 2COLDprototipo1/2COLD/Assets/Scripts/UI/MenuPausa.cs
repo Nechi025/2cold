@@ -5,11 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class MenuPausa : MonoBehaviour
 {
-    public string LevelTutorial;
-    public string Level2;
-    public string Level3;
-    public string Level4;
-    public string Level5;
     //[SerializeField] private GameObject botonPausa;
     [SerializeField] private GameObject menuPausa;
 
@@ -54,34 +49,16 @@ public class MenuPausa : MonoBehaviour
     public void Restart()
     {
         Time.timeScale = 1f;
-        StartCoroutine(GotoLevel(Level2));
+        StartCoroutine(GotoCurrentLevel());
     }
 
-    public void Restart1()
+    IEnumerator GotoCurrentLevel()
     {
-        Time.timeScale = 1f;
-        StartCoroutine(GotoLevel(LevelTutorial));
-    }
+        // Obtiene el nombre de la escena actual
+        string currentSceneName = SceneManager.GetActiveScene().name;
 
-    public void Restart3()
-    {
-        Time.timeScale = 1f;
-        StartCoroutine(GotoLevel(Level3));
-    }
-    public void Restart4()
-    {
-        Time.timeScale = 1f;
-        StartCoroutine(GotoLevel(Level4));
-    }
-    public void Restart5()
-    {
-        Time.timeScale = 1f;
-        StartCoroutine(GotoLevel(Level5));
-    }
-
-    IEnumerator GotoLevel(string scene)
-    {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
+        // Carga la escena actual nuevamente
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(currentSceneName);
 
         while (!asyncLoad.isDone)
         {
