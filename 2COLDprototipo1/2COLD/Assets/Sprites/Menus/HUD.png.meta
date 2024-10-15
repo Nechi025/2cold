@@ -108,10 +108,10 @@ TextureImporter:
       name: ColdMeter
       rect:
         serializedVersion: 2
-        x: 595
-        y: 300
-        width: 95
-        height: 335
+        x: 10
+        y: 540
+        width: 335
+        height: 95
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,8 +150,8 @@ TextureImporter:
       name: PauseButton
       rect:
         serializedVersion: 2
-        x: 175
-        y: 330
+        x: 142
+        y: 213
         width: 45
         height: 65
       alignment: 0
@@ -171,9 +171,9 @@ TextureImporter:
       name: TutorialTablet
       rect:
         serializedVersion: 2
-        x: 65
+        x: 5
         y: 10
-        width: 655
+        width: 715
         height: 170
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -184,174 +184,6 @@ TextureImporter:
       bones: []
       spriteID: 53f82289bf65f9949be1e01cf7b53219
       internalID: -402591680
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HUD_0
-      rect:
-        serializedVersion: 2
-        x: 1620
-        y: 990
-        width: 300
-        height: 120
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6e6736c7fb4500a4dba4275545932e2b
-      internalID: -1322910668
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HUD_1
-      rect:
-        serializedVersion: 2
-        x: 1600
-        y: 840
-        width: 320
-        height: 120
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d77a595eb27e97247a4bf61f4b93bfe9
-      internalID: -348843971
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HUD_2
-      rect:
-        serializedVersion: 2
-        x: 1570
-        y: 680
-        width: 350
-        height: 120
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2750092dce477674ea66fb8b9c52d49f
-      internalID: -755369591
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HUD_3
-      rect:
-        serializedVersion: 2
-        x: 1560
-        y: 520
-        width: 360
-        height: 120
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b63a9774b9357fb41a48c1644cce6453
-      internalID: 1023871429
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HUD_4
-      rect:
-        serializedVersion: 2
-        x: 1530
-        y: 370
-        width: 390
-        height: 120
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 134ba5ef60cee1544a4bdcd3d4eaac3b
-      internalID: -1368226286
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HUD_5
-      rect:
-        serializedVersion: 2
-        x: 1530
-        y: 220
-        width: 390
-        height: 120
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 56fe5549ce162424894a371f07c058c2
-      internalID: 1953591819
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HUD_6
-      rect:
-        serializedVersion: 2
-        x: 1520
-        y: 70
-        width: 400
-        height: 120
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f64eec3949ac0b540b7cc6b9bb2c5de2
-      internalID: -1870917116
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PauseButto
-      rect:
-        serializedVersion: 2
-        x: 175
-        y: 330
-        width: 45
-        height: 65
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a0d335b86f7a7a34f8da26413b7ca528
-      internalID: -1188166820
       vertices: []
       indices: 
       edges: []
@@ -524,6 +356,174 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: TextBox
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 340
+        width: 560
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efdee9d883193de41b42043451b4d0e2
+      internalID: -966535906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coronel
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 495
+        width: 115
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a27166ae82e739488e0425dbb7fdaf1
+      internalID: -264710295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pilot
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 495
+        width: 115
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f475439ce6ef7644a7925d082e822bd
+      internalID: -1183683478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Random
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 495
+        width: 115
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1afc5059cc83ff040bb59efa23892350
+      internalID: -1088951413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoProfile
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 335
+        width: 115
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 530b4da7f776f4e4b96fe9a8a8a50fbb
+      internalID: 850056835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TextBox2
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 335
+        width: 560
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d437d39634e35ea41a0d88fc259b6849
+      internalID: 189972853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TextBox3
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 330
+        width: 560
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb034a0be9e750541be547184b6774b0
+      internalID: 1678598700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TextBox4
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 325
+        width: 560
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10346cbee4422f24fa814f3e9d0a64b6
+      internalID: -1374093071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -545,6 +545,7 @@ TextureImporter:
       Ammo8: -1802656825
       AmmoCount: 1693751635
       ColdMeter: 183729876
+      Coronel: -264710295
       EmptyHealth: -678065793
       HUD_0: -1322910668
       HUD_1: -348843971
@@ -554,8 +555,15 @@ TextureImporter:
       HUD_5: 1953591819
       HUD_6: -1870917116
       HealthBar1: 1088465438
+      NoProfile: 850056835
       PauseButto: -1188166820
       PauseButton: 209197091
+      Pilot: -1183683478
+      Random: -1088951413
+      TextBox: -966535906
+      TextBox2: 189972853
+      TextBox3: 1678598700
+      TextBox4: -1374093071
       TutorialTablet: -402591680
   spritePackingTag: 
   pSDRemoveMatte: 0
