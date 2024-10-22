@@ -19,7 +19,7 @@ public class LaserController : MonoBehaviour
             if (bullet != null)
             {
                 TakeDamage(bullet.damage); // Hacer daño al controlador
-                Destroy(collision.gameObject); // Destruir la bala
+                //Destroy(collision.gameObject); // Destruir la bala
             }
         }
     }
@@ -31,22 +31,25 @@ public class LaserController : MonoBehaviour
         // Si la vida del controlador llega a 0, se destruye
         if (health <= 0)
         {
+            gameObject.SetActive(false);
             DestroyController();
         }
     }
 
     void DestroyController()
     {
+         gameObject.SetActive(false);
+        
         // Desactivar los láseres permanentemente
         laserTrap.DestroyController();
 
-        // Crear un efecto visual de explosión al destruir el controlador
-        if (explosionEffect != null)
-        {
-            Instantiate(explosionEffect, transform.position, Quaternion.identity);
-        }
+        //// Crear un efecto visual de explosión al destruir el controlador
+        //if (explosionEffect != null)
+        //{
+        //    Instantiate(explosionEffect, transform.position, Quaternion.identity);
+        //}
 
         // Destruir el objeto del controlador
-        Destroy(gameObject);
+       
     }
 }
