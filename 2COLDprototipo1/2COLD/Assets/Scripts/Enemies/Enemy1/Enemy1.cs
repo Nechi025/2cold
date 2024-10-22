@@ -12,6 +12,7 @@ public class Enemy1 : ManagedUpdateBehavior
     [SerializeField] private float tiempoCollision;
     [SerializeField] private float tiempoEntreCollision;
     public bool moveToPlayer;
+    private bool isMoving = true; // Nueva variable para controlar el movimiento
 
     protected Vector3 direccion;
     protected Vector3 posObj;
@@ -77,33 +78,29 @@ public class Enemy1 : ManagedUpdateBehavior
             direccion = target.position - transform.position;
             Vector2 desiredDirection = obstacleAvoidance.GetDir(direccion.normalized);
 
-            posObj = transform.position + (Vector3)desiredDirection * speed * Time.fixedDeltaTime;
-
-            if (direccion.magnitude < detectRange)
+            if (isMoving) // Solo mueve si isMoving es true
             {
-                if (!target)
-                {
-                    GetTarget();
-                }
-                else if (target != null)
-                {
-                    if (GlobalPause.IsPaused())
-                        return;
+                posObj = transform.position + (Vector3)desiredDirection * speed * Time.fixedDeltaTime;
 
-                    moveToPlayer = true;
-                    rb.MovePosition(posObj);
-                    LookDir(target.position, transform.position);
-
-                    //// Disparar si es tiempo de hacerlo
-                    //if (Time.time >= nextTimeToFire)
-                    //{
-                    //    Shoot();
-                    //    nextTimeToFire = Time.time + 1f / fireRate;
-                    //}
-                }
-                else
+                if (direccion.magnitude < detectRange)
                 {
-                    moveToPlayer = false;
+                    if (!target)
+                    {
+                        GetTarget();
+                    }
+                    else if (target != null)
+                    {
+                        if (GlobalPause.IsPaused())
+                            return;
+
+                        moveToPlayer = true;
+                        rb.MovePosition(posObj);
+                        LookDir(target.position, transform.position);
+                    }
+                    else
+                    {
+                        moveToPlayer = false;
+                    }
                 }
             }
         }
@@ -112,6 +109,7 @@ public class Enemy1 : ManagedUpdateBehavior
             moveToPlayer = false; // Si el jugador no está en rango o ángulo de visión, no se mueve
         }
     }
+
 
     //private void Shoot()
     //{
@@ -148,8 +146,16 @@ public class Enemy1 : ManagedUpdateBehavior
                 LifeS life = collision.transform.GetComponent<LifeS>();
                 life.GetDamage(damage);
                 tiempoCollision = tiempoEntreCollision;
+                isMoving = false; // Detener movimiento al colisionar
+                StartCoroutine(ResetMovement()); // Reiniciar movimiento después del cooldown
             }
         }
+    }
+
+    private IEnumerator ResetMovement()
+    {
+        yield return new WaitForSeconds(tiempoEntreCollision); // Esperar el tiempo de cooldown
+        isMoving = true; // Volver a permitir movimiento
     }
 
     private void OnDrawGizmosSelected()
