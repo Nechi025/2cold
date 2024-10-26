@@ -11,6 +11,8 @@ public class CargaEscenas : MonoBehaviour
     private string currentTransition;
     const string EnterScene = "OpenScene";
     const string ExitScene = "CloseScene";
+    const string NoScene = "NoScene";
+    public int NoAnim;
 
     void ChangeAnimationState(string newTransition)
     {
@@ -28,7 +30,15 @@ public class CargaEscenas : MonoBehaviour
         }
     }
 
-    
+    void Update()
+    {
+
+        if (NoAnim == 1)
+        {
+            ChangeAnimationState(NoScene);
+        }
+
+    }
 
     private IEnumerator WaitForAnimationAndLoadScene()
     {
@@ -36,7 +46,8 @@ public class CargaEscenas : MonoBehaviour
         AnimatorStateInfo animStateInfo = animator.GetCurrentAnimatorStateInfo(0);
         yield return new WaitForSeconds(animStateInfo.length);
 
-        
         SceneManager.LoadScene(sceneLoad);
+
     }
+
 }

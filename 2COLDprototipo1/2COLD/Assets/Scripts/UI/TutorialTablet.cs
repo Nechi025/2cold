@@ -8,9 +8,9 @@ public class TutorialTablet : MonoBehaviour
     public int Level;
     public Animator playerAnim;
     private string currentState;
-    const string Tutorial1 = "Level1";
-    const string Tutorial2 = "Level2";
-    const string Tutorial3 = "Level3";
+    const string Tutorial = "TutorialLevel";
+    const string PilotTutorial1 = "PilotTutorial1";
+    const string GameTutorial = "GameTutorial";
     const string NoText = "Downed";
 
 
@@ -36,15 +36,15 @@ public class TutorialTablet : MonoBehaviour
         }
         else if(Level == 1)
         {
-            ChangeAnimationState(Tutorial1);
+            ChangeAnimationState(Tutorial);
         }
         else if (Level == 2)
         {
-            ChangeAnimationState(Tutorial2);
+            ChangeAnimationState(PilotTutorial1);
         }
         else if (Level == 3)
         {
-            ChangeAnimationState(Tutorial3);
+            ChangeAnimationState(GameTutorial);
         }
 
     }
