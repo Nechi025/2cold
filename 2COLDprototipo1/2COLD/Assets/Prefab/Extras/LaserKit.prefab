@@ -368,7 +368,7 @@ MonoBehaviour:
   - {fileID: 1765866348964578526}
   - {fileID: 1765866350195090695}
   laserActiveTime: 5
-  laserInactiveTime: 0
+  laserInactiveTime: 0.5
   laserDamage: 20
   playerLayer:
     serializedVersion: 2

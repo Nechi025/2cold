@@ -75,12 +75,13 @@ public class PlayerMovement : ManagedUpdateBehavior
 
     public override void UpdateMe()
     {
-
+        // Detecta si el jugador está inactivo
         if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
         {
             GlobalPause.isPaused = true;
             ChangeAnimationScreen(FreezingScreen, Screen);
             StartTimer();
+            rb.velocity = Vector2.zero; // Detiene cualquier movimiento residual
         }
         else
         {
@@ -90,6 +91,8 @@ public class PlayerMovement : ManagedUpdateBehavior
         }
 
         RotatePlayer();
+
+        // Movimiento
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
@@ -100,12 +103,15 @@ public class PlayerMovement : ManagedUpdateBehavior
 
         // Si el juego está pausado, salir del método de actualización
         if (GlobalPause.IsPaused())
+        {
+            rb.velocity = Vector2.zero; // Detener el movimiento residual al pausar
             return;
+        }
 
+        // Realiza el movimiento usando MovePosition y reinicia velocidad residual
         rb.MovePosition(rb.position + movement * activeMoveSpeed * Time.fixedDeltaTime);
-
-        
     }
+
 
     private void HandleDash()
     {
@@ -131,6 +137,9 @@ public class PlayerMovement : ManagedUpdateBehavior
                 dashCoolCounter = dashCooldown;
                 isDashing = false;
                 ChangeAnimationState(PlayIdle);
+
+                // Detener cualquier movimiento residual después del dash
+                rb.velocity = Vector2.zero;
             }
         }
 

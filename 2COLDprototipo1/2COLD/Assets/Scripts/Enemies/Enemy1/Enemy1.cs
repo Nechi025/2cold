@@ -73,40 +73,36 @@ public class Enemy1 : ManagedUpdateBehavior
 
     private void FixedUpdate()
     {
+        if (tiempoCollision > 0) // Si el enemigo está en cooldown
+        {
+            rb.velocity = Vector2.zero; // Detener el movimiento
+            return; // Salir de FixedUpdate para evitar que se actualice la posición o rotación
+        }
+
         if (target != null && lineOfSight.CheckRange(target) && lineOfSight.CheckAngle(target) && lineOfSight.CheckView(target))
         {
             direccion = target.position - transform.position;
             Vector2 desiredDirection = obstacleAvoidance.GetDir(direccion.normalized);
 
-            if (isMoving) // Solo mueve si isMoving es true
+            posObj = transform.position + (Vector3)desiredDirection * speed * Time.fixedDeltaTime;
+
+            if (direccion.magnitude < detectRange)
             {
-                posObj = transform.position + (Vector3)desiredDirection * speed * Time.fixedDeltaTime;
-
-                if (direccion.magnitude < detectRange)
+                if (target != null && !GlobalPause.IsPaused())
                 {
-                    if (!target)
-                    {
-                        GetTarget();
-                    }
-                    else if (target != null)
-                    {
-                        if (GlobalPause.IsPaused())
-                            return;
-
-                        moveToPlayer = true;
-                        rb.MovePosition(posObj);
-                        LookDir(target.position, transform.position);
-                    }
-                    else
-                    {
-                        moveToPlayer = false;
-                    }
+                    moveToPlayer = true;
+                    rb.MovePosition(posObj);
+                    LookDir(target.position, transform.position);
+                }
+                else
+                {
+                    moveToPlayer = false;
                 }
             }
         }
         else
         {
-            moveToPlayer = false; // Si el jugador no está en rango o ángulo de visión, no se mueve
+            moveToPlayer = false; // No se mueve si no está en rango
         }
     }
 
@@ -145,9 +141,10 @@ public class Enemy1 : ManagedUpdateBehavior
             {
                 LifeS life = collision.transform.GetComponent<LifeS>();
                 life.GetDamage(damage);
-                tiempoCollision = tiempoEntreCollision;
-                isMoving = false; // Detener movimiento al colisionar
-                StartCoroutine(ResetMovement()); // Reiniciar movimiento después del cooldown
+                tiempoCollision = tiempoEntreCollision; // Iniciar cooldown
+
+                // Detener el movimiento del enemigo
+                rb.velocity = Vector2.zero;
             }
         }
     }
