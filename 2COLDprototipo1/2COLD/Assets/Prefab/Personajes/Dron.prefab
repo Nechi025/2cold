@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -450703670171212142}
   - component: {fileID: 281829794082312310}
   - component: {fileID: 7692557172302453788}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Dron
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -124,11 +124,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  rb: {fileID: 0}
-  flajeloRender: {fileID: 0}
+  rb: {fileID: 1824945089149798477}
+  flajeloRender: {fileID: 1824945089149798479}
   target: {fileID: 0}
   tiempoCollision: 0
-  tiempoEntreCollision: 0
+  tiempoEntreCollision: 2
   moveToPlayer: 0
   detectRange: 20
   damage: 50
