@@ -794,7 +794,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.465
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -888,12 +888,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eabe50487b74fbd43b8c43b9fb652818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelTutorial: 
-  Level2: 
-  Level3: 
-  Level4: 
-  Level5: 
-  botonPausa: {fileID: 934220282}
   menuPausa: {fileID: 1340949592}
 --- !u!1 &653276109
 GameObject:
