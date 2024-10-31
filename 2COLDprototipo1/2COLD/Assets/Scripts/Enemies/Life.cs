@@ -6,7 +6,7 @@ public class Life : MonoBehaviour
 {
     public int unitLife = 100;
     public int UnitLife => unitLife;
-
+    public GameObject PatasTorreta;
     public GameObject objetoDrop;
 
 
@@ -22,7 +22,7 @@ public class Life : MonoBehaviour
             {
                 Instantiate(objetoDrop, transform.position, Quaternion.identity);
             }
-
+            Destroy(PatasTorreta);
             Destroy(gameObject);
             
         }

@@ -147,27 +147,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PauseButton
-      rect:
-        serializedVersion: 2
-        x: 142
-        y: 213
-        width: 45
-        height: 65
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f95e5b6e7ae6a4845a0f6ced8acc5cd8
-      internalID: 11537099
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: TutorialTablet
       rect:
         serializedVersion: 2
@@ -524,6 +503,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: CrossHair
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 225
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7258930206babf449f6ea61f2fd715b
+      internalID: -217761323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleBar
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 200
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dc0162fc86df1d47b69ce5f3fdda5ea
+      internalID: -319166807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -544,10 +565,11 @@ TextureImporter:
       Ammo7: 1416527633
       Ammo8: -1802656825
       AmmoCount: 1693751635
+      CircleBar: -319166807
       ColdMeter: 183729876
       Coronel: -264710295
+      CrossHair: -1322910668
       EmptyHealth: -678065793
-      HUD_0: -1322910668
       HUD_1: -348843971
       HUD_2: -755369591
       HUD_3: 1023871429
