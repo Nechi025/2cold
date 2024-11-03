@@ -26,6 +26,8 @@ public class PlayerMovement : ManagedUpdateBehavior
     public float timerReset; // Tiempo inicial del temporizador
     private bool isTimerRunning = false; // Bandera para controlar si el temporizador está corriendo
     public float timerResetSpeed = 1f; // Velocidad a la que el temporizador se reinicia progresivamente
+    public bool isInNoTimerZone = false; // Bandera para verificar si está en la zona especial
+
 
     // Nuevo código para el dash
     public bool isDashing = false; // Bandera para indicar si el dash está activo
@@ -187,14 +189,18 @@ public class PlayerMovement : ManagedUpdateBehavior
     void UpdateTimer()
     {
         if (isTimerRunning)
-        {           
-            timer -= Time.deltaTime;
-
-            if (timer <= 0f)
+        {
+            // Solo reduce el temporizador si no está en la zona y no está quieto
+            if (!isInNoTimerZone)
             {
-                Debug.Log("¡Tiempo agotado! ¡El jugador pierde!");
-                LifeS life = transform.GetComponent<LifeS>();
-                life.GetDamage(100);
+                timer -= Time.deltaTime;
+
+                if (timer <= 0f)
+                {
+                    Debug.Log("¡Tiempo agotado! ¡El jugador pierde!");
+                    LifeS life = transform.GetComponent<LifeS>();
+                    life.GetDamage(100);
+                }
             }
         }
     }
