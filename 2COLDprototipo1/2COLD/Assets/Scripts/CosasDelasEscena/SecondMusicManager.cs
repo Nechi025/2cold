@@ -2,23 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MusicManager : MonoBehaviour
+public class SecondMusicManager : MonoBehaviour
 {
-    private static MusicManager instance;
+    private static SecondMusicManager instance;
 
     void Awake()
     {
         // Check if an instance already exists
         if (instance != null)
         {
+            Destroy(gameObject);
             // Check if other music managers are present in the scene
-            if (FindObjectOfType<MenuMusicManager>() != null || FindObjectOfType<SecondMusicManager>() != null)
+            if (FindObjectOfType<MenuMusicManager>() != null || FindObjectOfType<MusicManager>() != null)
             {
                 Destroy(gameObject); // Destroy this MusicManager if others are present
                 return;
             }
 
-            Destroy(gameObject); // Destroy duplicate
+             // Destroy duplicate
         }
         else
         {
