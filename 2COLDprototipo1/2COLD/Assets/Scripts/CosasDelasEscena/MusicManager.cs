@@ -6,8 +6,11 @@ using UnityEngine.SceneManagement;
 public class MusicManager : MonoBehaviour
 {
     private static MusicManager instance;
-    private AudioSource audioSource;
-
+    public AudioSource audioSource;
+    public string SecondHalf;
+    public string Defeat;
+    public string Victory;
+    public string MainMenu;
     public AudioClip gameplay1Music;
     public AudioClip gameplay2Music;
     public AudioClip victoryMusic;
@@ -22,6 +25,10 @@ public class MusicManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject); // Make this GameObject persistent across scenes
+            if (audioSource == null)
+            {
+                audioSource = GetComponent<AudioSource>();
+            }
         }
         else
         {
@@ -43,24 +50,33 @@ public class MusicManager : MonoBehaviour
     {
         AudioClip newClip = null;
 
-        switch (sceneName)
+        if (sceneName == MainMenu)
         {
-            case "Menu Scene":
-                newClip = mainMenuMusic;
-                break;
-            case "Victoria":
-                newClip = victoryMusic;
-                break;
-            case "Derrota":
-                newClip = defeatMusic;
-                break;
-            case "Level 6":
-                newClip = gameplay2Music;
-                break;
-            default:
-                newClip = gameplay1Music; // Use default gameplay music for other scenes
-                break;
+            newClip = mainMenuMusic;
         }
+        else if (sceneName == Victory)
+        {
+            newClip = victoryMusic;
+        }
+        else if (sceneName == Defeat)
+        {
+            newClip = defeatMusic;
+        }
+        else if (sceneName == SecondHalf)
+        {
+            newClip = gameplay2Music;
+        }
+        else
+        {
+            newClip = gameplay1Music; // Default gameplay music for other scenes
+        }
+
+        if (newClip != null && audioSource.clip != newClip)
+        {
+            audioSource.clip = newClip;
+            audioSource.Play();
+        }
+
 
         if (newClip != null && audioSource.clip != newClip)
         {

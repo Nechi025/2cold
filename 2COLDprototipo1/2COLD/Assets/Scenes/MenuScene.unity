@@ -2133,7 +2133,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2227,8 +2227,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e8b609c40c76714e87ae658a243ca2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 1443770917}
+  SecondHalf: Level6
+  Defeat: Derrota
+  Victory: Victoria
+  MainMenu: MenuScene
   gameplay1Music: {fileID: 8300000, guid: 4a1d82b3d6617f846bbee4764862d8e7, type: 3}
-  gameplay2Music: {fileID: 0}
+  gameplay2Music: {fileID: 8300000, guid: afc4520d99cbe6949b08927500e335a0, type: 3}
   victoryMusic: {fileID: 8300000, guid: afc4520d99cbe6949b08927500e335a0, type: 3}
   defeatMusic: {fileID: 8300000, guid: afc4520d99cbe6949b08927500e335a0, type: 3}
   mainMenuMusic: {fileID: 8300000, guid: afc4520d99cbe6949b08927500e335a0, type: 3}
