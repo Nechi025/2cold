@@ -5,17 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class MenuPausa : MonoBehaviour
 {
-    //[SerializeField] private GameObject botonPausa;
     [SerializeField] private GameObject menuPausa;
     [SerializeField] private GameObject EfectosPantalla;
+    [SerializeField] private GameObject crosshair; // Referencia al crosshair
 
     private bool isPaused = false;
+    public static bool isGamePaused = false; // Nuevo bool público y estático
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (isPaused)
+            if (isGamePaused)
             {
                 Reanudar();
             }
@@ -29,19 +30,19 @@ public class MenuPausa : MonoBehaviour
     public void Pausa()
     {
         Time.timeScale = 0f;
-        //botonPausa.SetActive(false);
         menuPausa.SetActive(true);
         EfectosPantalla.SetActive(false);
-        isPaused = true;
+        crosshair.SetActive(false); // Desactiva el crosshair
+        isGamePaused = true; // Cambia el bool al pausar
     }
 
     public void Reanudar()
     {
         Time.timeScale = 1f;
-        //botonPausa.SetActive(true);
         menuPausa.SetActive(false);
         EfectosPantalla.SetActive(true);
-        isPaused = false;
+        crosshair.SetActive(true); // Activa el crosshair
+        isGamePaused = false; // Cambia el bool al pausar
     }
 
     public void Cerrar()
@@ -57,10 +58,7 @@ public class MenuPausa : MonoBehaviour
 
     IEnumerator GotoCurrentLevel()
     {
-        // Obtiene el nombre de la escena actual
         string currentSceneName = SceneManager.GetActiveScene().name;
-
-        // Carga la escena actual nuevamente
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(currentSceneName);
 
         while (!asyncLoad.isDone)

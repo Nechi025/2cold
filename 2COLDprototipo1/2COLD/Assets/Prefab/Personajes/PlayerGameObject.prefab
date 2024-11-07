@@ -495,6 +495,7 @@ GameObject:
   - component: {fileID: 9149925095642871153}
   - component: {fileID: 1075930221591111073}
   - component: {fileID: 2582222149128117867}
+  - component: {fileID: 296680475322169412}
   m_Layer: 5
   m_Name: MenuPausa
   m_TagString: Untagged
@@ -540,7 +541,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1654679962350166458}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -584,6 +585,23 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 3500
   m_TargetDisplay: 0
+--- !u!114 &296680475322169412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654679962350166458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &2164049066908930893
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,7 +800,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3551852259304896589}
         m_TargetAssemblyTypeName: MenuPausa, Assembly-CSharp
         m_MethodName: Restart
         m_Mode: 1
@@ -1325,7 +1343,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3551852259304896589}
         m_TargetAssemblyTypeName: MenuPausa, Assembly-CSharp
         m_MethodName: Reanudar
         m_Mode: 1
@@ -1485,7 +1503,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3551852259304896589}
         m_TargetAssemblyTypeName: MenuPausa, Assembly-CSharp
         m_MethodName: Cerrar
         m_Mode: 1
@@ -2788,6 +2806,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuPausa: {fileID: 1654679962350166458}
   EfectosPantalla: {fileID: 6742440461750140889}
+  crosshair: {fileID: 300806784337680884}
 --- !u!1 &8301521995330074833
 GameObject:
   m_ObjectHideFlags: 0

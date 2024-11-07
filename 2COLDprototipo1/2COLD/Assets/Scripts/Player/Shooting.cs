@@ -16,6 +16,9 @@ public class Shooting : MonoBehaviour
 
     void Update()
     {
+        if (MenuPausa.isGamePaused)
+            return; // Evitar disparar cuando el juego está en pausa
+
         if (Input.GetKeyDown(_attack))
         {
             Shoot();
@@ -70,6 +73,9 @@ public class Shooting : MonoBehaviour
 
     void Shoot()
     {
+        if (MenuPausa.isGamePaused)
+            return; // No disparar si el juego está en pausa
+
         if (ammo > 0)
         {
             GameObject bullet = bulletPool.GetObject();  // Obtiene una bala del pool
