@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basicGameMusic: {fileID: 8300000, guid: 4a1d82b3d6617f846bbee4764862d8e7, type: 3}
-  secondGameMusic: {fileID: 8300000, guid: 48930fa9af464744bad1f05a8b97e103, type: 3}
+  secondGameMusic: {fileID: 8300000, guid: fb06a8a65887a494393faaf58c29389d, type: 3}
   menuMusic: {fileID: 8300000, guid: afc4520d99cbe6949b08927500e335a0, type: 3}
 --- !u!82 &6534163651479308408
 AudioSource:
