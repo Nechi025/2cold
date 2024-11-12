@@ -6557,6 +6557,15 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 575692366427553628, guid: 500cba06e871f4d46b7874a26ca9d207, type: 3}
+      propertyPath: m_text
+      value: Remeber that staying still freezes your surrounginds, but don't do it
+        for too long, it could kill you.
+      objectReference: {fileID: 0}
+    - target: {fileID: 775611136904710847, guid: 500cba06e871f4d46b7874a26ca9d207, type: 3}
+      propertyPath: Level
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1648184235869969343, guid: 500cba06e871f4d46b7874a26ca9d207, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
