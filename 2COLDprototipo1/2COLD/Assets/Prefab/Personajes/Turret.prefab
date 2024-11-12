@@ -364,6 +364,7 @@ MonoBehaviour:
   distanceToStop: 3
   firingPoint: {fileID: 7639466003306321579}
   fireRate: 1
+  timeToFire: 0.3
   Vida: {fileID: 956288980032862419}
   lineOfSight: {fileID: 1335261120}
 --- !u!114 &956288980032862419

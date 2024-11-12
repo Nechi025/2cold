@@ -14,7 +14,7 @@ public class Torreta : ManagedUpdateBehavior
     public float distanceToStop = 3f;
     public Transform firingPoint;
     public float fireRate;
-    private float timeToFire;
+    public float timeToFire;
     [SerializeField] private Life Vida;
     [SerializeField] private LineOfSight lineOfSight;
 

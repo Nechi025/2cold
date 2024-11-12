@@ -32,7 +32,7 @@ public class MenuPausa : MonoBehaviour
         Time.timeScale = 0f;
         menuPausa.SetActive(true);
         EfectosPantalla.SetActive(false);
-        crosshair.SetActive(false); // Desactiva el crosshair
+        //crosshair.SetActive(false); // Desactiva el crosshair
         isGamePaused = true; // Cambia el bool al pausar
     }
 
@@ -41,7 +41,7 @@ public class MenuPausa : MonoBehaviour
         Time.timeScale = 1f;
         menuPausa.SetActive(false);
         EfectosPantalla.SetActive(true);
-        crosshair.SetActive(true); // Activa el crosshair
+        //crosshair.SetActive(true); // Activa el crosshair
         isGamePaused = false; // Cambia el bool al pausar
     }
 
