@@ -8,6 +8,7 @@ public class Bullet1 : MonoBehaviour /*IBullet*/
 {
     [SerializeField] public float _speed = 5f;
     [SerializeField] private float _lifeTime = 2f;
+    public float _currentLifeTime;  // Variable para manejar el tiempo de vida actual
     [SerializeField] public int damage;
     [SerializeField] private List<GameObject> _weaponList;
     [SerializeField] private IWeapon _currentWeapon;
@@ -38,11 +39,23 @@ public class Bullet1 : MonoBehaviour /*IBullet*/
         Init();
     }
 
+    private void OnEnable()
+    {
+        // Resetear el tiempo de vida cada vez que la bala se activa
+        _currentLifeTime = _lifeTime;
+    }
+
+
     private void Update()
     {
         Travel();
-        _lifeTime -= Time.deltaTime;
-        if (_lifeTime <= 0) Destroy(this.gameObject);
+
+        if (GlobalPause.IsPaused())
+            return;
+
+
+       if (!GlobalPause.IsPaused()) _currentLifeTime -= Time.deltaTime;
+        if (_currentLifeTime <= 0) gameObject.SetActive(false);
 
 
 
@@ -52,7 +65,7 @@ public class Bullet1 : MonoBehaviour /*IBullet*/
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
 
         if (collision.transform.GetComponent<LifeS>())
         {

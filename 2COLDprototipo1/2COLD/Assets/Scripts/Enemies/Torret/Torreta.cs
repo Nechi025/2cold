@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,23 +7,23 @@ public class Torreta : ManagedUpdateBehavior
     public float speed = 0f;
     public float rotateSpeed = 0.0025f;
     [SerializeField] private Rigidbody2D rb;
-    public GameObject bulletPrefab;
     public float bulletForce;
     public float distanceToShoot = 5f;
     public float distanceToStop = 3f;
     public Transform firingPoint;
     public float fireRate;
-    public float timeToFire;
+    public ObjectPool bulletPool; // Pool de balas para la torreta
     [SerializeField] private Life Vida;
     [SerializeField] private LineOfSight lineOfSight;
 
+    private float timeToFire;
+    private List<BulletData> bullets = new List<BulletData>();
+
     protected override void Start()
     {
-        base.Start();  // Llamamos al Start de ManagedUpdateBehavior
+        base.Start(); // Llamamos al Start de ManagedUpdateBehavior
         GameManager.Instance.enemys++;
-
-        // Obtener el target inicial al inicio
-        GetTarget();
+        GetTarget(); // Obtener el target inicial al inicio
     }
 
     public override void UpdateMe()
@@ -35,11 +34,13 @@ public class Torreta : ManagedUpdateBehavior
         {
             RotateTowardsTarget();
 
-            if (IsWithinShootingRange())
+            if (IsWithinShootingRange() && !GlobalPause.IsPaused())
             {
-                if (!GlobalPause.IsPaused()) Shoot();
+                Shoot();
             }
         }
+
+        HandleBullets();
 
         if (Vida.unitLife <= 0) DestroyTorreta();
     }
@@ -62,11 +63,69 @@ public class Torreta : ManagedUpdateBehavior
             return;
         }
 
-        var bullet = Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
-        var bulletRb = bullet.GetComponent<Rigidbody2D>();
-        bulletRb.AddForce(-firingPoint.up * bulletForce, ForceMode2D.Impulse);
+        // Obtiene una bala del pool
+        GameObject bullet = bulletPool.GetObject();
+        bullet.transform.position = firingPoint.position;
+        bullet.transform.rotation = firingPoint.rotation;
+
+        Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
+        Vector2 force = -firingPoint.up * bulletForce;
+
+        // Crea un nuevo BulletData para gestionar la lógica de pausa
+        var bulletData = new BulletData
+        {
+            rb = bulletRb,
+            originalForce = force,
+            storedVelocity = Vector2.zero,
+            isPaused = GlobalPause.IsPaused(),
+            lifeTime = 2f // Duración de la bala
+        };
+
+        if (!GlobalPause.IsPaused())
+        {
+            bulletRb.AddForce(force, ForceMode2D.Impulse);
+        }
+
+        bullets.Add(bulletData);
         timeToFire = fireRate;
+
         SoundManager.Instance.PlaySound("Torreta");
+    }
+
+    private void HandleBullets()
+    {
+        for (int i = 0; i < bullets.Count; i++)
+        {
+            var bulletData = bullets[i];
+
+            if (GlobalPause.IsPaused())
+            {
+                if (!bulletData.isPaused)
+                {
+                    bulletData.storedVelocity = bulletData.rb.velocity;
+                    bulletData.rb.velocity = Vector2.zero;
+                    bulletData.isPaused = true;
+                }
+            }
+            else
+            {
+                if (bulletData.isPaused)
+                {
+                    bulletData.isPaused = false;
+                    bulletData.rb.velocity = bulletData.storedVelocity;
+                    bulletData.rb.AddForce(bulletData.originalForce, ForceMode2D.Impulse);
+                }
+            }
+
+            if (!GlobalPause.IsPaused()) bulletData.lifeTime -= Time.deltaTime;
+
+            if (bulletData.lifeTime <= 0)
+            {
+                bulletPool.ReturnObject(bulletData.rb.gameObject);
+                bullets.RemoveAt(i);
+                i--;
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -98,5 +157,14 @@ public class Torreta : ManagedUpdateBehavior
     private void OnDestroy()
     {
         CustomUpdateManager.Instance?.Unregister(this);
+    }
+
+    private class BulletData
+    {
+        public Rigidbody2D rb;
+        public Vector2 storedVelocity;
+        public Vector2 originalForce;
+        public bool isPaused;
+        public float lifeTime;
     }
 }

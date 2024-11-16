@@ -2030,6 +2030,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1927422753}
+    - target: {fileID: 7669766061818652817, guid: e82f9850823f8954999501f0f8911f24, type: 3}
+      propertyPath: bulletPool
+      value: 
+      objectReference: {fileID: 681643262}
     - target: {fileID: 8417700815837965459, guid: e82f9850823f8954999501f0f8911f24, type: 3}
       propertyPath: m_Name
       value: Turret (1)
@@ -2937,6 +2941,52 @@ Transform:
   m_Father: {fileID: 52527270}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &681643261
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 681643263}
+  - component: {fileID: 681643262}
+  m_Layer: 0
+  m_Name: ObjectPoolENEMY
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &681643262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681643261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c6470a3f349754d861350d3ddda609, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 5291808506690161807, guid: 94d78b72078020046b9ef169e291b35a, type: 3}
+  poolSize: 10
+--- !u!4 &681643263
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681643261}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.4895945, y: -4.6481533, z: -0.1865664}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &691255192
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3076,6 +3126,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1927422753}
+    - target: {fileID: 7669766061818652817, guid: e82f9850823f8954999501f0f8911f24, type: 3}
+      propertyPath: bulletPool
+      value: 
+      objectReference: {fileID: 681643262}
     - target: {fileID: 8417700815837965459, guid: e82f9850823f8954999501f0f8911f24, type: 3}
       propertyPath: m_Name
       value: Turret (3)
@@ -3669,6 +3723,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1927422753}
+    - target: {fileID: 7669766061818652817, guid: e82f9850823f8954999501f0f8911f24, type: 3}
+      propertyPath: bulletPool
+      value: 
+      objectReference: {fileID: 681643262}
     - target: {fileID: 8417700815837965459, guid: e82f9850823f8954999501f0f8911f24, type: 3}
       propertyPath: m_Name
       value: Turret (2)
