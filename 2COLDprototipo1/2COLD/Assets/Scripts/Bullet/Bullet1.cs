@@ -63,7 +63,7 @@ public class Bullet1 : MonoBehaviour /*IBullet*/
 
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         gameObject.SetActive(false);
 

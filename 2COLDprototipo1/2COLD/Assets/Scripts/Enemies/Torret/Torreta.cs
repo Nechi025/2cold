@@ -16,7 +16,7 @@ public class Torreta : ManagedUpdateBehavior
     [SerializeField] private Life Vida;
     [SerializeField] private LineOfSight lineOfSight;
 
-    private float timeToFire;
+    private float timeToFire = 0.2f;
     private List<BulletData> bullets = new List<BulletData>();
 
     protected override void Start()

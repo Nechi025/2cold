@@ -116,6 +116,8 @@ public class Enemy1 : ManagedUpdateBehavior
 
     public void LookDir(Vector2 posA, Vector2 posB)
     {
+        if (tiempoCollision > 0) return; // Evitar rotación mientras está en cooldown
+
         Vector2 lookDir = posA - posB;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
         rb.rotation = angle;
@@ -139,19 +141,37 @@ public class Enemy1 : ManagedUpdateBehavior
         {
             if (collision.gameObject.layer == 9)
             {
+                // Obtener el componente de vida del jugador
                 LifeS life = collision.transform.GetComponent<LifeS>();
                 life.GetDamage(damage);
-                tiempoCollision = tiempoEntreCollision; // Iniciar cooldown
+
+                // Iniciar cooldown
+                tiempoCollision = tiempoEntreCollision;
 
                 // Detener el movimiento del enemigo
                 rb.velocity = Vector2.zero;
+
+                // Congelar la rotación del enemigo
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+                // Opcional: Iniciar una corrutina para reactivar la rotación después de un tiempo
+                StartCoroutine(ResetRotation());
+                StartCoroutine(ResetMovement());
             }
         }
     }
 
+    private IEnumerator ResetRotation()
+    {
+        yield return new WaitForSeconds(tiempoCollision); // Esperar el tiempo de cooldown
+
+        // Reactivar la rotación del enemigo
+        rb.constraints = RigidbodyConstraints2D.None;
+    }
+
     private IEnumerator ResetMovement()
     {
-        yield return new WaitForSeconds(tiempoEntreCollision); // Esperar el tiempo de cooldown
+        yield return new WaitForSeconds(tiempoCollision); // Esperar el tiempo de cooldown
         isMoving = true; // Volver a permitir movimiento
     }
 

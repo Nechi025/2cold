@@ -53,6 +53,7 @@ public class MenuPausa : MonoBehaviour
     public void Restart()
     {
         Time.timeScale = 1f;
+        isGamePaused = false; // Cambia el bool al pausar
         StartCoroutine(GotoCurrentLevel());
     }
 
