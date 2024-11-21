@@ -22,7 +22,6 @@ public class Shooting : MonoBehaviour
         if (Input.GetKeyDown(_attack))
         {
             Shoot();
-            SoundManager.Instance.PlaySound("Bullet");
         }
 
         if (Input.GetKeyDown(_reload))
@@ -78,6 +77,7 @@ public class Shooting : MonoBehaviour
 
         if (ammo > 0)
         {
+            SoundManager.Instance.PlaySound("Bullet");
             GameObject bullet = bulletPool.GetObject();  // Obtiene una bala del pool
             bullet.transform.position = firePoint.position;
             bullet.transform.rotation = firePoint.rotation;
@@ -100,6 +100,10 @@ public class Shooting : MonoBehaviour
 
             bullets.Add(bulletData);
             ammo--;
+        }
+        else if (ammo == 0)
+        {
+            SoundManager.Instance.PlaySound("NoBullet");
         }
     }
 

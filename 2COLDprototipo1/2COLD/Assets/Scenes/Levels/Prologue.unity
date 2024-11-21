@@ -4606,6 +4606,14 @@ MonoBehaviour:
     loop: 0
     mute: 0
     audioSource: {fileID: 0}
+  - name: NoBullet
+    clip: {fileID: 8300000, guid: 2685b8d04dcf9c849a15472efa74837f, type: 3}
+    volume: 0.946
+    pitch: 1
+    playOnAwake: 0
+    loop: 0
+    mute: 0
+    audioSource: {fileID: 0}
 --- !u!4 &632102564
 Transform:
   m_ObjectHideFlags: 0
@@ -7547,8 +7555,8 @@ MonoBehaviour:
   - {x: -8, y: -4.8000293, z: 0}
   - {x: -7.9999704, y: -24, z: 0}
   m_ShapePathHash: 1445227203
-  m_Mesh: {fileID: 2022516705}
-  m_InstanceId: 61772
+  m_Mesh: {fileID: 2048286707}
+  m_InstanceId: 50308
   m_LocalBounds:
     m_Center: {x: 15.335001, y: -2.4000015, z: 0}
     m_Extent: {x: 23.335001, y: 21.599998, z: 0}
@@ -10549,7 +10557,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2000410837}
   m_CullTransparentMesh: 1
---- !u!43 &2022516705
+--- !u!43 &2048286707
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

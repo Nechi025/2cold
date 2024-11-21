@@ -2926,6 +2926,14 @@ MonoBehaviour:
     loop: 0
     mute: 0
     audioSource: {fileID: 0}
+  - name: NoBullet
+    clip: {fileID: 8300000, guid: 2685b8d04dcf9c849a15472efa74837f, type: 3}
+    volume: 0.921
+    pitch: 1
+    playOnAwake: 0
+    loop: 0
+    mute: 0
+    audioSource: {fileID: 0}
 --- !u!4 &632102564
 Transform:
   m_ObjectHideFlags: 0
