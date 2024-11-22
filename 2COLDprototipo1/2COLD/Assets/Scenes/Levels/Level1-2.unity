@@ -1997,7 +1997,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5209211527599380301, guid: bb237f5f73ff440468604f080e3baa10, type: 3}
       propertyPath: sumarMunicion
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5209211527599380301, guid: bb237f5f73ff440468604f080e3baa10, type: 3}
       propertyPath: ammoController
@@ -2025,7 +2025,7 @@ PrefabInstance:
     - target: {fileID: 956288980032862419, guid: e82f9850823f8954999501f0f8911f24, type: 3}
       propertyPath: objetoDrop
       value: 
-      objectReference: {fileID: 397242638}
+      objectReference: {fileID: 0}
     - target: {fileID: 7669766061818652817, guid: e82f9850823f8954999501f0f8911f24, type: 3}
       propertyPath: target
       value: 
@@ -2155,7 +2155,7 @@ PrefabInstance:
     - target: {fileID: 1868268712341104537, guid: e7a6d49ce53ef73499ba35e7b7ba607c, type: 3}
       propertyPath: objetoDrop
       value: 
-      objectReference: {fileID: 397242638}
+      objectReference: {fileID: 0}
     - target: {fileID: 6605579946395666701, guid: e7a6d49ce53ef73499ba35e7b7ba607c, type: 3}
       propertyPath: m_Name
       value: BasicEnemy (2)
@@ -2480,7 +2480,7 @@ PrefabInstance:
     - target: {fileID: 1868268712341104537, guid: e7a6d49ce53ef73499ba35e7b7ba607c, type: 3}
       propertyPath: objetoDrop
       value: 
-      objectReference: {fileID: 397242638}
+      objectReference: {fileID: 0}
     - target: {fileID: 6605579946395666701, guid: e7a6d49ce53ef73499ba35e7b7ba607c, type: 3}
       propertyPath: m_Name
       value: BasicEnemy (1)
@@ -3321,7 +3321,7 @@ PrefabInstance:
     - target: {fileID: 1868268712341104537, guid: e7a6d49ce53ef73499ba35e7b7ba607c, type: 3}
       propertyPath: objetoDrop
       value: 
-      objectReference: {fileID: 397242638}
+      objectReference: {fileID: 0}
     - target: {fileID: 6605579946395666701, guid: e7a6d49ce53ef73499ba35e7b7ba607c, type: 3}
       propertyPath: m_Name
       value: BasicEnemy
@@ -3726,7 +3726,7 @@ PrefabInstance:
     - target: {fileID: 956288980032862419, guid: e82f9850823f8954999501f0f8911f24, type: 3}
       propertyPath: objetoDrop
       value: 
-      objectReference: {fileID: 397242638}
+      objectReference: {fileID: 0}
     - target: {fileID: 7669766061818652817, guid: e82f9850823f8954999501f0f8911f24, type: 3}
       propertyPath: target
       value: 
