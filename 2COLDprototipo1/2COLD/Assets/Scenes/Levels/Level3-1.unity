@@ -603,6 +603,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5332583502925606940, guid: 500cba06e871f4d46b7874a26ca9d207, type: 3}
+      propertyPath: timer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5332583502925606940, guid: 500cba06e871f4d46b7874a26ca9d207, type: 3}
+      propertyPath: timerReset
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6283340573834807505, guid: 500cba06e871f4d46b7874a26ca9d207, type: 3}
       propertyPath: orthographic size
       value: 8.4375
@@ -4268,8 +4276,8 @@ MonoBehaviour:
   - {x: 4.5300074, y: -1.8500078, z: 0}
   - {x: 4.5500107, y: -1.8700002, z: 0}
   m_ShapePathHash: -1096853461
-  m_Mesh: {fileID: 1938169025}
-  m_InstanceId: 35678
+  m_Mesh: {fileID: 1940195031}
+  m_InstanceId: 99184
   m_LocalBounds:
     m_Center: {x: 19.2, y: 5.6, z: 0}
     m_Extent: {x: 19.470001, y: 7.4700003, z: 0}
@@ -8326,7 +8334,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!43 &1938169025
+--- !u!43 &1940195031
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

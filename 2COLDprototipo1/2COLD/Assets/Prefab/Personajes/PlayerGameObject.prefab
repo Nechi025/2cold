@@ -1906,7 +1906,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 3893202747246862437}
   m_HandleRect: {fileID: 0}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: -0.24
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 1
@@ -3160,6 +3160,14 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 6283340573834807505}
+    - target: {fileID: -5509048485897589259, guid: bc72b0b439a08544aaa6c554890271b2, type: 3}
+      propertyPath: timer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -5509048485897589259, guid: bc72b0b439a08544aaa6c554890271b2, type: 3}
+      propertyPath: timerReset
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 2156619973260844741, guid: bc72b0b439a08544aaa6c554890271b2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

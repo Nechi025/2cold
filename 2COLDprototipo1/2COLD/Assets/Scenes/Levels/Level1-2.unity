@@ -6670,11 +6670,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5332583502925606940, guid: 500cba06e871f4d46b7874a26ca9d207, type: 3}
       propertyPath: timer
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5332583502925606940, guid: 500cba06e871f4d46b7874a26ca9d207, type: 3}
       propertyPath: timerReset
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5442592729097927678, guid: 500cba06e871f4d46b7874a26ca9d207, type: 3}
       propertyPath: m_Sprite
