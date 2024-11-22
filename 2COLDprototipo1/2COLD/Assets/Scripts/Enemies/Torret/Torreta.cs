@@ -12,7 +12,7 @@ public class Torreta : ManagedUpdateBehavior
     public float distanceToStop = 3f;
     public Transform firingPoint;
     public float fireRate;
-    public ObjectPool bulletPool; // Pool de balas para la torreta
+    public ObjectPool bulletPool; 
     [SerializeField] private Life Vida;
     [SerializeField] private LineOfSight lineOfSight;
 
@@ -21,9 +21,9 @@ public class Torreta : ManagedUpdateBehavior
 
     protected override void Start()
     {
-        base.Start(); // Llamamos al Start de ManagedUpdateBehavior
+        base.Start(); 
         GameManager.Instance.enemys++;
-        GetTarget(); // Obtener el target inicial al inicio
+        GetTarget(); 
     }
 
     public override void UpdateMe()
@@ -78,7 +78,7 @@ public class Torreta : ManagedUpdateBehavior
             originalForce = force,
             storedVelocity = Vector2.zero,
             isPaused = GlobalPause.IsPaused(),
-            lifeTime = 2f // Duración de la bala
+            lifeTime = 2f 
         };
 
         if (!GlobalPause.IsPaused())

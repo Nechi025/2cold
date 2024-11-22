@@ -8,7 +8,7 @@ public class Bullet1 : MonoBehaviour /*IBullet*/
 {
     [SerializeField] public float _speed = 5f;
     [SerializeField] private float _lifeTime = 2f;
-    public float _currentLifeTime;  // Variable para manejar el tiempo de vida actual
+    public float _currentLifeTime; 
     [SerializeField] public int damage;
     [SerializeField] private List<GameObject> _weaponList;
     [SerializeField] private IWeapon _currentWeapon;
@@ -79,7 +79,7 @@ public class Bullet1 : MonoBehaviour /*IBullet*/
 
     public void Travel()
     {
-        // Mueve la bala en la dirección almacenada.
+        
         //transform.position += (Vector3)shootingDirection.normalized * _speed * Time.deltaTime;
         Rigidbody2D rb = this.GetComponent<Rigidbody2D>();
         //rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
@@ -114,7 +114,7 @@ public class Bullet1 : MonoBehaviour /*IBullet*/
         // Calcula el ángulo de rotación basado en la dirección del disparo.
         float angle = Mathf.Atan2(shootingDirection.y, shootingDirection.x) * Mathf.Rad2Deg;
 
-        // Rotaciona la bala para apuntar en la dirección del disparo.
+        // Rota la bala para apuntar en la dirección del disparo.
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
     public GameObject MyGameObject => gameObject;

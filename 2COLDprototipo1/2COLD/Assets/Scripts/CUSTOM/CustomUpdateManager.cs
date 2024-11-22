@@ -12,7 +12,7 @@ public class CustomUpdateManager : MonoBehaviour
 
     private void Awake()
     {
-        // Implementación del patrón Singleton
+        
         if (Instance == null)
         {
             Instance = this;

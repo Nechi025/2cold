@@ -43,11 +43,11 @@ public class ObstacleAvoidance
 
         if (nearColl == null)
         {
-            // Si no hay colisiones cercanas, sigue en la dirección actual
+            
             return currentDir;
         }
 
-        // Realizamos raycasts hacia la izquierda y derecha para determinar qué lado está más despejado
+        
         Vector2 dirToClosestPoint = (closestPoint - (Vector2)_entity.position).normalized;
         Vector2 perpendicularRight = Vector2.Perpendicular(dirToClosestPoint);
         Vector2 perpendicularLeft = -Vector2.Perpendicular(dirToClosestPoint);
@@ -64,14 +64,14 @@ public class ObstacleAvoidance
     private float CheckSideClearance(Vector2 direction)
     {
         RaycastHit2D hit = Physics2D.Raycast(_entity.position, direction, _radius, _maskObs);
-        return hit.collider ? hit.distance : _radius; // Si no hay colisión, retorna el radio completo como distancia despejada
+        return hit.collider ? hit.distance : _radius; 
     }
 
-    // Método para dibujar Gizmos que representan los raycasts laterales
+    
     public void DrawGizmos()
     {
         Gizmos.color = Color.green;
-        Vector2 dirToClosestPoint = _entity.right; // Suponiendo que la entidad esté mirando hacia la derecha
+        Vector2 dirToClosestPoint = _entity.right; 
         Vector2 perpendicularRight = Vector2.Perpendicular(dirToClosestPoint);
         Vector2 perpendicularLeft = -Vector2.Perpendicular(dirToClosestPoint);
 

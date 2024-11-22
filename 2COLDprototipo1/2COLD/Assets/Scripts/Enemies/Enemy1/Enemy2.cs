@@ -9,14 +9,14 @@ public class Enemy2 : ManagedUpdateBehavior
     public Transform target;
     [SerializeField] private float tiempoCollision;
     [SerializeField] private float tiempoEntreCollision;
-    public bool moveToPlayer = false; // Esta variable controla si se debe patrullar o perseguir al jugador.
+    public bool moveToPlayer = false; 
 
     protected Vector3 direccion;
     protected Vector3 posObj;
 
     [Header("Deteccion de rango")]
     [SerializeField] public float detectRange;
-    [SerializeField] private float shootingRange; // Rango de disparo
+    [SerializeField] private float shootingRange; 
 
     [SerializeField] int damage;
     [SerializeField] private Animator Enemy2Anim;
@@ -35,7 +35,7 @@ public class Enemy2 : ManagedUpdateBehavior
     [Header("Shooting")]
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firingPoint;
-    [SerializeField] private float fireRate = 1f; // Tiempo entre disparos
+    [SerializeField] private float fireRate = 1f; 
     [SerializeField] private float bulletForce = 5f;
     private float nextTimeToFire = 0f;
 
@@ -48,7 +48,7 @@ public class Enemy2 : ManagedUpdateBehavior
             GetTarget();
         }
 
-        // Inicializar ObstacleAvoidance2D
+        
         obstacleAvoidance = new ObstacleAvoidance(transform, avoidanceAngle, avoidanceRadius, obstacleLayer);
     }
 

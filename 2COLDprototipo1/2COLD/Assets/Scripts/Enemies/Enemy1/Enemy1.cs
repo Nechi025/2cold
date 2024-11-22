@@ -12,7 +12,7 @@ public class Enemy1 : ManagedUpdateBehavior
     [SerializeField] private float tiempoCollision;
     [SerializeField] private float tiempoEntreCollision;
     public bool moveToPlayer;
-    private bool isMoving = true; // Nueva variable para controlar el movimiento
+    private bool isMoving = true; 
 
     protected Vector3 direccion;
     protected Vector3 posObj;
@@ -24,10 +24,10 @@ public class Enemy1 : ManagedUpdateBehavior
     [SerializeField] int damage;
     [SerializeField] private Animator Enemy1Anim;
 
-    // Referencia al componente LineOfSight
+    
     [SerializeField] private LineOfSight lineOfSight;
 
-    // Instancia de ObstacleAvoidance2D
+    
     private ObstacleAvoidance obstacleAvoidance;
 
     [Header("Evitación de obstáculos")]
@@ -53,7 +53,7 @@ public class Enemy1 : ManagedUpdateBehavior
             GetTarget();
         }
 
-        // Inicializar ObstacleAvoidance2D
+        
         obstacleAvoidance = new ObstacleAvoidance(transform, avoidanceAngle, avoidanceRadius, obstacleLayer);
     }
 
@@ -73,10 +73,10 @@ public class Enemy1 : ManagedUpdateBehavior
 
     private void FixedUpdate()
     {
-        if (tiempoCollision > 0) // Si el enemigo está en cooldown
+        if (tiempoCollision > 0)
         {
-            rb.velocity = Vector2.zero; // Detener el movimiento
-            return; // Salir de FixedUpdate para evitar que se actualice la posición o rotación
+            rb.velocity = Vector2.zero; 
+            return; 
         }
 
         if (target != null && lineOfSight.CheckRange(target) && lineOfSight.CheckAngle(target) && lineOfSight.CheckView(target))
@@ -141,11 +141,11 @@ public class Enemy1 : ManagedUpdateBehavior
         {
             if (collision.gameObject.layer == 9)
             {
-                // Obtener el componente de vida del jugador
+                
                 LifeS life = collision.transform.GetComponent<LifeS>();
                 life.GetDamage(damage);
 
-                // Iniciar cooldown
+                
                 tiempoCollision = tiempoEntreCollision;
 
                 // Detener el movimiento del enemigo
@@ -154,7 +154,7 @@ public class Enemy1 : ManagedUpdateBehavior
                 // Congelar la rotación del enemigo
                 rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
-                // Opcional: Iniciar una corrutina para reactivar la rotación después de un tiempo
+                
                 StartCoroutine(ResetRotation());
                 StartCoroutine(ResetMovement());
             }
@@ -177,11 +177,11 @@ public class Enemy1 : ManagedUpdateBehavior
 
     private void OnDrawGizmosSelected()
     {
-        // Dibujar el radio de evitación de obstáculos
+        
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, avoidanceRadius);
 
-        // Dibujar el ángulo de evitación
+       
         Vector3 leftLimit = Quaternion.Euler(0, 0, -avoidanceAngle / 2) * transform.right * avoidanceRadius;
         Vector3 rightLimit = Quaternion.Euler(0, 0, avoidanceAngle / 2) * transform.right * avoidanceRadius;
 
@@ -189,7 +189,7 @@ public class Enemy1 : ManagedUpdateBehavior
         Gizmos.DrawLine(transform.position, transform.position + leftLimit);
         Gizmos.DrawLine(transform.position, transform.position + rightLimit);
 
-        // Dibujar los raycasts laterales de evitación
+        
         if (obstacleAvoidance != null)
         {
             obstacleAvoidance.DrawGizmos();

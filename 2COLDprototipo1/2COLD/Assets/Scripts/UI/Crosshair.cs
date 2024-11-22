@@ -15,10 +15,10 @@ public class Crosshair : MonoBehaviour
 
     void Update()
     {
-        // Get mouse position and directly set the crosshair position to match
+        
         Vector2 mousePosition = Input.mousePosition;
 
-        // Update position with RectTransform
+        
         if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
                 crosshairRectTransform.parent as RectTransform,
                 mousePosition,

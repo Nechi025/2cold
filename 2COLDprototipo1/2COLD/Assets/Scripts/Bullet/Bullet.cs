@@ -6,8 +6,8 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] public float _speed = 5f;
-    [SerializeField] private float _lifeTime = 2f; // Tiempo de vida original de la bala
-    private float _currentLifeTime;  // Variable para manejar el tiempo de vida actual
+    [SerializeField] private float _lifeTime = 2f; 
+    private float _currentLifeTime;  
     [SerializeField] public int damage;
     [SerializeField] private LayerMask _hittableLayer;
     [SerializeField] private IWeapon _owner;
@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour
 
     private void OnEnable()
     {
-        // Resetear el tiempo de vida cada vez que la bala se activa
+        
         _currentLifeTime = _lifeTime;
     }
 

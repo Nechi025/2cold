@@ -22,18 +22,18 @@ public class EnemyEspectro : MonoBehaviour
     [SerializeField] public float detectRange;
 
 
-    //posición inicial del alien
+    
     Vector2 initialPos;
 
   
 
-    //Daño que realiza
+    
     [SerializeField] int damage;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        //se guarda posicion
+        
         initialPos = transform.position;
         GameManager.Instance.enemys++;
 
@@ -62,7 +62,7 @@ public class EnemyEspectro : MonoBehaviour
         }
 
     }
-    //Actualzia el estado de la vida del Alien
+    
 
 
     private void FixedUpdate()
@@ -133,7 +133,7 @@ public class EnemyEspectro : MonoBehaviour
 
 
 
-    //logica de daño del Alien
+    
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (tiempoCollision <= 0)

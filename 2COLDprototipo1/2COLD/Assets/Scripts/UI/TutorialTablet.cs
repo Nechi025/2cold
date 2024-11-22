@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TutorialTablet : MonoBehaviour
 {
-    // Start is called before the first frame update
+    
     public int Level;
     public Animator playerAnim;
     private string currentState;
@@ -26,7 +26,7 @@ public class TutorialTablet : MonoBehaviour
         currentState = newState;
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
 

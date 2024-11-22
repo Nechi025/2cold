@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
 {
-    public GameObject prefab;  // Prefab de la bala
-    public int poolSize = 10;  // Tamaño inicial del pool
+    public GameObject prefab;  
+    public int poolSize = 10;  
 
     private Queue<GameObject> pool;
 

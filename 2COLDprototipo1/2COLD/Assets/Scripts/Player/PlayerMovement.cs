@@ -19,18 +19,18 @@ public class PlayerMovement : ManagedUpdateBehavior
 
     private Vector2 movement;
     private float lastMovementTime;
-    public float idleTimeThreshold = 2f; // Tiempo en segundos antes de pausar el juego si el jugador está inactivo
+    public float idleTimeThreshold = 2f; 
 
-    // Nuevo código para el temporizador
-    public float timer; // Tiempo inicial del temporizador
-    public float timerReset; // Tiempo inicial del temporizador
-    private bool isTimerRunning = false; // Bandera para controlar si el temporizador está corriendo
-    public float timerResetSpeed = 1f; // Velocidad a la que el temporizador se reinicia progresivamente
-    public bool isInNoTimerZone = false; // Bandera para verificar si está en la zona especial
+    
+    public float timer; 
+    public float timerReset; 
+    private bool isTimerRunning = false; 
+    public float timerResetSpeed = 1f; 
+    public bool isInNoTimerZone = false; 
 
 
-    // Nuevo código para el dash
-    public bool isDashing = false; // Bandera para indicar si el dash está activo
+    
+    public bool isDashing = false; 
 
     public Animator playerAnim;
     private string currentState;
@@ -43,7 +43,7 @@ public class PlayerMovement : ManagedUpdateBehavior
 
     void Awake()
     {
-        // Setup the singleton instance
+        
         if (Instance == null)
         {
             Instance = this;
@@ -103,14 +103,14 @@ public class PlayerMovement : ManagedUpdateBehavior
 
         UpdateTimer();
 
-        // Si el juego está pausado, salir del método de actualización
+        
         if (GlobalPause.IsPaused())
         {
             rb.velocity = Vector2.zero; // Detener el movimiento residual al pausar
             return;
         }
 
-        // Realiza el movimiento usando MovePosition y reinicia velocidad residual
+        
         rb.MovePosition(rb.position + movement * activeMoveSpeed * Time.fixedDeltaTime);
     }
 
@@ -140,7 +140,7 @@ public class PlayerMovement : ManagedUpdateBehavior
                 isDashing = false;
                 ChangeAnimationState(PlayIdle);
 
-                // Detener cualquier movimiento residual después del dash
+                
                 rb.velocity = Vector2.zero;
             }
         }
@@ -190,7 +190,7 @@ public class PlayerMovement : ManagedUpdateBehavior
     {
         if (isTimerRunning)
         {
-            // Solo reduce el temporizador si no está en la zona y no está quieto
+            
             if (!isInNoTimerZone)
             {
                 timer -= Time.deltaTime;

@@ -8,7 +8,7 @@ public class SecondMusicManager : MonoBehaviour
 
     void Awake()
     {
-        // Check if an instance already exists
+        
         if (instance != null)
         {
             Destroy(gameObject);

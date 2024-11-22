@@ -10,7 +10,7 @@ public class Shooting : MonoBehaviour
     public float bulletForce = 20f;
     [SerializeField] private KeyCode _attack = KeyCode.Mouse0;
     [SerializeField] private KeyCode _reload = KeyCode.R;
-    [SerializeField] private ObjectPool bulletPool;  // Referencia al Object Pool
+    [SerializeField] private ObjectPool bulletPool;  
 
     private List<BulletData> bullets = new List<BulletData>();
 
@@ -78,7 +78,7 @@ public class Shooting : MonoBehaviour
         if (ammo > 0)
         {
             SoundManager.Instance.PlaySound("Bullet");
-            GameObject bullet = bulletPool.GetObject();  // Obtiene una bala del pool
+            GameObject bullet = bulletPool.GetObject();  
             bullet.transform.position = firePoint.position;
             bullet.transform.rotation = firePoint.rotation;
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();

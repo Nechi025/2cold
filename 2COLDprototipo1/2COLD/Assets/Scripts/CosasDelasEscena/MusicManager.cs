@@ -8,9 +8,9 @@ public class MusicManager : MonoBehaviour
     public static MusicManager Instance; // Singleton instance
 
     [Header("Assign Audio Clips")]
-    public AudioClip basicGameMusic;      // Default music for levels 1-5
-    public AudioClip secondGameMusic;     // Music for levels 6 and onward
-    public AudioClip menuMusic; // Music for main menu, victory, and defeat screens
+    public AudioClip basicGameMusic;      
+    public AudioClip secondGameMusic;     
+    public AudioClip menuMusic; 
 
     private AudioSource audioSource;
     private string currentScene;
@@ -20,12 +20,12 @@ public class MusicManager : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Destroy(gameObject); // Ensures only one instance persists
+            Destroy(gameObject); 
             return;
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject); // Make this persist across scenes
+        DontDestroyOnLoad(gameObject); 
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.loop = true;
     }
@@ -62,7 +62,7 @@ public class MusicManager : MonoBehaviour
 
     private void PlayMusic(AudioClip clip)
     {
-        if (audioSource.clip == clip) return; // Avoid restarting the same music
+        if (audioSource.clip == clip) return; 
 
         audioSource.clip = clip;
         audioSource.Play();

@@ -31,7 +31,7 @@ public class Pistol : MonoBehaviour, IWeapon
 
     public void ApplyDamageBoost(float boostAmount, float duration)
     {
-        // Puedes aplicar la lógica para aumentar el daño de la pistola durante un tiempo aquí
+        
         StartCoroutine(ResetDamageAfterDelay(boostAmount, duration));
     }
 

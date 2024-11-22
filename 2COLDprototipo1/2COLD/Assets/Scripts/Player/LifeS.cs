@@ -29,7 +29,7 @@ public class LifeS : MonoBehaviour
         if (unitLifes <= 0)
         {
             SaveCurrentLevel();
-            SceneManager.LoadScene(17); // Reemplaza 8 con el índice de la escena de derrota
+            SceneManager.LoadScene(17); 
             GameManager.Instance.cio--;
             Destroy(gameObject);
         }
@@ -44,7 +44,7 @@ public class LifeS : MonoBehaviour
     public void Death()
     {
         SaveCurrentLevel();
-        SceneManager.LoadScene(8); // Reemplaza 8 con el índice de la escena de derrota
+        SceneManager.LoadScene(8); 
         GameManager.Instance.cio--;
         Destroy(gameObject);
     }

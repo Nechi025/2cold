@@ -5,18 +5,18 @@ using UnityEngine;
 public class LaserTrap : MonoBehaviour
 {
     [Header("Laser Settings")]
-    public GameObject[] lasers; // Los láseres que estarán activos y desactivados
-    public float laserActiveTime = 2f; // Tiempo que los láseres estarán activos
-    public float laserInactiveTime = 0.001f; // Tiempo que los láseres estarán apagados (ventana de oportunidad)
-    public int laserDamage = 20; // Daño que hacen los láseres al jugador
-    public LayerMask playerLayer; // La capa del jugador
+    public GameObject[] lasers; 
+    public float laserActiveTime = 2f; 
+    public float laserInactiveTime = 0.001f; 
+    public int laserDamage = 20; 
+    public LayerMask playerLayer; 
 
-    private bool lasersActive = true; // Estado de los láseres (activos o inactivos)
-    private bool controllerDestroyed = false; // Estado del controlador (si fue destruido o no)
+    private bool lasersActive = true; 
+    private bool controllerDestroyed = false; 
 
     private void Start()
     {
-        //Debug.Log("LaserTrap iniciado.");
+        
         StartCoroutine(LaserRoutine());
     }
 
@@ -24,23 +24,23 @@ public class LaserTrap : MonoBehaviour
     {
         while (!controllerDestroyed)
         {
-            // Lógica para activar/desactivar los láseres según el estado del GlobalPause
+            
             if (GlobalPause.IsPaused())
             {
                 //Debug.Log("El juego está pausado. Los láseres no se activarán.");
-                yield return null; // Pausa la lógica cuando el juego está pausado
+                yield return null; 
             }
             else
             {
-                // Activar los láseres
+                
                 ActivateLasers();
                 //Debug.Log("Láseres ACTIVOS.");
-                yield return new WaitForSeconds(laserActiveTime); // Espera el tiempo en el que los láseres están activos
+                yield return new WaitForSeconds(laserActiveTime);
 
-                // Desactivar los láseres por un breve tiempo
+                
                 DeactivateLasers();
                 //Debug.Log("Láseres DESACTIVADOS.");
-                yield return new WaitForSeconds(laserInactiveTime); // Ventana de oportunidad
+                yield return new WaitForSeconds(laserInactiveTime); 
             }
         }
     }
@@ -50,7 +50,7 @@ public class LaserTrap : MonoBehaviour
         lasersActive = true;
         foreach (GameObject laser in lasers)
         {
-            laser.SetActive(true); // Activa los láseres
+            laser.SetActive(true); 
         }
         //Debug.Log("Los láseres han sido activados.");
     }
@@ -60,14 +60,14 @@ public class LaserTrap : MonoBehaviour
         lasersActive = false;
         foreach (GameObject laser in lasers)
         {
-            laser.SetActive(false); // Desactiva los láseres
+            laser.SetActive(false); 
         }
         //Debug.Log("Los láseres han sido desactivados.");
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        // Verificar si el láser está activo y el objeto es el jugador
+        
         if (lasersActive)
         {
             //Debug.Log("Láseres activos: true");
@@ -80,7 +80,7 @@ public class LaserTrap : MonoBehaviour
                 if (playerLife != null)
                 {
                     //Debug.Log("Aplicando daño al jugador.");
-                    playerLife.GetDamage(laserDamage); // Aplica daño al jugador
+                    playerLife.GetDamage(laserDamage); 
                 }
                 else
                 {
@@ -101,8 +101,8 @@ public class LaserTrap : MonoBehaviour
     public void DestroyController()
     {
         controllerDestroyed = true;
-        DeactivateLasers(); // Desactiva los láseres permanentemente
-        StopAllCoroutines(); // Detiene la rutina de activación/desactivación
+        DeactivateLasers(); 
+        StopAllCoroutines(); 
         //Debug.Log("Controlador destruido. Láseres desactivados permanentemente.");
     }
 }

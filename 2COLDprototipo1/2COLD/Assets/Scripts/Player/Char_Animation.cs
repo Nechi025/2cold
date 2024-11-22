@@ -46,7 +46,7 @@ public class Char_Animation : MonoBehaviour
     {
         AnimationRapido = false;
     }
-    // Start is called before the first frame update
+    
     void Start()
     {
         AnimationRapido = false;
@@ -54,21 +54,21 @@ public class Char_Animation : MonoBehaviour
         trail = GetComponent<TrailRenderer>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
 
-        // Obtén el valor de movimiento en ambos ejes
+        
         movimientoHorizontal = Input.GetAxisRaw("Horizontal");
         movimientoVertical = Input.GetAxisRaw("Vertical");
 
-        // Calcula la magnitud total del movimiento
+        
         float movimientoTotal = Mathf.Abs(movimientoHorizontal) + Mathf.Abs(movimientoVertical);
 
         // Si hay movimiento, actualiza el Float "Speed" para reproducir la animación
         if (movimientoTotal > 0.5)
         {
-            ChangeAnimationLegs(PlayWalkAnim, Legs); // El valor 1 activa la animación de movimiento
+            ChangeAnimationLegs(PlayWalkAnim, Legs); 
         }
         else
         {
