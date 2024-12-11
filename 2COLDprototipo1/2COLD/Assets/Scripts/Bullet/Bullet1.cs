@@ -6,16 +6,16 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D), typeof(Rigidbody2D))]
 public class Bullet1 : MonoBehaviour /*IBullet*/
 {
-    [SerializeField] public float _speed = 5f;
+    [SerializeField] private float _speed = 5f;
     [SerializeField] private float _lifeTime = 2f;
-    public float _currentLifeTime; 
-    [SerializeField] public int damage;
+    [SerializeField] private float _currentLifeTime; 
+    [SerializeField] private int damage;
     [SerializeField] private List<GameObject> _weaponList;
-    [SerializeField] private IWeapon _currentWeapon;
+    //[SerializeField] private IWeapon _currentWeapon;
 
     [SerializeField] private LayerMask _hitteableLayer;
-    [SerializeField] private IWeapon _owner;
-    public float bulletForce = 20f;
+    //[SerializeField] private IWeapon _owner;
+    [SerializeField] private float bulletForce = 20f;
     //private Transform firePoint;
 
 
@@ -24,7 +24,7 @@ public class Bullet1 : MonoBehaviour /*IBullet*/
     public float LifeTime => _lifeTime;
     public LayerMask HitteableLayer => _hitteableLayer;
     private Vector3 shootingDirection;
-    public IWeapon Owner => _owner;
+    //public IWeapon Owner => _owner;
 
 
 
@@ -94,12 +94,7 @@ public class Bullet1 : MonoBehaviour /*IBullet*/
 
     }
 
-    public void SetOwner(IWeapon weapon) => _owner = weapon;
-
-    //public IProduct Clone()
-    //{
-    //    return Instantiate(this, firePoint.position, firePoint.rotation);
-    //}
+  
 
     public void SetShootingDirection(Vector2 direction)
     {

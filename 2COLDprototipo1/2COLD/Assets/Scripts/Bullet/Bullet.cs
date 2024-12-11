@@ -5,14 +5,14 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D), typeof(Rigidbody2D))]
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] public float _speed = 5f;
+    [SerializeField] private float _speed = 5f;
     [SerializeField] private float _lifeTime = 2f; 
     private float _currentLifeTime;  
     [SerializeField] public int damage;
     [SerializeField] private LayerMask _hittableLayer;
-    [SerializeField] private IWeapon _owner;
-    public float bulletForce = 20f;
-    public Transform firePoint;
+    //[SerializeField] private IWeapon _owner;
+    [SerializeField] private float bulletForce = 20f;
+    [SerializeField] private Transform firePoint;
 
     private Collider2D _collider;
     private Rigidbody2D _rigidbody;
