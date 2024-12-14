@@ -986,8 +986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61b413c76add6f4d90e5f72489a2aef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  municion: {fileID: 1671106723100714386}
-  maxAmmo: 0
+  shootingScript: {fileID: 1671106723100714386}
 --- !u!1 &4751124917662112899
 GameObject:
   m_ObjectHideFlags: 0

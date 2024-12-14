@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
+
 
 public class LifeS : MonoBehaviour
 {
@@ -12,6 +14,8 @@ public class LifeS : MonoBehaviour
     private string currentState;
     const string BaseScreen = "BaseScreen";
     const string DamagedScreen = "DamagedScreen";
+    public event Action<int> OnLifeChanged;
+
 
     void Start()
     {
@@ -26,6 +30,7 @@ public class LifeS : MonoBehaviour
         
         ChangeAnimationState(DamagedScreen);
         unitLifes -= value;
+        OnLifeChanged?.Invoke(unitLifes);
         if (unitLifes <= 0)
         {
             SaveCurrentLevel();

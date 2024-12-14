@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EnemyEspectro : MonoBehaviour
 {
-    public float speed = 0.3f;
+    [SerializeField] private float speed = 0.3f;
     private float timerDir = 5f;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] SpriteRenderer flajeloRender;
-    public Transform target;
+    [SerializeField] private Transform target;
     [SerializeField] private float tiempoCollision;
     [SerializeField] private float tiempoEntreCollision;
     public bool moveToPlayer;

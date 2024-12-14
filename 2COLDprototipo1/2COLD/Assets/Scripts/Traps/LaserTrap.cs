@@ -5,10 +5,10 @@ using UnityEngine;
 public class LaserTrap : MonoBehaviour
 {
     [Header("Laser Settings")]
-    public GameObject[] lasers; 
-    public float laserActiveTime = 2f; 
-    public float laserInactiveTime = 0.001f; 
-    public int laserDamage = 20; 
+    [SerializeField] private GameObject[] lasers;
+    [SerializeField] private float laserActiveTime = 2f;
+    [SerializeField] private float laserInactiveTime = 0.001f;
+    [SerializeField] private int laserDamage = 20; 
     public LayerMask playerLayer; 
 
     private bool lasersActive = true; 

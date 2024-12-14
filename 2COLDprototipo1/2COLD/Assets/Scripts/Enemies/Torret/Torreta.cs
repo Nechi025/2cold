@@ -3,15 +3,15 @@ using UnityEngine;
 
 public class Torreta : ManagedUpdateBehavior
 {
-    public Transform target;
-    public float speed = 0f;
-    public float rotateSpeed = 0.0025f;
+    [SerializeField] private Transform target;
+    [SerializeField] private float speed = 0f;
+    [SerializeField] private float rotateSpeed = 0.0025f;
     [SerializeField] private Rigidbody2D rb;
     public float bulletForce;
-    public float distanceToShoot = 5f;
-    public float distanceToStop = 3f;
-    public Transform firingPoint;
-    public float fireRate;
+    [SerializeField] private float distanceToShoot = 5f;
+    [SerializeField] private float distanceToStop = 3f;
+    [SerializeField] private Transform firingPoint;
+    [SerializeField] private float fireRate;
     public ObjectPool bulletPool; 
     [SerializeField] private Life Vida;
     [SerializeField] private LineOfSight lineOfSight;

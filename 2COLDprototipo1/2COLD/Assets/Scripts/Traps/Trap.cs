@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Trap : MonoBehaviour
 {
-    public float activeTime = 3f; 
-    public float inactiveTime = 2f; 
-    public int damage = 20; 
+    [SerializeField] private float activeTime = 3f;
+    [SerializeField] private float inactiveTime = 2f;
+    [SerializeField] private int damage = 20; 
     private bool isActive = false; 
 
     private SpriteRenderer trapRenderer;

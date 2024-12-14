@@ -1,18 +1,26 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class Shooting : MonoBehaviour
 {
-    public Transform firePoint;
+    public event Action<float> OnAmmoChanged; // Evento que se dispara cuando cambia la munición
+
+    [SerializeField] private Transform firePoint;
     public float ammo = 10f;
-    public float bulletForce = 20f;
+    [SerializeField] private float bulletForce = 20f;
     [SerializeField] private KeyCode _attack = KeyCode.Mouse0;
     [SerializeField] private KeyCode _reload = KeyCode.R;
-    [SerializeField] private ObjectPool bulletPool;  
+    [SerializeField] private ObjectPool bulletPool;
 
     private List<BulletData> bullets = new List<BulletData>();
+
+    void Start()
+    {
+        // Disparar el evento inicial con el valor actual
+        OnAmmoChanged?.Invoke(ammo);
+    }
 
     void Update()
     {
@@ -24,15 +32,12 @@ public class Shooting : MonoBehaviour
             Shoot();
         }
 
-        if (Input.GetKeyDown(_reload))
-        {
-            // Implementar la lógica de recarga si es necesario
-        }
+       
 
+        // Pausa de balas
         for (int i = 0; i < bullets.Count; i++)
         {
             var bulletData = bullets[i];
-
             if (GlobalPause.IsPaused())
             {
                 if (!bulletData.isPaused)
@@ -55,30 +60,22 @@ public class Shooting : MonoBehaviour
             bulletData.lifeTime -= Time.deltaTime;
             if (bulletData.lifeTime <= 0)
             {
-                bulletPool.ReturnObject(bulletData.rb.gameObject);  // Devuelve la bala al pool
+                bulletPool.ReturnObject(bulletData.rb.gameObject);
                 bullets.RemoveAt(i);
                 i--;
             }
         }
     }
 
-
-    // Método para sumar más balas a la munición
-    public void AddAmmo(float amount)
-    {
-        ammo += amount;
-    }
-
-
     void Shoot()
     {
         if (MenuPausa.isGamePaused)
-            return; // No disparar si el juego está en pausa
+            return;
 
         if (ammo > 0)
         {
             SoundManager.Instance.PlaySound("Bullet");
-            GameObject bullet = bulletPool.GetObject();  
+            GameObject bullet = bulletPool.GetObject();
             bullet.transform.position = firePoint.position;
             bullet.transform.rotation = firePoint.rotation;
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
@@ -100,11 +97,21 @@ public class Shooting : MonoBehaviour
 
             bullets.Add(bulletData);
             ammo--;
+
+            OnAmmoChanged?.Invoke(ammo); // Disparar el evento
         }
-        else if (ammo == 0)
+        else
         {
             SoundManager.Instance.PlaySound("NoBullet");
         }
+    }
+
+  
+
+    public void AddAmmo(float amount)
+    {
+        ammo += amount;
+        OnAmmoChanged?.Invoke(ammo); // Disparar el evento
     }
 
     private class BulletData
@@ -116,4 +123,3 @@ public class Shooting : MonoBehaviour
         public float lifeTime;
     }
 }
-

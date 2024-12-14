@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Enemy2 : ManagedUpdateBehavior
 {
-    public float speed = 0.3f;
+    [SerializeField] private float speed = 0.3f;
     [SerializeField] Rigidbody2D rb;
-    public Transform target;
+    [SerializeField] private Transform target;
     [SerializeField] private float tiempoCollision;
     [SerializeField] private float tiempoEntreCollision;
     public bool moveToPlayer = false; 

@@ -6,12 +6,12 @@ public class PlayerMovement : ManagedUpdateBehavior
 {
     public static PlayerMovement Instance; // Singleton instance
 
-    public float moveSpeed = 5f;
-    public Rigidbody2D rb;
-    public Camera cam;
-    public float dashSpeed;
+    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Camera cam;
+    [SerializeField] private float dashSpeed;
 
-    public float dashLength = .5f, dashCooldown = 2f;
+    [SerializeField] private float dashLength = .5f, dashCooldown = 2f;
 
     private float dashCounter;
     private float dashCoolCounter;

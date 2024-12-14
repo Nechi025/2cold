@@ -5,9 +5,9 @@ using UnityEngine;
 public class LaserController : MonoBehaviour
 {
     [Header("Trap Settings")]
-    public LaserTrap laserTrap; 
-    public int health = 100; 
-    public GameObject explosionEffect; 
+    [SerializeField] private LaserTrap laserTrap;
+    [SerializeField] private int health = 100;
+    [SerializeField] private GameObject explosionEffect; 
 
     void OnTriggerEnter2D(Collider2D collision)
     {

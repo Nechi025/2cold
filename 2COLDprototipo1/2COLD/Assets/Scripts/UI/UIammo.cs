@@ -5,23 +5,32 @@ using TMPro;
 
 public class UIammo : MonoBehaviour
 {
-
     private TextMeshProUGUI textMesh;
-    [SerializeField] Shooting municion;
-    [SerializeField] float maxAmmo;
+    [SerializeField] Shooting shootingScript;
 
     private void Start()
     {
         textMesh = GetComponent<TextMeshProUGUI>();
-        maxAmmo = municion.ammo;
-        DontDestroyOnLoad(gameObject);
+
+        // Suscribirse al evento OnAmmoChanged
+        if (shootingScript != null)
+        {
+            shootingScript.OnAmmoChanged += UpdateAmmoUI;
+            UpdateAmmoUI(shootingScript.ammo); // Inicializar con el valor actual
+        }
     }
 
-    private void Update()
+    private void UpdateAmmoUI(float currentAmmo)
     {
-        maxAmmo = municion.ammo;
-        textMesh.text = maxAmmo.ToString();
+        textMesh.text = currentAmmo.ToString();
     }
 
-
+    private void OnDestroy()
+    {
+        // Desuscribirse para evitar errores
+        if (shootingScript != null)
+        {
+            shootingScript.OnAmmoChanged -= UpdateAmmoUI;
+        }
+    }
 }

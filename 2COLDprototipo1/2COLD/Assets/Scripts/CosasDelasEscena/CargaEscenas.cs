@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class CargaEscenas : MonoBehaviour
 {
-    
-    public string sceneLoad;
+
+    [SerializeField] private string sceneLoad;
     public Animator animator;
     private string currentTransition;
     const string EnterScene = "OpenScene";
