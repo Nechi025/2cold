@@ -43,10 +43,7 @@ public class EnemyEspectro : MonoBehaviour
 
     private void Update()
     {
-        //Vector2 num1;
-        //Vector2 num2;
-
-        //float setTimerDir = 5f;
+        
 
         timerDir -= Time.deltaTime;
         if (!target)
@@ -88,11 +85,7 @@ public class EnemyEspectro : MonoBehaviour
             else moveToPlayer = false;
         }
 
-        /*else if (target == null && transform.position.x != initialPos.x && transform.position.y != initialPos.y)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, initialPos, speed * Time.deltaTime);
-            LookDir(initialPos, transform.position);
-        }*/
+       
 
     }
 
@@ -100,9 +93,7 @@ public class EnemyEspectro : MonoBehaviour
     //Mira en la dirección que va a caminar
     void LookDir(Vector2 posA, Vector2 posB)
     {
-        //Vector2 lookDir = posA - posB;
-        //float angle = Mathf.Atan2(lookDir.y, lookDir.x);
-        //rb.rotation = angle;
+        
 
         if (posA.x <= posB.x)
         {
@@ -123,7 +114,7 @@ public class EnemyEspectro : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("Player"))
         {
             target = GameObject.FindGameObjectWithTag("Player").transform;
-            // transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            
         }
         else if (!GameObject.FindGameObjectWithTag("Player"))
         {
@@ -151,10 +142,5 @@ public class EnemyEspectro : MonoBehaviour
     }
 
 
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.red;
-    //    Gizmos.DrawWireSphere(transform.position, detectRange);
-        
-    //}
+   
 }

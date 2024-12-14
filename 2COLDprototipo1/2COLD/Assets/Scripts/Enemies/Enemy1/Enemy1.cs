@@ -35,12 +35,7 @@ public class Enemy1 : ManagedUpdateBehavior
     [SerializeField] private float avoidanceRadius = 2f;
     [SerializeField] private LayerMask obstacleLayer;
 
-    //[Header("Shooting")]
-    //[SerializeField] private GameObject bulletPrefab;
-    //[SerializeField] private Transform firingPoint;
-    //[SerializeField] private float fireRate = 1f; // Tiempo entre disparos
-    //[SerializeField] private float bulletForce = 5f;
-    //private float nextTimeToFire = 0f;
+   
 
     private void Start()
     {
@@ -107,12 +102,7 @@ public class Enemy1 : ManagedUpdateBehavior
     }
 
 
-    //private void Shoot()
-    //{
-    //    GameObject bullet = Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
-    //    Rigidbody2D rbBullet = bullet.GetComponent<Rigidbody2D>();
-    //    rbBullet.AddForce(firingPoint.up * bulletForce, ForceMode2D.Impulse);
-    //}
+    
 
     public void LookDir(Vector2 posA, Vector2 posB)
     {

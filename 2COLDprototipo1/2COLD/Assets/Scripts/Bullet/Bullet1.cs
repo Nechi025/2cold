@@ -4,19 +4,19 @@ using UnityEngine;
 
 
 [RequireComponent(typeof(Collider2D), typeof(Rigidbody2D))]
-public class Bullet1 : MonoBehaviour /*IBullet*/
+public class Bullet1 : MonoBehaviour 
 {
     [SerializeField] private float _speed = 5f;
     [SerializeField] private float _lifeTime = 2f;
     [SerializeField] private float _currentLifeTime; 
     [SerializeField] private int damage;
     [SerializeField] private List<GameObject> _weaponList;
-    //[SerializeField] private IWeapon _currentWeapon;
+    
 
     [SerializeField] private LayerMask _hitteableLayer;
-    //[SerializeField] private IWeapon _owner;
+    
     [SerializeField] private float bulletForce = 20f;
-    //private Transform firePoint;
+    
 
 
     public float Speed => _speed;
@@ -24,7 +24,7 @@ public class Bullet1 : MonoBehaviour /*IBullet*/
     public float LifeTime => _lifeTime;
     public LayerMask HitteableLayer => _hitteableLayer;
     private Vector3 shootingDirection;
-    //public IWeapon Owner => _owner;
+    
 
 
 
@@ -35,7 +35,7 @@ public class Bullet1 : MonoBehaviour /*IBullet*/
     {
         _collider = GetComponent<Collider2D>();
         _rigidbody = GetComponent<Rigidbody2D>();
-        //_currentWeapon = (IWeapon)firePoint;
+      
         Init();
     }
 
@@ -80,16 +80,16 @@ public class Bullet1 : MonoBehaviour /*IBullet*/
     public void Travel()
     {
         
-        //transform.position += (Vector3)shootingDirection.normalized * _speed * Time.deltaTime;
+       
         Rigidbody2D rb = this.GetComponent<Rigidbody2D>();
-        //rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+        
     }
 
     public void Init()
     {
 
 
-        //_rigidbody.isKinematic = true;
+        
         _rigidbody.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
 
     }

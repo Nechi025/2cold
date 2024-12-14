@@ -23,7 +23,7 @@ public class LifeS : MonoBehaviour
     //Vida del player que recibe daño
     public void GetDamage(int value)
     {
-        //SoundManager.Instance.PlaySound("Body_Impact");
+        
         ChangeAnimationState(DamagedScreen);
         unitLifes -= value;
         if (unitLifes <= 0)

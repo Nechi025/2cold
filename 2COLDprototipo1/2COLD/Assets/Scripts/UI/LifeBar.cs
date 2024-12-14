@@ -16,9 +16,7 @@ public class LifeBar : MonoBehaviour
 
     private void Update()
     {
-        // print(bar.fillAmount);
-
-        // bar.fillAmount = (float)playerLife.unitLife / (float)maxLife;
+        
         barraHP.value = (float)playerLife.unitLifes / (float)maxLife;
 
     }

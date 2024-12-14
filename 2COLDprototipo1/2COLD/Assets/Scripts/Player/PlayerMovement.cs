@@ -169,8 +169,7 @@ public class PlayerMovement : ManagedUpdateBehavior
     }
 
 
-    //ChangeAnimationState2(FreezingScreen);
-    //ChangeAnimationState2(BaseScreen);
+    
 
     void ProgressivelyResetTimer()
     {

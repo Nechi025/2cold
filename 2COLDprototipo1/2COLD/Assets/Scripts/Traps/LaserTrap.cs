@@ -27,19 +27,19 @@ public class LaserTrap : MonoBehaviour
             
             if (GlobalPause.IsPaused())
             {
-                //Debug.Log("El juego está pausado. Los láseres no se activarán.");
+                
                 yield return null; 
             }
             else
             {
                 
                 ActivateLasers();
-                //Debug.Log("Láseres ACTIVOS.");
+                
                 yield return new WaitForSeconds(laserActiveTime);
 
                 
                 DeactivateLasers();
-                //Debug.Log("Láseres DESACTIVADOS.");
+                
                 yield return new WaitForSeconds(laserInactiveTime); 
             }
         }
@@ -52,7 +52,7 @@ public class LaserTrap : MonoBehaviour
         {
             laser.SetActive(true); 
         }
-        //Debug.Log("Los láseres han sido activados.");
+        
     }
 
     private void DeactivateLasers()
@@ -62,7 +62,7 @@ public class LaserTrap : MonoBehaviour
         {
             laser.SetActive(false); 
         }
-        //Debug.Log("Los láseres han sido desactivados.");
+        
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -70,32 +70,23 @@ public class LaserTrap : MonoBehaviour
         
         if (lasersActive)
         {
-            //Debug.Log("Láseres activos: true");
+            
 
             if (collision.gameObject.CompareTag("Player"))
             {
-                /*Debug.Log("Jugador detectado en el área del láser.")*/;
+                
 
                 LifeS playerLife = collision.GetComponent<LifeS>();
                 if (playerLife != null)
                 {
-                    //Debug.Log("Aplicando daño al jugador.");
+                    
                     playerLife.GetDamage(laserDamage); 
                 }
-                else
-                {
-                    //Debug.LogWarning("No se encontró el componente LifeS en el jugador.");
-                }
+                
             }
-            else
-            {
-                //Debug.Log("El objeto detectado no es el jugador.");
-            }
+            
         }
-        else
-        {
-            //Debug.Log("Láseres activos: false");
-        }
+       
     }
 
     public void DestroyController()
@@ -103,6 +94,6 @@ public class LaserTrap : MonoBehaviour
         controllerDestroyed = true;
         DeactivateLasers(); 
         StopAllCoroutines(); 
-        //Debug.Log("Controlador destruido. Láseres desactivados permanentemente.");
+        
     }
 }

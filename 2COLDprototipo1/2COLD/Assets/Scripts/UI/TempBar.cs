@@ -16,9 +16,7 @@ public class TempBar : MonoBehaviour
 
     private void Update()
     {
-        // print(bar.fillAmount);
-
-        // bar.fillAmount = (float)playerLife.unitLife / (float)maxLife;
+        
         barraTemp.value = (float)tiempoQuieto.timer / (float)maxTime;
 
     }

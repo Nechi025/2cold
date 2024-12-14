@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-//    [SerializeField] private Text texto;
+
     public GameObject currentPanel;
     [SerializeField] Button elBoton;
     [SerializeField] Button Option;
@@ -16,14 +16,10 @@ public class Menu : MonoBehaviour
     private void Start()
     {
         elBoton.interactable = true;
-        //Option.interactable = true;
-        //back.interactable = true;
+        
 
     }
-    //public void OnPanelChange(GameObject panelToGo)
-    //{
-
-    //}
+    
 
 
 
@@ -49,7 +45,7 @@ public class Menu : MonoBehaviour
 
     public void Reset()
     {
-        //LoadingManager.Instance.LoadScene(7, 1);
+        
         SceneManager.LoadScene(0);
     }
 

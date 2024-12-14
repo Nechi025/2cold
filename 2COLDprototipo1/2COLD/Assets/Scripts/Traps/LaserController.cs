@@ -19,7 +19,7 @@ public class LaserController : MonoBehaviour
             if (bullet != null)
             {
                 TakeDamage(bullet.damage); 
-                //Destroy(collision.gameObject); 
+                 
             }
         }
     }
@@ -44,12 +44,7 @@ public class LaserController : MonoBehaviour
         laserTrap.DestroyController();
 
         
-        //if (explosionEffect != null)
-        //{
-        //    Instantiate(explosionEffect, transform.position, Quaternion.identity);
-        //}
-
-        // Destruir el objeto del controlador
+        
        
     }
 }
