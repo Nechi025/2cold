@@ -2023,6 +2023,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 237936311}
     m_Modifications:
     - target: {fileID: 956288980032862419, guid: e82f9850823f8954999501f0f8911f24, type: 3}
+      propertyPath: TurretLegs
+      value: 
+      objectReference: {fileID: 418777474}
+    - target: {fileID: 956288980032862419, guid: e82f9850823f8954999501f0f8911f24, type: 3}
       propertyPath: objetoDrop
       value: 
       objectReference: {fileID: 0}
@@ -2119,6 +2123,11 @@ PrefabInstance:
 --- !u!4 &418777473 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8417700815837965461, guid: e82f9850823f8954999501f0f8911f24, type: 3}
+  m_PrefabInstance: {fileID: 418777472}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &418777474 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8417700815837965459, guid: e82f9850823f8954999501f0f8911f24, type: 3}
   m_PrefabInstance: {fileID: 418777472}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &431142916
@@ -3127,6 +3136,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 237936311}
     m_Modifications:
     - target: {fileID: 956288980032862419, guid: e82f9850823f8954999501f0f8911f24, type: 3}
+      propertyPath: TurretLegs
+      value: 
+      objectReference: {fileID: 849197567}
+    - target: {fileID: 956288980032862419, guid: e82f9850823f8954999501f0f8911f24, type: 3}
       propertyPath: objetoDrop
       value: 
       objectReference: {fileID: 397242638}
@@ -3223,6 +3236,11 @@ PrefabInstance:
 --- !u!4 &849197566 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8417700815837965461, guid: e82f9850823f8954999501f0f8911f24, type: 3}
+  m_PrefabInstance: {fileID: 849197565}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &849197567 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8417700815837965459, guid: e82f9850823f8954999501f0f8911f24, type: 3}
   m_PrefabInstance: {fileID: 849197565}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &917526904
@@ -3724,6 +3742,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 237936311}
     m_Modifications:
     - target: {fileID: 956288980032862419, guid: e82f9850823f8954999501f0f8911f24, type: 3}
+      propertyPath: TurretLegs
+      value: 
+      objectReference: {fileID: 1336517949}
+    - target: {fileID: 956288980032862419, guid: e82f9850823f8954999501f0f8911f24, type: 3}
       propertyPath: objetoDrop
       value: 
       objectReference: {fileID: 0}
@@ -3820,6 +3842,11 @@ PrefabInstance:
 --- !u!4 &1336517948 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8417700815837965461, guid: e82f9850823f8954999501f0f8911f24, type: 3}
+  m_PrefabInstance: {fileID: 1336517947}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1336517949 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8417700815837965459, guid: e82f9850823f8954999501f0f8911f24, type: 3}
   m_PrefabInstance: {fileID: 1336517947}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1386631599

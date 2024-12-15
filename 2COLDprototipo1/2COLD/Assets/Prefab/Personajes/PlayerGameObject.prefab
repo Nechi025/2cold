@@ -3167,6 +3167,18 @@ PrefabInstance:
       propertyPath: timerReset
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 1409456000, guid: bc72b0b439a08544aaa6c554890271b2, type: 3}
+      propertyPath: PunchDamage
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409456000, guid: bc72b0b439a08544aaa6c554890271b2, type: 3}
+      propertyPath: PunchRadious
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409456000, guid: bc72b0b439a08544aaa6c554890271b2, type: 3}
+      propertyPath: PunchController
+      value: 
+      objectReference: {fileID: 8758034416249343065}
     - target: {fileID: 2156619973260844741, guid: bc72b0b439a08544aaa6c554890271b2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3311,5 +3323,10 @@ MonoBehaviour:
 --- !u!1 &6742440461750140889 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2601739209567953456, guid: bc72b0b439a08544aaa6c554890271b2, type: 3}
+  m_PrefabInstance: {fileID: 8758034416285425129}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8758034416249343065 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 241602992, guid: bc72b0b439a08544aaa6c554890271b2, type: 3}
   m_PrefabInstance: {fileID: 8758034416285425129}
   m_PrefabAsset: {fileID: 0}

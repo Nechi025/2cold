@@ -5,10 +5,10 @@ using UnityEngine;
 public class CombateCaC : MonoBehaviour
 {
 
-    [SerializeField] private Transform controladorGolpe;
-    [SerializeField] private float radioGolpe;
+    [SerializeField] private Transform PunchController;
+    [SerializeField] private float PunchRadious;
 
-    [SerializeField] private int dañoGolpe;
+    [SerializeField] private int PunchDamage;
 
     [SerializeField] private float tiempoEntreAtaques;
 
@@ -48,13 +48,13 @@ public class CombateCaC : MonoBehaviour
     {
         
         
-        Collider2D[] objetos = Physics2D.OverlapCircleAll(controladorGolpe.position, radioGolpe);
+        Collider2D[] objetos = Physics2D.OverlapCircleAll(PunchController.position, PunchRadious);
 
         foreach (Collider2D colisionador in objetos)
         {
             if (colisionador.CompareTag("Enemy"))
             {
-                colisionador.transform.GetComponent<Life>().GetDamage(dañoGolpe);
+                colisionador.transform.GetComponent<Life>().GetDamage(PunchDamage);
 
             }
             
@@ -65,6 +65,6 @@ public class CombateCaC : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(controladorGolpe.position, radioGolpe);
+        Gizmos.DrawWireSphere(PunchController.position, PunchRadious);
     }
 }
