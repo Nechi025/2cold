@@ -1,37 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : ManagedUpdateBehavior
 {
-    public static PlayerMovement Instance; // Singleton instance
+    public static PlayerMovement Instance;
 
+    [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float rotationSpeed = 180f; // Rotación en grados por segundo
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Camera cam;
     [SerializeField] private float dashSpeed;
-
-    [SerializeField] private float dashLength = .5f, dashCooldown = 2f;
+    [SerializeField] private float dashLength = 0.5f, dashCooldown = 2f;
 
     private float dashCounter;
     private float dashCoolCounter;
     private float activeMoveSpeed;
 
-    private Vector2 movement;
-    private float lastMovementTime;
-    public float idleTimeThreshold = 2f; 
+    [Header("Idle/Freeze Timer")]
+    public float idleTimeThreshold = 2f;
+    public float timer;
+    public float timerReset;
+    private bool isTimerRunning = false;
+    public float timerResetSpeed = 1f;
+    public bool isInNoTimerZone = false;
 
-    
-    public float timer; 
-    public float timerReset; 
-    private bool isTimerRunning = false; 
-    public float timerResetSpeed = 1f; 
-    public bool isInNoTimerZone = false; 
+    [Header("Dash State")]
+    public bool isDashing = false;
 
-
-    
-    public bool isDashing = false; 
-
+    [Header("Animations")]
     public Animator playerAnim;
     private string currentState;
     private string currentScreen;
@@ -41,23 +40,19 @@ public class PlayerMovement : ManagedUpdateBehavior
     const string FreezingScreen = "FreezingScreen";
     const string Screen = "Screen";
 
+    [Header("Joystick Settings")]
+    [SerializeField] private float deadzone = 0.3f;
+
     void Awake()
     {
-        
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
     }
 
     protected override void Start()
     {
         base.Start();
-        activeMoveSpeed = moveSpeed;       
+        activeMoveSpeed = moveSpeed;
     }
 
     void ChangeAnimationState(string newState)
@@ -74,135 +69,108 @@ public class PlayerMovement : ManagedUpdateBehavior
         currentScreen = newScreen;
     }
 
-
     public override void UpdateMe()
     {
-        // Detecta si el jugador está inactivo
-        if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        bool isIdle = Mathf.Abs(horizontal) < deadzone && Mathf.Abs(vertical) < deadzone;
+
+        // FREEZE (idle)
+        if (isIdle)
         {
             GlobalPause.isPaused = true;
             ChangeAnimationScreen(FreezingScreen, Screen);
             StartTimer();
-            rb.velocity = Vector2.zero; // Detiene cualquier movimiento residual
+            rb.velocity = Vector2.zero;
         }
         else
         {
-            GlobalPause.isPaused = false;
-            ChangeAnimationScreen(BaseScreen, Screen);
+            if (GlobalPause.isPaused)
+            {
+                GlobalPause.isPaused = false;
+                ChangeAnimationScreen(BaseScreen, Screen);
+            }
             ProgressivelyResetTimer();
         }
 
-        RotatePlayer();
-
-        // Movimiento
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-
-        // Dash
         HandleDash();
-
         UpdateTimer();
 
-        
         if (GlobalPause.IsPaused())
         {
-            rb.velocity = Vector2.zero; // Detener el movimiento residual al pausar
+            rb.velocity = Vector2.zero;
             return;
         }
 
-        
-        rb.MovePosition(rb.position + movement * activeMoveSpeed * Time.fixedDeltaTime);
-    }
+        // --- ASTEROIDS MOVEMENT STYLE ---
 
+        // Rotar con izquierda / derecha
+        float rotationAmount = -horizontal * rotationSpeed * Time.deltaTime;
+        rb.MoveRotation(rb.rotation + rotationAmount);
+
+        // Mover hacia adelante o atrás según rotación
+        Vector2 forward = Quaternion.Euler(0, 0, rb.rotation) * Vector2.up;
+        rb.velocity = forward * vertical * activeMoveSpeed;
+
+        // Animación (puedes ajustar esto si tenés animaciones de movimiento real)
+        if (Mathf.Abs(vertical) > deadzone)
+        {
+            ChangeAnimationState(PlayIdle); // Reemplaza por "PlayRun" si tenés animación de correr
+        }
+        else
+        {
+            ChangeAnimationState(PlayIdle);
+        }
+    }
 
     private void HandleDash()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && dashCoolCounter <= 0 && dashCounter <= 0)
         {
-            if (dashCoolCounter <= 0 && dashCounter <= 0)
-            {
-                activeMoveSpeed = dashSpeed;
-                dashCounter = dashLength;
-                SoundManager.Instance.PlaySound("Dash");
-                ChangeAnimationState(PlaySlidingAnim);
-                isDashing = true;
-            }
+            activeMoveSpeed = dashSpeed;
+            dashCounter = dashLength;
+            SoundManager.Instance.PlaySound("Dash");
+            ChangeAnimationState(PlaySlidingAnim);
+            isDashing = true;
         }
 
         if (dashCounter > 0)
         {
             dashCounter -= Time.deltaTime;
-
             if (dashCounter <= 0)
             {
                 activeMoveSpeed = moveSpeed;
                 dashCoolCounter = dashCooldown;
                 isDashing = false;
                 ChangeAnimationState(PlayIdle);
-
-                
                 rb.velocity = Vector2.zero;
             }
         }
 
-        if (dashCoolCounter > 0)
-        {
-            dashCoolCounter -= Time.deltaTime;
-        }
-    }
-
-    void RotatePlayer()
-    {
-        Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 lookDir = mousePos - rb.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
-        rb.rotation = angle;
+        if (dashCoolCounter > 0) dashCoolCounter -= Time.deltaTime;
     }
 
     void StartTimer()
     {
-        if (!isTimerRunning)
-        {
-            isTimerRunning = true;
-            
-        }
+        if (!isTimerRunning) isTimerRunning = true;
     }
-
-
-    
 
     void ProgressivelyResetTimer()
     {
-        if (isTimerRunning)
-        {
-            
-            timer += timerResetSpeed * Time.deltaTime;
-            if (timer > timerReset)
-            {
-                timer = timerReset;
-               
-            }
-        }
+        if (!isTimerRunning) return;
+        timer = Mathf.Min(timer + timerResetSpeed * Time.deltaTime, timerReset);
     }
 
     void UpdateTimer()
     {
-        if (isTimerRunning)
+        if (!isTimerRunning || isInNoTimerZone) return;
+        timer -= Time.deltaTime;
+        if (timer <= 0f)
         {
-            
-            if (!isInNoTimerZone)
-            {
-                timer -= Time.deltaTime;
-
-                if (timer <= 0f)
-                {
-                    Debug.Log("¡Tiempo agotado! ¡El jugador pierde!");
-                    LifeS life = transform.GetComponent<LifeS>();
-                    life.GetDamage(100);
-                }
-            }
+            Debug.Log("¡Tiempo agotado! ¡El jugador pierde!");
+            LifeS life = transform.GetComponent<LifeS>();
+            life.GetDamage(100);
         }
     }
-
-
 }

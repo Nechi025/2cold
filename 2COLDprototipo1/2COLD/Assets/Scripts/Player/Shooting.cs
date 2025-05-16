@@ -10,7 +10,7 @@ public class Shooting : MonoBehaviour
     [SerializeField] private Transform firePoint;
     public float ammo = 10f;
     [SerializeField] private float bulletForce = 20f;
-    [SerializeField] private KeyCode _attack = KeyCode.Mouse0;
+    [SerializeField] private string attackButton = "FireJoystick";
     [SerializeField] private KeyCode _reload = KeyCode.R;
     [SerializeField] private ObjectPool bulletPool;
 
@@ -27,7 +27,7 @@ public class Shooting : MonoBehaviour
         if (MenuPausa.isGamePaused)
             return; // Evitar disparar cuando el juego está en pausa
 
-        if (Input.GetKeyDown(_attack))
+        if (Input.GetButtonDown(attackButton))
         {
             Shoot();
         }
